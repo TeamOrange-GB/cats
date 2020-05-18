@@ -80,7 +80,6 @@ class CreateUsersTable extends Migration
                 ->string('avatar', 255)
                 ->nullable(true)
                 ->default(null)
-                ->unique()
                 ->comment('Ссылка на аватар');
 
             //поля для индексов
