@@ -7,10 +7,12 @@
 </template>
 
 <script>
+import vHeader from './components/Header'
+import vFooter from './components/Footer'
   export default {
     name: 'App',
     components: {
-
+      vHeader, vFooter
     }
   }
 </script>
