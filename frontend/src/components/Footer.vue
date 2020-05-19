@@ -1,22 +1,22 @@
 <template>
 <div class="footer">
-    <div class="navbar_main">
-     <ul class="navbar_footer">
-        <li class="navbar_footer_text"><a href="#">Главная</a></li>
-        <li class="navbar_footer_text"><a href="#">Котики</a></li>
-        <li class="navbar_footer_text"><a href="#">Выставки</a></li>
-        <li class="navbar_footer_text"><a href="#">О нас</a></li>
-        <li class="navbar_footer_text"><a href="#">Контакты</a></li>
+    <div class="navbar-main">
+     <ul class="navbar-footer">
+        <li class="navbar-footer-text"><a href="#">Главная</a></li>
+        <li class="navbar-footer-text"><a href="#">Котики</a></li>
+        <li class="navbar-footer-text"><a href="#">Выставки</a></li>
+        <li class="navbar-footer-text"><a href="#">О нас</a></li>
+        <li class="navbar-footer-text"><a href="#">Контакты</a></li>
      </ul>
      <ul class="social">
-        <li class="social__icon">
+        <li class="social-icon">
            <a href="#">
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.74343 14.6344C8.74343 16.3301 8.92895 17.1516 9.87418 18.573C10.3622 19.3062 11.4117 20.1799 12.2107 20.5491C13.9161 21.3371 15.8062 21.3371 17.5115 20.5491C18.1454 20.2563 18.6895 19.8225 19.1807 19.3314C20.2001 18.3119 20.9793 16.8557 20.9793 15.3888C20.9793 14.1666 20.9183 13.486 20.3989 12.3614C19.8689 11.2143 18.6591 10.0045 17.5115 9.47405C15.398 8.49746 13.2231 8.7448 11.3 10.0244C10.5668 10.5125 9.69308 11.5619 9.32382 12.361C9.01729 13.0244 8.74343 13.899 8.74343 14.6344ZM21.2417 6.77661C21.2417 6.22184 21.4727 5.72228 21.9267 5.39631C22.247 5.16663 22.641 5.05267 23.0336 5.05267C24.0292 5.05267 24.8256 5.75011 24.8256 6.77661C24.8256 7.70373 24.2531 8.4714 23.3181 8.61539C23.224 8.62996 23.129 8.63703 23.0336 8.63703C21.9762 8.63703 21.2417 7.82122 21.2417 6.77661ZM6.78319 14.6344C6.78319 13.6083 7.11711 12.4634 7.54467 11.539C8.0641 10.4153 9.1838 9.07829 10.2143 8.39233C12.7059 6.73465 15.6008 6.43164 18.334 7.69445C19.9033 8.41972 21.4528 9.96919 22.1781 11.5385C22.8313 12.952 22.9395 13.849 22.9395 15.3884C22.9395 17.3831 21.9577 19.3261 20.5672 20.717C19.9091 21.3751 19.1834 21.9356 18.334 22.3283C16.1069 23.3574 13.6158 23.3574 11.3888 22.3283C10.2651 21.8088 8.92806 20.6891 8.24211 19.6587C7.08001 17.9118 6.78319 16.7293 6.78319 14.6344ZM3.81543 3.96565C3.55925 4.22228 3.28716 4.48332 3.08531 4.78632C2.37064 5.86097 1.82824 7.03412 1.82824 8.34816V21.8009C1.82824 22.4864 2.16216 23.5849 2.47135 24.198C3.5323 26.3027 5.77214 28.0447 8.1975 28.0447H21.5244C22.4329 28.0447 23.7567 27.6251 24.5332 27.156C24.7222 27.0416 24.902 26.9104 25.0857 26.7881C25.9965 26.1825 26.7841 25.1304 27.2699 24.1604C27.6078 23.486 27.8936 22.4308 27.8936 21.6755V8.3486C27.8936 6.69622 27.0557 5.11495 25.9069 3.96609C25.2739 3.33314 24.8088 3.0032 24.0093 2.60302C23.3349 2.26512 22.2796 1.97935 21.5244 1.97935H8.1975C6.54511 1.97935 4.96384 2.81724 3.81499 3.96654L3.81543 3.96565ZM0.00756836 8.33756C0.00756836 6.61981 0.655978 5.09905 1.59237 3.69048C1.87727 3.26203 2.2081 2.92988 2.56896 2.56901C4.08972 1.04825 6.15863 0.00805664 8.33751 0.00805664H21.6644C22.7187 0.00805664 24.0893 0.369806 25.0266 0.839329C26.05 1.3517 26.6211 1.75761 27.4329 2.56945C28.9537 4.09021 29.9939 6.15912 29.9939 8.338V21.6649C29.9939 22.7192 29.6321 24.0898 29.1626 25.0271C28.5208 26.3089 27.5111 27.6119 26.311 28.4096C26.1025 28.5483 25.9016 28.6931 25.6869 28.823C24.61 29.4736 22.9289 29.9944 21.6644 29.9944H8.33751C5.1657 29.9944 2.25801 27.8415 0.860925 25.0699C0.417462 24.1905 0.00801005 22.7793 0.00801005 21.7903V8.33756H0.00756836Z" fill="#757575" stroke="#757575" stroke-width="0.07684" stroke-miterlimit="22.9256"/>
               </svg>
            </a>
         </li>
-        <li class="social__icon">
+        <li class="social-icon">
            <a href="#">
               <svg width="50" height="29" viewBox="0 0 50 29" fill="none">
                <g clip-path="url(#clip0)">
@@ -30,7 +30,7 @@
               </svg>
            </a>
         </li>
-        <li class="social__icon">
+        <li class="social-icon">
            <a href="#">
               <svg width="31" height="31" viewBox="0 0 31 31" fill="none">
                <g clip-path="url(#clip0)">
@@ -48,44 +48,46 @@
     </div>
     <div class="coper"> 
        <a href="#"><img src="../image/logofooter.png" alt="logofooter"></a>
-       <p class="coper__text">&copy;All rights reserved</p>
+       <p class="coper-text">&copy;All rights reserved</p>
     </div>
 </div>
 </template>
 
-<style lang="scss" scoped>
-    .footer{
+ 
+/**Стили**/
+<style lang="scss">
+
+.footer{
     position:absolute;
     bottom:0;
     width:100%;
 }
 
-.navbar_main{
+.navbar-main{
     display: flex;
     justify-content: space-around;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     border-color: #CCCCCC;
 }
-.navbar_footer{
+
+.navbar-footer{
     padding: 20px;
     display: block;
     justify-content: center;
-}
-
-.navbar_footer_text{
+  &-text{
     margin-right: 30px;
     font-size: $fs;
     font-family: $ff;
+  }
 }
 
 .social{
     display: flex;
     margin-top: 50px;
-}
-
-.social__icon{
+  &-icon{
     margin-right: 30px;
+  }
 }
 
 img[alt="logofooter"]{
@@ -94,12 +96,11 @@ img[alt="logofooter"]{
 
 .coper{
     display: flex;
-}
-
-.coper__text{
+  &-text{
     margin-top: 70px;
     font-size: $fs;
     font-family: $ff; 
     color: #757575; 
-}
+  }
+}  
 </style>
