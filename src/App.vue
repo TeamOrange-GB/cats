@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <p>Текст какой то</p>
+    <app-header></app-header>
+    <app-petcard></app-petcard>
+    <app-footer></app-footer>
   </div>
 </template>
 

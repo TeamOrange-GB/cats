@@ -1,0 +1,43 @@
+.footer{
+    margin-top: 300px;
+}
+
+.navbar_main{
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.navbar_footer{
+    display: block;
+    justify-content: center;
+}
+
+.navbar_footer_text{
+    margin-right: 30px;
+    font-size: 24px;
+    font-family: 'MontserratRegular';
+}
+
+.social{
+    display: flex;
+    margin-top: 50px;
+}
+
+.social__icon{
+    margin-right: 30px;
+}
+
+img[alt="logofooter"]{
+    margin: 30px;
+}
+
+.coper{
+    display: flex;
+}
+
+.coper__text{
+    margin-top: 70px;
+    font-size: 24px;
+    font-family: 'MontserratRegular';  
+}
