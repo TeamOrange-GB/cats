@@ -13,7 +13,7 @@
 </section>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 img[alt="logo"]{
     width: 326px;
