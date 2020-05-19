@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <p>Текст какой то</p>
+      <br>
+      <br>
+    <h1>Сайт находится в разработке!</h1>
   </div>
 </template>
 
@@ -14,7 +16,10 @@
 </script>
 
 <style lang="scss">
-  p {
+
+  h1{
     color: $color;
+      font-size: 40px!important;
+      text-align: center;
   }
 </style>

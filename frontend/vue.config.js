@@ -6,7 +6,7 @@ module.exports = {
             }
         }
     },
-    publicPath: "./",
+    publicPath: "public/",
     outputDir: '../public',
     indexPath:
         process.env.NODE_ENV === 'production'
