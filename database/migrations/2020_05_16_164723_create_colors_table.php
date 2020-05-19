@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateColorsTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Миграция создания таблицы colors.
      *
      * @return void
      */
@@ -24,7 +24,6 @@ class CreateColorsTable extends Migration
             $table
                 ->string('color', 100)
                 ->unique()
-                ->nullable(false)
                 ->comment('Название окраса');
         });
     }
@@ -36,8 +35,6 @@ class CreateColorsTable extends Migration
      */
     public function down()
     {
-        Schema::table('colors', function (Blueprint $table) {
-            //
-        });
+            Schema::dropIfExists('colors');
     }
 }
