@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-        <app-header></app-header>
-        <app-footer></app-footer>
+        <vHeader></vHeader>
+        <vFooter></vFooter>
   </div>
 
 </template>

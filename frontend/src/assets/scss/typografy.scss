@@ -1,1 +1,13 @@
  // Заголовки,текст, списки - стандартные отступы, размеры
+ html,
+body {
+  max-width: 100%;
+}
+
+a{
+    text-decoration: none;
+    color: #757575;
+    &:hover{
+        color: #49BBAC;
+    }
+}
