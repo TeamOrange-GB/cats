@@ -13,6 +13,8 @@
 </section>
 </template>
 
+// Стили
+
 <style lang="scss">
 
 img[alt="logo"]{

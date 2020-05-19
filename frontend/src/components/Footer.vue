@@ -53,8 +53,8 @@
 </div>
 </template>
 
- 
-/**Стили**/
+// Стили
+
 <style lang="scss">
 
 .footer{
