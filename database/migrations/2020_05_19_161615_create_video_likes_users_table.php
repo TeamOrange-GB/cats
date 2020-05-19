@@ -4,17 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBreedsTable extends Migration
+class CreateVideoLikesUsersTable extends Migration
 {
     /**
-     * Миграция создания таблицы breeds.
+     * Миграция создания таблицы video_likes_users.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('breeds', function (Blueprint $table) {
-            $table->id('id');
+        Schema::create('video_likes_users', function (Blueprint $table) {
             $table
                 ->timestamp('created_at')
                 ->useCurrent();
@@ -22,13 +21,11 @@ class CreateBreedsTable extends Migration
                 ->timestamp('updated_at')
                 ->useCurrent();
             $table
-                ->string('breed', 100)
-                ->unique()
-                ->comment('Название породы');
+                ->unsignedBigInteger('video_id')
+                ->comment('Id видео');
             $table
-                ->text('breed_info')
-                ->nullable()
-                ->comment('Информация о породе');
+                ->unsignedBigInteger('user_id')
+                ->comment('Id пользователя');
         });
     }
 
@@ -39,6 +36,6 @@ class CreateBreedsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('breeds');
+        Schema::dropIfExists('video_likes_users');
     }
 }

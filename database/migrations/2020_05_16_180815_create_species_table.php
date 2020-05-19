@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateSpeciesTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Миграция создания таблицы species.
      *
      * @return void
      */
@@ -24,7 +24,6 @@ class CreateSpeciesTable extends Migration
             $table
                 ->string('species', 100)
                 ->unique()
-                ->nullable(false)
                 ->comment('Название вида');
         });
     }

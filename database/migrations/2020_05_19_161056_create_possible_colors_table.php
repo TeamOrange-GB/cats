@@ -4,17 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBreedsTable extends Migration
+class CreatePossibleColorsTable extends Migration
 {
     /**
-     * Миграция создания таблицы breeds.
+     * Миграция создания таблицы possible_colors.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('breeds', function (Blueprint $table) {
-            $table->id('id');
+        Schema::create('possible_colors', function (Blueprint $table) {
             $table
                 ->timestamp('created_at')
                 ->useCurrent();
@@ -22,13 +21,11 @@ class CreateBreedsTable extends Migration
                 ->timestamp('updated_at')
                 ->useCurrent();
             $table
-                ->string('breed', 100)
-                ->unique()
-                ->comment('Название породы');
+                ->unsignedBigInteger('species_id')
+                ->comment('Id вида');
             $table
-                ->text('breed_info')
-                ->nullable()
-                ->comment('Информация о породе');
+                ->unsignedBigInteger('colors_id')
+                ->comment('Id окраса');
         });
     }
 
@@ -39,6 +36,6 @@ class CreateBreedsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('breeds');
+        Schema::dropIfExists('possible_colors');
     }
 }
