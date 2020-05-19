@@ -3,11 +3,11 @@
     <a href="#"><img src="../image/logo.png" alt="logo"></a>
     <div>
         <ul class="navbar">
-            <li class="navbar__text"><a href="#">Главная</a></li>
-            <li class="navbar__text"><a href="#">Котики</a></li>
-            <li class="navbar__text"><a href="#">Выставки</a></li>
-            <li class="navbar__text"><a href="#">О нас</a></li>
-            <li class="navbar__text"><a href="#">Контакты</a></li>
+            <li class="navbar-text"><a href="#">Главная</a></li>
+            <li class="navbar-text"><a href="#">Котики</a></li>
+            <li class="navbar-text"><a href="#">Выставки</a></li>
+            <li class="navbar-text"><a href="#">О нас</a></li>
+            <li class="navbar-text"><a href="#">Контакты</a></li>
         </ul>
     </div>
 </section>
@@ -30,11 +30,10 @@ img[alt="logo"]{
     margin-top: 60px;
     display: flex;
     justify-content: center;
-}
-
-.navbar__text{
+  &-text{
     margin-right: 30px;
     font-size: $fs;
     font-family: $ff;
+  }
 }
 </style>
