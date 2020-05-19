@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <p>Текст какой то</p>
+        <app-header></app-header>
+        <app-footer></app-footer>
   </div>
+
 </template>
 
 <script>
@@ -13,8 +15,4 @@
   }
 </script>
 
-<style lang="scss">
-  p {
-    color: $color;
-  }
-</style>
+<style lang="scss" scoped></style>
