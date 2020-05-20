@@ -14,6 +14,9 @@
         <router-link :to="{name:'PetCard'}">
             <a class="header-nav__link" href="">PetCard</a>
         </router-link>
+        <router-link :to="{name:'Breeder'}">
+            <a class="header-nav__link" href="">BreederCard</a>
+        </router-link>
         <router-link :to="{name:'Registration'}">
             <a class="header-nav__link" href="">Регистрация</a>
         </router-link>
