@@ -65,8 +65,6 @@
 <style lang="scss">
 
 .footer{
-    position:absolute;
-    bottom:0;
     width:100%;
 }
 
@@ -83,8 +81,8 @@
     display: block;
     justify-content: center;
   &__item{
-    font-size: $fs;
-    font-family: $ff;
+    font-size: $font-size;
+    font-family: $font-montserrat;
       padding: 2px;
   }
 }
@@ -102,8 +100,8 @@
     align-items: center;
     padding: 20px;
   &__text{
-    font-size: $fs;
-    font-family: $ff;
+    font-size: $font-size;
+    font-family: $font-montserrat;
     color: #757575;
   }
   &__img{
