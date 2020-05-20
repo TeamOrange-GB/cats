@@ -31,7 +31,6 @@ class CreatePetsTable extends Migration
                 ->boolean('mating')
                 ->default(false)
                 ->comment('Возможна ли вязка');
-
             $table
                 ->string('name_real', 100)
                 ->comment('Кличка в жизни');
@@ -82,11 +81,6 @@ class CreatePetsTable extends Migration
                 ->enum('status', ['active', 'block'])
                 ->default('active')
                 ->comment('Статус животного');
-
-
-
-
-
 
             //поля для индексов
             $table
