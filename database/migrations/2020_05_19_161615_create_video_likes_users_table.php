@@ -20,11 +20,12 @@ class CreateVideoLikesUsersTable extends Migration
             $table
                 ->timestamp('updated_at')
                 ->useCurrent();
+            //поля для индексов
             $table
-                ->unsignedBigInteger('video_id')
+                ->foreignId('video_id')
                 ->comment('Id видео');
             $table
-                ->unsignedBigInteger('user_id')
+                ->foreignId('user_id')
                 ->comment('Id пользователя');
         });
     }

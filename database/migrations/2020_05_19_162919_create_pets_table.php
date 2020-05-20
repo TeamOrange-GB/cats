@@ -31,7 +31,6 @@ class CreatePetsTable extends Migration
                 ->boolean('mating')
                 ->default(false)
                 ->comment('Возможна ли вязка');
-
             $table
                 ->string('name_real', 100)
                 ->comment('Кличка в жизни');
@@ -83,20 +82,15 @@ class CreatePetsTable extends Migration
                 ->default('active')
                 ->comment('Статус животного');
 
-
-
-
-
-
             //поля для индексов
             $table
-                ->unsignedBigInteger('species_id')
+                ->foreignId('species_id')
                 ->comment('Id вида');
             $table
-                ->unsignedBigInteger('breed_id')
+                ->foreignId('breed_id')
                 ->comment('Id породы');
             $table
-                ->unsignedBigInteger('color_id')
+                ->foreignId('color_id')
                 ->comment('Id окраса');
         });
     }
