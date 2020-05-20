@@ -74,24 +74,11 @@ export default {
 
 .petcard{
     margin: $margin-bottom 0;
-    h1 {
-        @extend %h1;
-    }
-    h2 {
-        @extend %h2;
-    }
+
 }
 
 .petcard-content{
-    h3 {
-        @extend %h3;
-    }
-    h4 {
-        @extend %h4;
-    }
-    p {
-        @extend %p;
-    }
+
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -100,7 +87,7 @@ export default {
     margin: 0 auto;
     &__info, &__gallery{
         display: flex;
-        justify-content: start;
+        justify-content: flex-start;
         flex-direction: column;
     }
     &__docs{

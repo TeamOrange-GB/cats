@@ -18,46 +18,7 @@ $alert-text: #85741f;
 /** font and size **/
 $ff: 'MontserratRegular', sans-serif;
 $fs: 24px;
-%h1 {
-    color: $medium-gray;
-    margin: 60px 0 20px 0;
-    font-size: 24px;
-    font-family: $ff;
-    text-align: center;
-  }
 
-%h2 {
-    color: $light-grey;
-    margin: 0 0 50px 0;
-    font-size: 18px;
-    font-weight: 400;
-    font-style: normal;
-    font-family: $ff;
-    text-align: center;
-}
-
-%h3 {
-    color: $cyan;
-    font-size: 24px;
-    font-family: $ff;
-    text-align: left;
-}
-
-%h4 {
-    color: $medium-gray;
-    font-size: 18px;
-    font-family: $ff;
-    text-align: left;
-    margin: 20px 0 0 0;
-}
-
-%p {
-    color: $light-grey;
-    font-size: 18px;
-    font-family: $ff;
-    text-align: left;
-    margin: 10px 0 0 0;
-}
 /** Margin & Padding **/
 
 $margin-bottom: 20px;
