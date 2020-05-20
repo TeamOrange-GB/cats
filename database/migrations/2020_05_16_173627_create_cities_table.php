@@ -24,8 +24,9 @@ class CreateCitiesTable extends Migration
             $table
                 ->string('name', 100)
                 ->comment('Название населённого пункта');
+            //поля для индексов
             $table
-                ->unsignedBigInteger('region_id')
+                ->foreignId('region_id')
                 ->comment('Id региона');
         });
     }

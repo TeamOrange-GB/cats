@@ -21,11 +21,12 @@ class CreatePostsTaxonomyTable extends Migration
             $table
                 ->timestamp('updated_at')
                 ->useCurrent();
+            //поля для индексов
             $table
-                ->unsignedBigInteger('post_id')
+                ->foreignId('post_id')
                 ->comment('Id статьи');
             $table
-            ->unsignedBigInteger('taxonomy_id')
+                ->foreignId('taxonomy_id')
                 ->comment('Id категории или тега');
         });
     }

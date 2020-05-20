@@ -20,11 +20,12 @@ class CreatePossibleColorsTable extends Migration
             $table
                 ->timestamp('updated_at')
                 ->useCurrent();
+            //поля для индексов
             $table
-                ->unsignedBigInteger('species_id')
+                ->foreignId('species_id')
                 ->comment('Id вида');
             $table
-                ->unsignedBigInteger('colors_id')
+                ->foreignId('colors_id')
                 ->comment('Id окраса');
         });
     }

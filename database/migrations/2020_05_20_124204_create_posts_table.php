@@ -42,7 +42,7 @@ class CreatePostsTable extends Migration
 
             //поля для индексов
             $table
-                ->unsignedBigInteger('user_id')
+                ->foreignId('user_id')
                 ->comment('Id автора');
         });
     }

@@ -84,13 +84,13 @@ class CreatePetsTable extends Migration
 
             //поля для индексов
             $table
-                ->unsignedBigInteger('species_id')
+                ->foreignId('species_id')
                 ->comment('Id вида');
             $table
-                ->unsignedBigInteger('breed_id')
+                ->foreignId('breed_id')
                 ->comment('Id породы');
             $table
-                ->unsignedBigInteger('color_id')
+                ->foreignId('color_id')
                 ->comment('Id окраса');
         });
     }

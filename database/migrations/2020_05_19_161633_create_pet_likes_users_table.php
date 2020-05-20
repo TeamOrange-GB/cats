@@ -20,11 +20,12 @@ class CreatePetLikesUsersTable extends Migration
             $table
                 ->timestamp('updated_at')
                 ->useCurrent();
+            //поля для индексов
             $table
-                ->unsignedBigInteger('pet_id')
+                ->foreignId('pet_id')
                 ->comment('Id животного');
             $table
-                ->unsignedBigInteger('user_id')
+                ->foreignId('user_id')
                 ->comment('Id пользователя');
         });
     }
