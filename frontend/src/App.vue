@@ -1,10 +1,11 @@
 <template>
   <div id="app">
         <vHeader></vHeader>
-      <section class="content">
+        <vPetCard></vPetCard>
+     <!-- <section class="content">
           <h1>Идёт разработка!</h1>
       </section>
-      <vFooter></vFooter>
+      <vFooter></vFooter>-->
   </div>
 
 </template>
@@ -12,12 +13,14 @@
 <script>
 
 import vHeader from './components/vHeader'
+import vPetCard from './components/vPetCard'
 import vFooter from './components/vFooter'
 
   export default {
     name: 'App',
     components: {
       vHeader,
+      vPetCard,
       vFooter
     }
   }
