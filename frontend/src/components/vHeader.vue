@@ -46,7 +46,7 @@
   &__link{
     margin-right: 30px;
     font-size: $fs;
-    font-family: $ff;
+    font-family: $font-montserrat;
   }
 }
 </style>

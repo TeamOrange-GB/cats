@@ -6,10 +6,10 @@ module.exports = {
             }
         }
     },
-    publicPath: "public/",
-    outputDir: '../public',
-    indexPath:
-        process.env.NODE_ENV === 'production'
-            ? '../resources/views/index.blade.php'
-            : 'index.html'
+      publicPath: "public/",
+      outputDir: '../public',
+      indexPath:
+         process.env.NODE_ENV === 'production'
+          ? '../resources/views/index.blade.php'
+           : 'index.html'
 };

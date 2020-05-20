@@ -84,7 +84,7 @@
     justify-content: center;
   &__item{
     font-size: $fs;
-    font-family: $ff;
+    font-family: $font-montserrat;
       padding: 2px;
   }
 }
@@ -103,7 +103,7 @@
     padding: 20px;
   &__text{
     font-size: $fs;
-    font-family: $ff;
+    font-family: $font-montserrat;
     color: #757575;
   }
   &__img{

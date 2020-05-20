@@ -4,6 +4,7 @@
       <section class="content">
           <h1>Идёт разработка!</h1>
       </section>
+      <vRegistration></vRegistration>
       <vFooter></vFooter>
   </div>
 
@@ -11,13 +12,15 @@
 
 <script>
 
-import vHeader from './components/vHeader'
-import vFooter from './components/vFooter'
+import vHeader from './components/vHeader';
+import vRegistration from './components/vRegistration';
+import vFooter from './components/vFooter';
 
   export default {
     name: 'App',
     components: {
       vHeader,
+      vRegistration,
       vFooter
     }
   }
