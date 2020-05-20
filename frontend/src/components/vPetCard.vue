@@ -1,38 +1,38 @@
 <template>
-<section class="petcard">
-    <h1>{{ petName }}, {{ breed }}, {{old}}</h1>
-    <h2>{{ petColor }}</h2>
-    <div class="petcard-content">
-        <div class="petcard-content__info">
-            <div class="petcard-content__maininfo">
-                <h3>Основные сведения</h3>
-                <h4>Дата рождения</h4>
-                <p>{{ birthDate }}</p>
-                <h4>Отец</h4>
-                <p>{{ father }}</p>
-                <h4>Мать</h4>
-                <p>{{ mother }}</p>
-                <h4>Выставочный класс</h4>
-                <p>{{ showClass }}</p>
-                <h4>Титул</h4>
-                <p>{{ titul }}</p>
+    <section class="petcard">
+        <h1>{{ petName }}, {{ breed }}, {{old}}</h1>
+        <h2>{{ petColor }}</h2>
+        <div class="petcard-content">
+            <div class="petcard-content__info">
+                <div class="petcard-content__maininfo">
+                    <h3>Основные сведения</h3>
+                    <h4>Дата рождения</h4>
+                    <p>{{ birthDate }}</p>
+                    <h4>Отец</h4>
+                    <p>{{ father }}</p>
+                    <h4>Мать</h4>
+                    <p>{{ mother }}</p>
+                    <h4>Выставочный класс</h4>
+                    <p>{{ showClass }}</p>
+                    <h4>Титул</h4>
+                    <p>{{ titul }}</p>
+                </div>
+                <div class="petcard-content__docs">
+                    <h3>Документы</h3>
+                    <h4>Ветпаспорт</h4>
+                    <a href="#"><img src="../assets/image/vetpasport.jpg" alt="vet-passport"></a>
+                    <h4>Титульный сертификат</h4>
+                    <a href="#"><img src="../assets/image/sert.jpg" alt="titul"></a>
+
+                </div>
             </div>
-            <div class="petcard-content__docs">
-                <h3>Документы</h3>
-                <h4>Ветпаспорт</h4>
-                <a href="#"><img src="../assets/image/vetpasport.jpg" alt="vet-passport"></a>
-                <h4>Титульный сертификат</h4>
-                <a href="#"><img src="../assets/image/sert.jpg" alt="titul"></a>
-                
+            <div class="petcard-content__gallery">
+                <div class="petcard-content__mainphoto">
+                    <a href="#"><img src="../assets/image/coon.jpg" alt="Maine-Coon"></a>
+                </div>
             </div>
         </div>
-        <div class="petcard-content__gallery">
-            <div class="petcard-content__mainphoto">
-                <a href="#"><img src="../assets/image/coon.jpg" alt="Maine-Coon"></a>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 </template>
 
 <script>
@@ -64,7 +64,7 @@ export default {
             } else {
                 return (years == 2 || years == 3 || years == 4) ? `${years} года` : `${years} лет`;
             }
-            
+
         }
     }
 }
@@ -73,25 +73,10 @@ export default {
 <style lang="scss">
 
 .petcard{
-    margin: $margin-bottom 0;
-    h1 {
-        @extend %h1;
-    }
-    h2 {
-        @extend %h2;
-    }
+    margin: $margin 0;
 }
 
 .petcard-content{
-    h3 {
-        @extend %h3;
-    }
-    h4 {
-        @extend %h4;
-    }
-    p {
-        @extend %p;
-    }
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -100,7 +85,7 @@ export default {
     margin: 0 auto;
     &__info, &__gallery{
         display: flex;
-        justify-content: start;
+        justify-content: flex-start;
         flex-direction: column;
     }
     &__docs{
