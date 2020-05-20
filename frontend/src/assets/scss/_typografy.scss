@@ -1,0 +1,61 @@
+ // Заголовки,текст, списки - стандартные отступы, размеры
+ * {
+     margin: 0;
+     padding: 0;
+ }
+
+
+ h1 {
+     color: $color-medium-gray;
+     margin: 60px 0 20px 0;
+     font-size: 24px;
+     font-family: $font-montserrat;
+     text-align: center;
+ }
+
+ h2 {
+     color: $color-light-grey;
+     margin: 0 0 50px 0;
+     font-size: 18px;
+     font-weight: 400;
+     font-style: normal;
+     font-family: $font-montserrat;
+     text-align: center;
+ }
+
+ h3 {
+     color: $color-cyan;
+     font-size: 24px;
+     font-family: $font-montserrat;
+     text-align: left;
+ }
+
+ h4 {
+     color: $color-medium-gray;
+     font-size: 18px;
+     font-family: $font-montserrat;
+     text-align: left;
+     margin: 20px 0 0 0;
+ }
+
+ p {
+     color: $color-light-grey;
+     font-size: 18px;
+     font-family: $font-montserrat;
+     text-align: left;
+     margin: 10px 0 0 0;
+ }
+
+a{
+    text-decoration: none;
+    color: #757575;
+    transition: .5s;
+    &:hover{
+        color: #49BBAC;
+        transition: .5s;
+    }
+}
+
+
+
+
