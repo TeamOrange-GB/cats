@@ -25,11 +25,11 @@ class CreateTaxonomyTable extends Migration
                 ->enum('type', ['category', 'tag'])
                 ->default('category')
                 ->comment('Категория или тэг');
-            $table->string('name', 255)
+            $table->string('name', 200)//255 не позволяет сервер
                 ->unique()
                 ->comment('Название категории');
             $table
-                ->string('slug', 255)
+                ->string('slug', 200)//255 не позволяет сервер
                 ->unique()
                 ->comment('ЧПУ');
         });
