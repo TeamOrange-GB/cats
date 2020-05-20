@@ -20,11 +20,12 @@ class CreatePhotoLikesUsersTable extends Migration
             $table
                 ->timestamp('updated_at')
                 ->useCurrent();
+            //поля для индексов
             $table
-                ->unsignedBigInteger('photo_id')
+                ->foreignId('photo_id')
                 ->comment('Id фото');
             $table
-                ->unsignedBigInteger('user_id')
+                ->foreignId('user_id')
                 ->comment('Id пользователя');
         });
     }

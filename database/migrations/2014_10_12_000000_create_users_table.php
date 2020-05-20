@@ -73,7 +73,7 @@ class CreateUsersTable extends Migration
 
             //поля для индексов
             $table
-                ->unsignedBigInteger('city_id')
+                ->foreignId('city_id')
                 ->nullable()
                 ->comment('Id населённого пункта');
 

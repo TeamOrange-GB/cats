@@ -4,16 +4,17 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePossibleColorsTable extends Migration
+class CreatePostsTaxonomyTable extends Migration
 {
     /**
-     * Миграция создания таблицы possible_colors.
+     * Миграция создания таблицы posts_taxonomy (принадлежность категории или тега к статье).
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('possible_colors', function (Blueprint $table) {
+        Schema::create('posts_taxonomy', function (Blueprint $table) {
+            $table->id('id');
             $table
                 ->timestamp('created_at')
                 ->useCurrent();
@@ -22,11 +23,11 @@ class CreatePossibleColorsTable extends Migration
                 ->useCurrent();
             //поля для индексов
             $table
-                ->foreignId('species_id')
-                ->comment('Id вида');
+                ->foreignId('post_id')
+                ->comment('Id статьи');
             $table
-                ->foreignId('colors_id')
-                ->comment('Id окраса');
+                ->foreignId('taxonomy_id')
+                ->comment('Id категории или тега');
         });
     }
 
@@ -37,6 +38,6 @@ class CreatePossibleColorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('possible_colors');
+        Schema::dropIfExists('posts_taxonomy');
     }
 }
