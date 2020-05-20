@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 
 import vPetCard from "../components/vPetCard";
 import vMain from "../components/vMain";
+import vRegistration from '../components/vRegistration';
 
 
 Vue.use(VueRouter);
@@ -21,7 +22,13 @@ const routes = [
         name: 'Main',
         component: vMain,
         props: true
-    }
+    },
+    {
+        path: '/registration',
+        name: 'Registration',
+        component: vRegistration,
+        props: true
+    },
 ];
 
 const router = new VueRouter

@@ -6,8 +6,7 @@
               <router-view></router-view>
           </keep-alive>
       </section>
-      <vRegistration></vRegistration>
-      <vFooter></vFooter>
+      <vFooter/>
   </div>
 
 </template>

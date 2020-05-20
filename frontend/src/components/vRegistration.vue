@@ -12,11 +12,11 @@
             <input class="reg-form__text" type="password" name="pass" placeholder="Введите пароль">
         </div>
         <div class="remember-check">
-            <input class="remember-check__check" type="checkbox" name="remember-me">
-			<label class="remember-check__text" for="check">Запомнить меня 
+            <input class="remember-check__check" id="check" type="checkbox" name="remember-me">
+			<label class="remember-check__text" for="check">Запомнить меня
 			</label>
         </div>
-        <div class="btn">    
+        <div class="btn">
             <button class="btn__text">Войти
 		    </button>
         </div>
@@ -47,8 +47,9 @@
     height: 500px;
     margin-left: auto;
     margin-right: auto;
-    background-color: $cyan;
+    background-color: $color-cyan;
     border-radius: 10%;
+    margin-bottom: $margin*2;
 }
 
 .who{
@@ -56,9 +57,9 @@
     height: 30px;
     margin: 30px;
     padding-left: 10px;
-    font-size: $fs;
+    font-size: $font-size;
     font-family: $font-montserrat;
-    color: $color
+    color: #666666;
 }
 
 .reg-form{
@@ -70,15 +71,15 @@
             padding-top: 20px;
             font-size: 24px;
             font-family: $font-montserrat;
-            color: $color;
+            color: #666666;
         }
             &__text{
                 width: 190px;
                 height: 30px;
                 margin-bottom: 10px;
                 padding-left: 10px;
-                font-size: $fs;
-                font-family: $font-montserrat;  
+                font-size: $font-size;
+                font-family: $font-montserrat;
             }
 }
 
@@ -91,9 +92,9 @@
         }
             &__text{
                 padding: 5px;
-                font-size: $fs;
+                font-size: $font-size;
                 font-family: $font-montserrat;
-                color: $color    
+                color: #666666;
             }
 }
 
@@ -104,9 +105,9 @@
         &__text{
             width: 100px;
             height: 40px;
-            font-size: $fs;
+            font-size: $font-size;
             font-family: $font-montserrat;
-            color: $color;
+            color: #666666;
         }
 }
 
@@ -114,18 +115,18 @@
     padding: 20px;
     display: block;
     text-align: center;
-    font-size: $fs;
+    font-size: $font-size;
     font-family: $font-montserrat;
-    color: $color;
+    color: #666666;
 }
 
 .social{
     display: flex;
     justify-content: center;
-  
+
         &__text{
             padding: 20px;
-            font-size: $fs;
+            font-size: $font-size;
             font-family: $font-montserrat;
         }
 }
