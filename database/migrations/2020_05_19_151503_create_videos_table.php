@@ -28,8 +28,9 @@ class CreateVideosTable extends Migration
                 ->unsignedInteger('likes_count')
                 ->default(0)
                 ->comment('Количество лайков');
+            //поля для индексов
             $table
-                ->unsignedBigInteger('pet_id')
+                ->foreignId('pet_id')
                 ->comment('Id животного');
         });
     }

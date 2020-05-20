@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-        <vHeader></vHeader>
+      <vHeader/>
       <section class="content">
-          <h1>Идёт разработка!</h1>
+          <keep-alive>
+              <router-view></router-view>
+          </keep-alive>
       </section>
       <vRegistration></vRegistration>
       <vFooter></vFooter>
@@ -28,13 +30,11 @@ import vFooter from './components/vFooter';
 
 
 <style lang="scss">
-    .content {
-        margin-bottom: 270px;
+    .main {
+
     }
-    h1 {
-        text-align: center;
-        font-size: 40px;
-        font-weight: bold;
+    .content {
+        min-height: calc(100vh - 464px);
     }
 </style>
 

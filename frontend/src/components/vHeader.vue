@@ -4,11 +4,16 @@
         <img class="header-logo__img" src="../assets/image/logo.png" alt="">
     </a>
     <nav class="header-nav">
-        <a class="header-nav__link" href="#">Главная</a>
+        <router-link :to="{name:'Main'}">
+            <a class="header-nav__link" href="">Главная</a>
+        </router-link>
         <a class="header-nav__link" href="#">Котики</a>
         <a class="header-nav__link" href="#">Выставки</a>
         <a class="header-nav__link" href="#">О нас</a>
         <a class="header-nav__link" href="#">Контакты</a>
+        <router-link :to="{name:'PetCard'}">
+            <a class="header-nav__link" href="">PetCard</a>
+        </router-link>
     </nav>
 </section>
 </template>
@@ -23,7 +28,7 @@
 
 <style lang="scss">
     .header {
-        margin-bottom: $margin-bottom*2;
+        margin-bottom: $margin*2;
     }
 .header-logo{
     padding-top: 20px;
@@ -45,7 +50,7 @@
     align-items: center;
   &__link{
     margin-right: 30px;
-    font-size: $fs;
+    font-size: $font-size;
     font-family: $font-montserrat;
   }
 }
