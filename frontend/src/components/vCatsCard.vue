@@ -3,7 +3,7 @@
       <figure>
         <h2>{{ name }}</h2>
         <figcaption>{{ breed }}</figcaption>
-        <img class="breeder__cats__pic" :src="imageUrl" alt="Фото">
+        <img class="catscard__pic" :src="imageUrl" alt="Фото">
       </figure>
     </article>
 </template>
