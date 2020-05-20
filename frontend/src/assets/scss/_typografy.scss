@@ -1,0 +1,11 @@
+ // Заголовки,текст, списки - стандартные отступы, размеры
+
+a{
+    text-decoration: none;
+    color: #757575;
+    transition: .5s;
+    &:hover{
+        color: #49BBAC;
+        transition: .5s;
+    }
+}

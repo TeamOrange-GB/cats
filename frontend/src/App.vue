@@ -1,25 +1,37 @@
 <template>
   <div id="app">
-      <br>
-      <br>
-    <h1>Сайт находится в разработке!</h1>
+        <vHeader></vHeader>
+      <section class="content">
+          <h1>Идёт разработка!</h1>
+      </section>
+      <vFooter></vFooter>
   </div>
+
 </template>
 
 <script>
+
+import vHeader from './components/vHeader'
+import vFooter from './components/vFooter'
+
   export default {
     name: 'App',
     components: {
-
+      vHeader,
+      vFooter
     }
   }
 </script>
 
-<style lang="scss">
 
-  h1{
-    color: $color;
-      font-size: 40px!important;
-      text-align: center;
-  }
+<style lang="scss">
+    .content {
+        margin-bottom: 270px;
+    }
+    h1 {
+        text-align: center;
+        font-size: 40px;
+        font-weight: bold;
+    }
 </style>
+
