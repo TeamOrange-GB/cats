@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SpeciesSeeder::class);
         $this->call(RegionsSeeder::class);
         $this->call(CitiesSeeder::class);
+        $this->call(PetsSeeder::class);
+        $this->call(UsersSeeder::class);
     }
 }
