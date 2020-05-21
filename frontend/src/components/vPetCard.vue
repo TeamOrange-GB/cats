@@ -20,24 +20,29 @@
                 <div class="petcard-content__docs">
                     <h3>Документы</h3>
                     <h4>Ветпаспорт</h4>
-                    <a href="#"><img src="../assets/image/vetpasport.jpg" alt="vet-passport"></a>
+                    <a href="#"><img :src="vetPassImg" alt="vet-passport"></a>
                     <h4>Титульный сертификат</h4>
-                    <a href="#"><img src="../assets/image/sert.jpg" alt="titul"></a>
+                    <a href="#"><img :src="titulImg" alt="titul"></a>
 
                 </div>
             </div>
             <div class="petcard-content__gallery">
                 <div class="petcard-content__mainphoto">
-                    <a href="#"><img src="../assets/image/coon.jpg" alt="Maine-Coon"></a>
+                    <a href="#"><img :src="mainImg" alt="Maine-Coon"></a>
                 </div>
+                    <gallery />
+
             </div>
         </div>
     </section>
 </template>
 
 <script>
+import gallery from './vGallery.vue'
+
 export default {
     name: 'vPetCard',
+    components: {gallery},
     data: () => ({
         petName: 'Василий',
         breed: 'maine coon',
@@ -48,8 +53,11 @@ export default {
         titul: 'Чемпион',
         petColor: 'Голубой тикированный табби',
         gender: 'male',
-        age: 'adult'
-
+        age: 'adult',
+        mainImg: "https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/coon.jpg",
+        vetPassImg: "https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/vetpasport.jpg",
+        titulImg: "https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/sert.jpg"
+                        
     }),
     computed: {
         old() {
@@ -68,6 +76,7 @@ export default {
         }
     }
 }
+
 </script>
 
 <style lang="scss">
@@ -108,5 +117,9 @@ export default {
             object-fit: cover;
         }
     }
+
+    
 }
+
+
 </style>
