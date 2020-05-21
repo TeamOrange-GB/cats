@@ -21,11 +21,11 @@ class CreatePostsTable extends Migration
             $table
                 ->timestamp('updated_at')
                 ->useCurrent();
-            $table->string('title', 255)
+            $table->string('title', 200)//255 не позволяет сервер
                 ->unique()
                 ->comment('Название статьи');
             $table
-                ->string('slug', 255)
+                ->string('slug', 200)//255 не позволяет сервер
                 ->unique()
                 ->comment('ЧПУ');
             $table
