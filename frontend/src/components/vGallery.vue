@@ -3,7 +3,7 @@
 
 <template>
 <div class="iconsGallery">
-  <div class="photoCount">Всего фотографий: {{ items.length }}</div>
+  <div class="photoCount">{{ paginatedData[0].id }} - {{ paginatedData[paginatedData.length - 1].id }} фотографий из {{ items.length}}</div>
   <div class="gallery">
   
       <div v-for="p in paginatedData" class="gallery-images">
@@ -12,12 +12,11 @@
         </div>
       </div>
       <div class="paginationButtons">
-        
         <button 
             :disabled="pageNumber === 0" 
             @click="prevPage">
             Предыдущие
-        </button>
+        </button> 
         <button 
             :disabled="pageNumber >= pageCount -1" 
             @click="nextPage">
@@ -35,7 +34,8 @@ export default {
 
   data () {
       return {
-        pageNumber: 0, // by default
+        pageNumber: 0,
+        size: 6,
         items: [
           {
             id: 1, src: 'https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/maineCoons/cat1.jpg',
@@ -49,7 +49,7 @@ export default {
           {
             id: 4, src: 'https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/maineCoons/cat4.jpg',
           },
-                    {
+          {
             id: 5, src: 'https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/maineCoons/cat5.jpg',
           },
           {
@@ -82,13 +82,6 @@ export default {
         ],
       }
     },
-  props:{
-    size:{
-      type:Number,
-      required:false,
-      default: 6
-    }
-  },
   methods:{
       nextPage(){
          this.pageNumber++;
