@@ -16,11 +16,11 @@
             ArticlesBlock,
             Sponsors
         },
-        
+
         name: "vMain"
     }
 </script>
 
 <style lang="scss">
-    
+
 </style>

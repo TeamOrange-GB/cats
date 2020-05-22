@@ -15,7 +15,7 @@ export default {
     },
     data() {
         return {
-            
+
             curentSlide:0,
             shiftValue: 'translateX(0px)',
             sliderItems:[
@@ -49,7 +49,7 @@ export default {
                     img:"https://via.placeholder.com/150x150",
                     content: "Slide-6"
                 },
-                
+
             ]
         }
     },
@@ -58,12 +58,12 @@ export default {
             if(this.curentSlide<this.sliderItems.length-2){
                 this.curentSlide++
                 this.shiftValue = `translateX(${this.curentSlide*-800}px)`
-                
+
             }else{
                 this.curentSlide=0
                 this.shiftValue = `translateX(${this.curentSlide*-800}px)`
             }
-            
+
         },
 
         lastSlide(){
@@ -74,13 +74,13 @@ export default {
         },
         nextSlide(){
             if(this.curentSlide<this.sliderItems.length-2){
-                
+
                 this.curentSlide++
                 this.shiftValue = `translateX(${this.curentSlide*-800}px)`
                 console.log(this.sliderItems.length)
                 console.log(this.curentSlide)
             }
-            
+
         }
     },
     mounted() {
@@ -107,11 +107,11 @@ export default {
             width: 40px;
             height: 80px;
             top: 50%-10%;
-            background: url('../assets/image/arrow-grey.svg') center no-repeat;
+            background: url('../../assets/image/arrow-grey.svg') center no-repeat;
             background-size: cover;
             border: none;
             &:hover{
-                background: url('../assets/image/arrow.svg') center no-repeat;
+                background: url('../../assets/image/arrow.svg') center no-repeat;
                 background-size: cover;
             }
         }
@@ -122,22 +122,22 @@ export default {
             top: 50%-10%;
             position: absolute;
             right: 20px;
-            background: url('../assets/image/arrow-grey.svg') center no-repeat;
+            background: url('../../assets/image/arrow-grey.svg') center no-repeat;
             background-size: cover;
             border: none;
             transform: rotate(180deg);
             &:hover{
-                background: url('../assets/image/arrow.svg') center no-repeat;
+                background: url('../../assets/image/arrow.svg') center no-repeat;
                 background-size: cover;
             }
         }
-        
+
         // &__pagination{
         //     text-align: center;
         //     // border: 1px solid blue;
         //     width: 100%;
         //     &__dot{
-        //         transition: border 0.3s linear; 
+        //         transition: border 0.3s linear;
         //         background: none;
         //         border: 2px solid $color-light-grey;
         //         width: 15px;

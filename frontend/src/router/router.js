@@ -3,11 +3,11 @@ import VueRouter from 'vue-router'
 
 //  Импортриуем сюда компоненты для роутинга
 
-import vPetCard from "../components/vPetCard";
-import vMain from "../components/vMain";
-import vRegistration from '../components/vRegistration';
-import vBreeder from '../components/vBreeder';
-import vCatCatalog from '../components/vCatCatalog.vue';
+import vPetCard from "../components/Animal/vPetCard";
+import vMain from "../components/ Home/vMain";
+import vRegistration from '../components/Registration/vRegistration';
+import vBreeder from '../components/Breeder/vBreeder';
+import vCatCatalog from '../components/ Home/vCatCatalog.vue';
 
 
 Vue.use(VueRouter);
