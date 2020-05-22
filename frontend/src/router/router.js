@@ -7,7 +7,7 @@ import vPetCard from "../components/Animal/vPetCard";
 import vMain from "../components/ Home/vMain";
 import vRegistration from '../components/Registration/vRegistration';
 import vBreeder from '../components/Breeder/vBreeder';
-import vCatCatalog from '../components/ Home/vCatCatalog.vue';
+import vCatCatalog from '../components/Catalog/vCatCatalog.vue';
 
 
 Vue.use(VueRouter);

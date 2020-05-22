@@ -2,8 +2,8 @@
     <div class="slider">
         <div class="slider__elements-block">
             <SliderItem v-for="slide of sliderItems" :key="slide.id" :slideData="slide" :style="{transform:shiftValue}"></SliderItem>
-            <button class="slider__controls-left" @click="lastSlide()"></button>
-            <button class="slider__controls-right" @click="nextSlide()"></button>
+            <button class="slider__controls-left" @click="lastSlide"></button>
+            <button class="slider__controls-right" @click="nextSlide"></button>
         </div>
     </div>
 </template>

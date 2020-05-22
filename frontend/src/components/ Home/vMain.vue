@@ -1,18 +1,21 @@
 <template>
     <section class="v-main">
-            <Slider/>
-            <ArticlesBlock/>
-            <Sponsors/>
+        <vInfo/>
+        <vCatCatalog/>
+        <ArticlesBlock/>
+        <Sponsors/>
     </section>
 </template>
 
 <script>
-    import Slider from './vSlider.vue'
+    import vInfo from './vInfo'
+    import vCatCatalog from "../Catalog/vCatCatalog";
     import ArticlesBlock from './vArticlesBlock.vue'
     import Sponsors from './vSponsors.vue'
     export default {
         components:{
-            Slider,
+            vInfo,
+            vCatCatalog,
             ArticlesBlock,
             Sponsors
         },

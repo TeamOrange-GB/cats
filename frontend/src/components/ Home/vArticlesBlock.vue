@@ -23,9 +23,17 @@
 <style lang="scss">
     .articles{
         display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
         margin-bottom: 50px;
         .article{
+            flex-basis: 30%;
+            padding: 20px;
             margin: 10px;
+            img {
+                width: 100%;
+            }
             &__description{
                 margin-bottom: 20px;
 
