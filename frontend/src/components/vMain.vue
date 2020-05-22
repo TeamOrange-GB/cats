@@ -1,41 +1,20 @@
 <template>
     <section class="v-main">
-        
             <Slider/>
-            <!-- <div class="slider__element">
-                <img src="https://via.placeholder.com/600x400" alt="slide">
-                <button class="slider__btn">Подробнее</button>
-            </div> -->
-            <!-- <div class="slider__element">
-                <img src="https://via.placeholder.com/600x400" alt="slide">
-            </div>
-            <div class="slider__element">
-                <img src="https://via.placeholder.com/600x400" alt="slide">
-            </div>
-            <div class="slider__element">
-                <img src="https://via.placeholder.com/600x400" alt="slide">
-            </div>
-            <div class="slider__element">
-                <img src="https://via.placeholder.com/600x400" alt="slide">
-            </div>
-            <div class="slider__element">
-                <img src="https://via.placeholder.com/600x400" alt="slide">
-            </div>
-            <div class="slider__element">
-                <img src="https://via.placeholder.com/600x400" alt="slide">
-            </div>
-            <div class="slider__element">
-                <img src="https://via.placeholder.com/600x400" alt="slide">
-            </div> -->
-        
+            <ArticlesBlock/>
+            <Sponsors/>
     </section>
 </template>
 
 <script>
     import Slider from './vSlider.vue'
+    import ArticlesBlock from './vArticlesBlock.vue'
+    import Sponsors from './vSponsors.vue'
     export default {
         components:{
-            Slider
+            Slider,
+            ArticlesBlock,
+            Sponsors
         },
         
         name: "vMain"

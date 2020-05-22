@@ -6,7 +6,6 @@
             <button class="slider__controls-right" @click="nextSlide()"></button>
         </div>
     </div>
-    
 </template>
 <script>
 import SliderItem from './vSlider-item.vue'
@@ -99,6 +98,7 @@ export default {
             display: flex;
             max-width: 1600px;
             overflow: hidden;
+            margin-bottom: 50px;
         }
         &__controls-left{
             transition-duration: 0.3s;

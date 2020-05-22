@@ -7,6 +7,7 @@ import vPetCard from "../components/vPetCard";
 import vMain from "../components/vMain";
 import vRegistration from '../components/vRegistration';
 import vBreeder from '../components/vBreeder';
+import vCatCatalog from '../components/vCatCatalog.vue';
 
 
 Vue.use(VueRouter);
@@ -34,6 +35,12 @@ const routes = [
         path: '/breeder',
         name: 'Breeder',
         component: vBreeder,
+        props: true
+    },
+    {
+        path: '/cat-catalog',
+        name: 'vCatCatalog',
+        component: vCatCatalog,
         props: true
     },
 ];
