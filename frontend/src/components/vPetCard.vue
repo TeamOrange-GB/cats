@@ -54,7 +54,7 @@ export default {
         petColor: 'Голубой тикированный табби',
         gender: 'male',
         age: 'adult',
-        mainImg: "https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/coon.jpg",
+        mainImg: "https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/maineCoons/coon.jpg",
         vetPassImg: "https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/vetpasport.jpg",
         titulImg: "https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/sert.jpg"
                         
@@ -63,9 +63,9 @@ export default {
         old() {
             let diff = Math.floor(new Date().getTime() - new Date(this.birthDate));
 
-            let days = Math.floor(diff/(1000 * 60 * 60 * 24));
-            let months = Math.floor(days/31);
-            let years = Math.floor(months/12);
+            let days = Math.floor(diff/(1000 * 60 * 60 * 24)),
+                months = Math.floor(days/31),
+                years = Math.floor(months/12);
 
             if (years <= 1) {
                 return `${months} месяцев`;
