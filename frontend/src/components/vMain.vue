@@ -1,15 +1,26 @@
 <template>
     <section class="v-main">
-        <h1>Главная секция!</h1>
+            <Slider/>
+            <ArticlesBlock/>
+            <Sponsors/>
     </section>
 </template>
 
 <script>
+    import Slider from './vSlider.vue'
+    import ArticlesBlock from './vArticlesBlock.vue'
+    import Sponsors from './vSponsors.vue'
     export default {
+        components:{
+            Slider,
+            ArticlesBlock,
+            Sponsors
+        },
+        
         name: "vMain"
     }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+    
 </style>

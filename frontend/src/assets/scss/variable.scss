@@ -21,4 +21,23 @@ $font-size: 16px;
 
 $margin: 20px;
 
+/** Buttons **/
+
+@mixin buttonSetting($wh, $ht, $clrBack, $clrBackTransition){
+    transition: background-color 0.3s linear; 
+    width: $wh;
+    height: $ht;
+    background-color: $clrBack;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-weight: bold;
+    color: $color-white;
+    &:hover{
+        background-color: $clrBackTransition;
+        //color: white;
+    }
+}
+
+
 
