@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'montserrat';
+    src: url('../fonts/montserrat/montserrat-regular-webfont.eot');
+    src: local('Montserrat Regular'), 
+        local('Montserrat-Regular'),
+        local('MontserratRegular'),
+        url('../fonts/montserrat/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/montserrat/montserrat-regular-webfont.woff2') format('woff2'),
+        url('../fonts/montserrat/montserrat-regular-webfont.woff') format('woff'),
+        url('../fonts/montserrat/montserrat-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal; 
+}
+
+@font-face {
+  font-family: 'montserrat';
+  src: url('../fonts/montserrat/montserrat-bold-webfont.eot');
+  src: local('Montserrat Bold'), 
+      local('Montserrat-Bold'),
+      local('MontserratBold'),
+      url('../fonts/montserrat/montserrat-bold-webfont.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/montserrat/montserrat-bold-webfont.woff2') format('woff2'),
+      url('../fonts/montserrat/montserrat-bold-webfont.woff') format('woff'),
+      url('../fonts/montserrat/montserrat-bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal; 
+}
+
+@font-face {
+    font-family: 'arimo';
+    src: url('../fonts/arimo/arimo-regular-webfont.eot');
+    src: local('Arimo Regular'), 
+        local('Arimo-Regular'),
+        local('ArimoRegular'),
+        url('../fonts/arimo/arimo-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/arimo/arimo-regular-webfont.woff2') format('woff2'),
+        url('../fonts/arimo/arimo-regular-webfont.woff') format('woff'),
+        url('../fonts/arimo/arimo-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal; 
+}
+
+@font-face {
+    font-family: 'arimo';
+    src: url('../fonts/arimo/arimo-italic-webfont.eot');
+    src: local('Arimo Italic'), 
+        local('Arimo-Italic'),
+        local('ArimoItalic'),
+        url('../fonts/arimo/arimo-italic-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/arimo/arimo-italic-webfont.woff2') format('woff2'),
+        url('../fonts/arimo/arimo-italic-webfont.woff') format('woff'),
+        url('../fonts/arimo/arimo-italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic; 
+}
+
+@font-face {
+    font-family: 'arimo';
+    src: url('../fonts/arimo/arimo-bold-webfont.eot');
+    src: local('Arimo Bold'), 
+        local('Arimo-Bold'),
+        local('ArimoBold'),
+        url('../fonts/arimo/arimo-bold-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/arimo/arimo-bold-webfont.woff2') format('woff2'),
+        url('../fonts/arimo/arimo-bold-webfont.woff') format('woff'),
+        url('../fonts/arimo/arimo-bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal; 
+}
+
+@font-face {
+    font-family: 'arimo';
+    src: url('../fonts/arimo/arimo-bolditalic-webfont.eot');
+    src: local('Arimo BoldItalic'), 
+        local('Arimo-BoldItalic'),
+        local('ArimoBoldItalic'),
+        url('../fonts/arimo/arimo-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/arimo/arimo-bolditalic-webfont.woff2') format('woff2'),
+        url('../fonts/arimo/arimo-bolditalic-webfont.woff') format('woff'),
+        url('../fonts/arimo/arimo-bolditalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic; 
+}

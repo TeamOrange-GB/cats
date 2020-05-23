@@ -34,11 +34,5 @@ class DatabaseSeeder extends Seeder
         $this->call(PetLikesUsers::class);
         $this->call(PhotoLikesUsers::class);
         //$this->call(VideoLikesUsers::class);
-
-
-
-
-        //возможные породы вида??
-
     }
 }
