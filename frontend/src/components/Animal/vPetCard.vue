@@ -20,15 +20,15 @@
                 <div class="petcard-content__docs">
                     <h3>Документы</h3>
                     <h4>Ветпаспорт</h4>
-                    <a href="#"><img src="../assets/image/vetpasport.jpg" alt="vet-passport"></a>
+                    <a href="#"><img src="../../assets/image/vetpasport.jpg" alt="vet-passport"></a>
                     <h4>Титульный сертификат</h4>
-                    <a href="#"><img src="../assets/image/sert.jpg" alt="titul"></a>
+                    <a href="#"><img src="../../assets/image/sert.jpg" alt="titul"></a>
 
                 </div>
             </div>
             <div class="petcard-content__gallery">
                 <div class="petcard-content__mainphoto">
-                    <a href="#"><img src="../assets/image/coon.jpg" alt="Maine-Coon"></a>
+                    <a href="#"><img src="../../assets/image/coon.jpg" alt="Maine-Coon"></a>
                 </div>
             </div>
         </div>

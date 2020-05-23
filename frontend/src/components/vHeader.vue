@@ -7,7 +7,11 @@
         <router-link :to="{name:'Main'}">
             <a class="header-nav__link" href="">Главная</a>
         </router-link>
-        <a class="header-nav__link" href="#">Котики</a>
+
+        <router-link :to="{name:'vCatCatalog'}">
+            <a class="header-nav__link" href="">Котики</a>
+        </router-link>
+        
         <a class="header-nav__link" href="#">Выставки</a>
         <a class="header-nav__link" href="#">О нас</a>
         <a class="header-nav__link" href="#">Контакты</a>
