@@ -21,6 +21,10 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersSeeder::class);
         //перед сидингом животных нужно сделать сидинг юзеров, видов, пород и цветов
         $this->call(PetsSeeder::class);
+        //перед сидингом фото нужно сделать сидинг животных
+        $this->call(PhotosSeeder::class);
+        //перед сидингом видео нужно сделать сидинг животных
+        $this->call(VideosSeeder::class);
         $this->call(TaxonomySeeder::class);
         //перед сидингом постов нужно сделать сидинг юзеров
         $this->call(PostsSeeder::class);
@@ -28,7 +32,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PostsTaxonomySeeder::class);
         //перед сидингом постов нужно сделать сидинг юзеров, животных
         $this->call(PetLikesUsers::class);
-        //$this->call(PhotoLikesUsers::class);
+        $this->call(PhotoLikesUsers::class);
         //$this->call(VideoLikesUsers::class);
 
 
