@@ -14,14 +14,12 @@
 <script>
 
 import vHeader from './components/vHeader';
-import vRegistration from './components/vRegistration';
 import vFooter from './components/vFooter';
 
   export default {
     name: 'App',
     components: {
       vHeader,
-      vRegistration,
       vFooter
     }
   }

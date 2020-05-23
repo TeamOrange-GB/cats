@@ -1,0 +1,20 @@
+{
+    "catalog": [
+        {
+            "id": 1,
+            "name": "Барсик",
+            "breed": "Мейн кун",
+            "sex": "@/assets/image/Home/sex.svg",
+            "awards" : "@/assets/image/Home/awards.svg",
+            "likes" : 6
+        },
+        {
+            "id": 1,
+            "name": "Барсик",
+            "breed": "Мейн кун",
+            "sex": "@/assets/image/Home/sex.svg",
+            "awards" : "@/assets/image/Home/awards.svg",
+            "likes" : 6
+        }
+    ]
+}
