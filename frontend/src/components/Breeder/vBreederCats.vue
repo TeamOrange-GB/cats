@@ -1,6 +1,6 @@
 <template>
   <div class="breeder__cats">
-      <catscard v-for="i in 9" :key="i" />
+      <catscard v-for="i in 7" :key="i" />
   </div>
 </template>
 

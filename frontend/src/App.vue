@@ -34,6 +34,7 @@ import vFooter from './components/vFooter';
     }
     .content {
         min-height: calc(100vh - 464px);
+        padding: 0 40px;
     }
 </style>
 

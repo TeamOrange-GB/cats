@@ -6,7 +6,7 @@ import VueRouter from 'vue-router'
 import vPetCard from "../components/vPetCard";
 import vMain from "../components/vMain";
 import vRegistration from '../components/vRegistration';
-import vBreeder from '../components/vBreeder';
+import vBreeder from '../components/Breeder/vBreeder';
 
 
 Vue.use(VueRouter);

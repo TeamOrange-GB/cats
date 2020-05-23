@@ -22,10 +22,14 @@ export default {
 <style lang="scss">
   .catscard {
     display: flex;
-    flex-flow: row wrap;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     box-sizing: border-box;
     margin-bottom: 20px;
-
+    padding: 20px;
+        h2 {
+            margin-bottom: 20px;
+        }
   }
 
 </style>
