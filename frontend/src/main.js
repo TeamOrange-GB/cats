@@ -1,11 +1,14 @@
 import Vue from 'vue';
 import App from './App.vue';
 import store from './vuex/store';
-import router from './router/router'
+import router from './router/router';
+
 
 import '@/assets/scss/styles.scss';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+
+
 
 new Vue({
     router,
