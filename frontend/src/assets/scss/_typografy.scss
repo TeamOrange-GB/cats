@@ -44,7 +44,14 @@
      text-align: left;
  }
 
-a{
+ figcaption {
+    color: $color-light-grey;
+    font-size: 18px;
+    font-family: $font-montserrat;
+    text-align: left;
+ }
+
+ a {
     text-decoration: none;
     color: #757575;
     transition: .5s;
@@ -52,7 +59,7 @@ a{
         color: #49BBAC;
         transition: .5s;
     }
-}
+ }
 
 
 

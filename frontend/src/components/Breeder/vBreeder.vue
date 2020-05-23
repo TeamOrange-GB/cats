@@ -1,15 +1,24 @@
 <template>
   <section class="breeder">
-    <div class="breeder-info">
-      <h1>Данные о заводчике</h1>
-      <p>Заводчик: <strong>{{ name }}</strong></p>
-      <p>Питомник: <strong>{{ farm }}</strong></p>
-      <p>Свидетельство: <strong>{{ license }}</strong></p>
-      <p>Опыт разведения: <strong>{{ experience }}</strong></p>
-      <p>Страна: <strong>{{ country }}</strong></p>
-      <p>Город: <strong>{{ city }}</strong></p>
-      <p>Дополнительная информация:</p>
-      <p>{{ addInfo }}</p>
+    <h1>{{ name }}</h1>
+    <h2>{{ farm }}</h2>
+    <div class="breeder__card">
+      <div class="breeder__info">
+        <h3>Основные сведения</h3>
+        <h4>Свидетельство:</h4>
+        <p>{{ license }}</p>
+        <h4>Опыт разведения:</h4>
+        <p>{{ experience }}</p>
+        <h4>Страна:</h4>
+        <p>{{ country }}</p>
+        <h4>Город:</h4>
+        <p>{{ city }}</p>
+        <h4>Дополнительная информация:</h4>
+        <p>{{ addInfo }}</p>
+      </div>
+      <figure class="breeder__pic">
+        <img class="breeder__photo" src="https://via.placeholder.com/750x470.png?text=Breeder Photo" alt="Фото">
+      </figure>
     </div>
     <breedercats />
   </section>
@@ -20,6 +29,7 @@
 
   export default {
     name: 'vBreeder',
+    components: { breedercats },
     data: () => ({
       name: "Имярек",
       farm: "Питомник №1",
@@ -32,12 +42,36 @@
     computed: {
 
     },
-    components: {breedercats}
   }
 </script>
 
 <style lang="scss">
-  .breeder-info {
-    margin-bottom: 50px;
+  .breeder {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1230px;
+  }
+
+  .breeder h1,
+  .breeder h2 {
+    width: 100%;
+  }
+
+  .breeder__card {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-bottom: 50px;    
+  }
+
+  .breeder__info {
+    width: 40%;
+  }
+  .breeder__pic {
+    width: 60%;
+    text-align: center;
   }
 </style>

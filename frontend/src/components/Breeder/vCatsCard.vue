@@ -2,7 +2,7 @@
     <article class="catscard">
       <figure>
         <h2>{{ name }}</h2>
-        <figcaption>{{ breed }}</figcaption>
+        <figcaption class="catscard__breed">{{ breed }}</figcaption>
         <img class="catscard__pic" :src="imageUrl" alt="Фото">
       </figure>
     </article>
@@ -24,8 +24,11 @@ export default {
     display: flex;
     flex-flow: row wrap;
     box-sizing: border-box;
-    margin-bottom: 20px;
+    margin: 20px;
+  }
 
+  figure h2 {
+    margin-bottom: 10px;
   }
 
 </style>
