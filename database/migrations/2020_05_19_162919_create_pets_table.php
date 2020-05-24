@@ -92,6 +92,9 @@ class CreatePetsTable extends Migration
             $table
                 ->foreignId('color_id')
                 ->comment('Id окраса');
+            $table
+                ->foreignId('user_id')
+                ->comment('Id хозяина');
         });
     }
 
