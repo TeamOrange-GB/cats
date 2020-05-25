@@ -26,7 +26,7 @@ $padding: 20px;
 /** Buttons **/
 
 @mixin buttonSetting($wh, $ht, $clrBack, $clrBackTransition){
-    transition: background-color 0.3s linear;
+    transition-duration: 0.3s;
     width: $wh;
     height: $ht;
     background-color: $clrBack;
@@ -38,6 +38,9 @@ $padding: 20px;
     &:hover{
         background-color: $clrBackTransition;
         //color: white;
+    }
+    &:active{
+        transform: scale(0.95);
     }
 }
 

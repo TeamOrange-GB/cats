@@ -10,11 +10,13 @@
 </template>
 <style lang="scss">
     .sponsors{
+        
         display: flex;
         justify-content: center;
         background-color: $color-smoke;
         padding: 50px;
         margin-bottom: 50px;
+        flex-wrap: wrap;
         img{
             margin: 0 10px;
         }

@@ -165,6 +165,7 @@ export default {
                     display: block;
                     padding: 10px 10px;
                     transition: .2s;
+                    font-family: $font-arimo;
                     &:hover {
                         transition: .2s;
                         background: $color-cyan;
@@ -180,6 +181,9 @@ export default {
             align-items: center;
             margin-bottom: 20px;
             min-width: 200px;
+            span{
+                font-family: $font-arimo;
+            }
         }
     }
 
