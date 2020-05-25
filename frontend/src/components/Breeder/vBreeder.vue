@@ -17,21 +17,22 @@
         <p>{{ addInfo }}</p>
       </div>
       <figure class="breeder__pic">
-        <img class="breeder__photo" src="https://via.placeholder.com/750x470.png?text=Breeder Photo" alt="Фото">
+        <img class="breeder__photo" src="https://avatars.mds.yandex.net/get-zen_doc/1811900/pub_5cd124aba8ac8300b34993a0_5cd1261b583aa800af53c31d/scale_1200" alt="Фото">
       </figure>
     </div>
-    <breedercats />
+    <vCatCatalog />
   </section>
 </template>
 
 <script>
-  import breedercats from './vBreederCats'
+  // import breedercats from './vBreederCats'
+  import vCatCatalog from "../Catalog/vCatCatalog";
 
   export default {
     name: 'vBreeder',
-    components: { breedercats },
+    components: { vCatCatalog },
     data: () => ({
-      name: "Имярек",
+      name: "Юрий Куклачев",
       farm: "Питомник №1",
       license: "№123456789",
       experience: "2 года",
@@ -69,9 +70,18 @@
 
   .breeder__info {
     width: 40%;
+    box-sizing: border-box;
+    margin-right: 50px;
+    line-height: 1.5em;
   }
+
   .breeder__pic {
     width: 60%;
+    box-sizing: border-box;
     text-align: center;
+  }
+
+  .breeder__photo {
+    width: 100%;
   }
 </style>
