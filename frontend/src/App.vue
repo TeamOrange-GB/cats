@@ -7,7 +7,6 @@
           </keep-alive>
       </section>
       <vRegistration></vRegistration>
-      <vUser></vUser>
       <vFooter></vFooter>
   </div>
 
@@ -17,7 +16,6 @@
 
 import vHeader from './components/vHeader';
 import vRegistration from './components/vRegistration';
-import vUser from './components/vUser';
 import vFooter from './components/vFooter';
 
   export default {
@@ -25,7 +23,6 @@ import vFooter from './components/vFooter';
     components: {
       vHeader,
       vRegistration,
-      vUser,
       vFooter
     }
   }
