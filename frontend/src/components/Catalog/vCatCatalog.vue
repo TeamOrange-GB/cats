@@ -65,8 +65,9 @@
         </div>
         <div class="cat-catalog__gallery">
             <vCatItem
-                v-for="i in 8"
-                :key="i"
+                v-for="animal in CATALOG"
+                :key="animal.id"
+                :animal="animal"
             />
             <div class="cat-catalog__pagination">
                 <span></span>
@@ -79,7 +80,10 @@
 
     import vCatItem from "./vCatItem";
 
+    import {mapActions, mapGetters} from 'vuex'
+
 export default {
+    //@/assets/image/Home/sex.svg
     name: 'vCatCatalog',
     components: {
         vCatItem
@@ -92,7 +96,18 @@ export default {
     methods: {
         toggleFilterList(){
             this.isFilterListVisible = !this.isFilterListVisible
-        }
+        },
+        ...mapActions([
+            'GET_CATALOG_FROM_API'
+        ])
+    },
+    mounted(){
+        this.GET_CATALOG_FROM_API()
+    },
+    computed: {
+        ...mapGetters([
+            'CATALOG'
+        ])
     }
 }
 </script>

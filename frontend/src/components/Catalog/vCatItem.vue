@@ -4,22 +4,25 @@
         <div class="pet-info">
             <div class="pet-info__item">
                 <img src="@/assets/image/Home/cat-name.svg" alt="">
-                <p class="pet__name">Барсик</p>
+                <p class="pet__name">{{animal.name_real}}</p>
             </div>
             <div class="pet-info__item">
                 <img src="@/assets/image/Home/cat-breed.svg" alt="">
-                <p class="pet__breed">Мейн кун</p>
+                <p class="pet__breed">{{animal.breed}}</p>
             </div>
         </div>
         <div class="pet__awards">
             <div class="pet__awards-item">
-                <img src="@/assets/image/Home/sex.svg" alt="">
+                <img :src="selectionGender" alt="">
             </div>
-            <div class="pet__awards-item">
+            <div
+                v-if="isAwardsVisible"
+                class="pet__awards-item"
+            >
                 <img src="@/assets/image/Home/awards.svg" alt="">
             </div>
             <div class="pet__awards-item">
-                6
+                {{animal.likes_count}}
             </div>
         </div>
     </div>
@@ -27,7 +30,27 @@
 
 <script>
     export default {
-        name: "vCatItem"
+        name: "vCatItem",
+        props: {
+            animal: {
+                type: Object,
+                default: () => {
+                    {}
+                }
+            },
+            isAwardsVisible: {
+                type: Boolean,
+                default: () => {
+                    false
+                }
+            },
+            selectionGender: {
+                type: String,
+                default: () => {
+                    ''
+                }
+            }
+        }
     }
 </script>
 
