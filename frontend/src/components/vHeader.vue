@@ -4,25 +4,35 @@
         <img class="header-logo__img" src="../assets/image/logo.png" alt="">
     </a>
     <nav class="header-nav">
-        <router-link :to="{name:'Main'}">
-            <a class="header-nav__link" href="">Главная</a>
+        <router-link
+            class="header-nav__link"
+            :to="{name:'Main'}">
+            Главная
         </router-link>
 
-        <router-link :to="{name:'vCatCatalog'}">
-            <a class="header-nav__link" href="">Котики</a>
+        <router-link
+            class="header-nav__link"
+            :to="{name:'vCatCatalog'}">
+            Котики
         </router-link>
-        
+
         <a class="header-nav__link" href="#">Выставки</a>
         <a class="header-nav__link" href="#">О нас</a>
         <a class="header-nav__link" href="#">Контакты</a>
-        <router-link :to="{name:'PetCard'}">
-            <a class="header-nav__link" href="">PetCard</a>
+        <router-link
+            class="header-nav__link"
+            :to="{name:'PetCard'}">
+            PetCard
         </router-link>
-        <router-link :to="{name:'Breeder'}">
-            <a class="header-nav__link" href="">BreederCard</a>
+        <router-link
+            class="header-nav__link"
+            :to="{name:'Breeder'}">
+          BreederCard
         </router-link>
-        <router-link :to="{name:'Registration'}">
-            <a class="header-nav__link" href="">Регистрация</a>
+        <router-link
+            class="header-nav__link"
+            :to="{name:'Registration'}">
+           Регистрация
         </router-link>
     </nav>
 </section>
@@ -59,9 +69,15 @@
     justify-content: center;
     align-items: center;
   &__link{
-    margin-right: 30px;
+    margin:0 15px;
     font-size: $font-size;
     font-family: $font-montserrat;
+      &:nth-of-type(1){
+          margin:0 15px 0 0;
+      }
+      &:nth-last-of-type(1){
+          margin:0 0 0 15px;
+      }
   }
 }
 </style>
