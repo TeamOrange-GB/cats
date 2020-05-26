@@ -8,7 +8,7 @@ import vMain from "../components/ Home/vMain";
 import vRegistration from '../components/Registration/vRegistration';
 import vBreeder from '../components/Breeder/vBreeder';
 import vCatCatalog from '../components/Catalog/vCatCatalog.vue';
-
+import vPersonalAccount from '../components/PersonalAccount/vPersonalAccount.vue'
 
 Vue.use(VueRouter);
 
@@ -41,6 +41,12 @@ const routes = [
         path: '/cat-catalog',
         name: 'vCatCatalog',
         component: vCatCatalog,
+        props: true
+    },
+    {
+        path: '/personal-account',
+        name: 'vPersonalAccount',
+        component: vPersonalAccount,
         props: true
     },
 ];
