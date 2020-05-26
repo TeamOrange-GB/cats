@@ -69,7 +69,7 @@
             }
         }
         &__btn {
-            @include buttonSetting(200px, 60px, $color-cyan, $color-light-grey);
+            @include buttonSetting(200px, 60px, $color-cyan, $color-light-grey, $color-cyan);
         }
     }
     .v-transition-img {

@@ -25,19 +25,20 @@ $padding: 20px;
 
 /** Buttons **/
 
-@mixin buttonSetting($wh, $ht, $clrBack, $clrBackTransition){
-    transition: background-color 0.3s linear;
+@mixin buttonSetting($wh, $ht, $clrBack, $clrBackTransition, $clrBorder){
+    transition: background-color 0.3s linear, border-color 0.3s linear;
     width: $wh;
     height: $ht;
     background-color: $clrBack;
-    border: none;
+    border: 2px solid $clrBorder;
     outline: none;
     border-radius: 5px;
     font-weight: bold;
     color: $color-white;
     &:hover{
         background-color: $clrBackTransition;
-        //color: white;
+        color: white;
+        border: 2px solid $clrBackTransition;
     }
 }
 

@@ -227,9 +227,9 @@ export default {
     -ms-transform: translate3d(0, 0, 0);
     -o-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
-    -webkit-transition: background 0.2s ease-in-out,border-color 0.2s ease-in-out,color 0.2s ease-in-out;
-    -moz-transition: background 0.2s ease-in-out,border-color 0.2s ease-in-out,color 0.2s ease-in-out;
-    transition: background 0.2s ease-in-out,border-color 0.2s ease-in-out,color 0.2s ease-in-out;
+    -webkit-transition: background 0.5s ease-in-out,border-color 0.5s ease-in-out,color 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out,border-color 0.5s ease-in-out,color 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out,border-color 0.5s ease-in-out,color 0.5s ease-in-out;
   }
   .pageButton:hover{
     cursor:pointer;
