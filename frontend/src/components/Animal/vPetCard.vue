@@ -35,10 +35,10 @@
                                    @close="showInviteMatch = false" 
                                     >
                                     <h3 slot="header">Приглашение на вязку</h3>  
-                                    <div slot="body">      
+                                    <div slot="link">      
                                         <h4>Ссылка на страницу вашего животного</h4>
-                                        <input placeholder="Введите вашу ссылку">
-                                    </div>             
+                                        <input placeholder="Введите вашу ссылку" v-model="link">
+                                    </div>            
                             </modal>
                         <a href="#" class="kittenLink" @click="showRequestKitten = true">Купить котенка</a>
                             <modal v-if="showRequestKitten" 

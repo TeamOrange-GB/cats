@@ -3,35 +3,64 @@
     <div class="modal">
       <header class="modal-header">
         <slot name="header">
-          Сообщение хозяину животного
-          
+          Сообщение хозяину животного         
         </slot>
             <p>Заполните поля ниже и хозяин животного обязательно свяжется с вами</p>  
       </header>
-      <section class="modal-body">
-        <div class="modal-form">
-          <div class="modal-form__item">
-            <h4>Имя</h4>
-            <input v-model="formData.formName" placeholder="Введите ваше имя">
-          </div>
-          <div class="modal-form__item">
-            <h4>Телефон</h4>
-            <input v-model="formData.formPhone" placeholder="Введите ваш телефон">
-          </div>
-          <div class="modal-form__item">
-            <h4>Email</h4>
-            <input v-model="formData.formEmail" placeholder="Введите ваш email">
-          </div>
-          <div class="modal-form__item">
-            <h4>Сообщение</h4>
-            <textarea v-model="formData.formMessage" placeholder="Введите ваше сообщение"></textarea>
-          </div>
-        </div>
-        <slot name="body">
-        </slot>
-        <div v-if="successSent" class="success">Ваше сообщение успешно отправлено</div>
-
-       </section>
+      <slot name="body">
+        <section class="modal-body">
+          <form @submit="checkForm" method="get" id="modalForm" action="/">
+            <div class="modal-form">
+              <div class="modal-form__item">
+                <h4>Имя</h4>
+                <input 
+                  v-model="name" 
+                  placeholder="Введите ваше имя"
+                  type="text" 
+                  name="sender-name"
+                  minlength="2" maxlength="50" required      
+                >
+              </div>
+              <div class="modal-form__item">
+                <h4>Телефон</h4>
+                <input 
+                  v-model="phone" 
+                  placeholder="Введите ваш телефон" 
+                  type="text"
+                  name="phone"
+                  minlength="5" maxlength="11" required
+                >
+              </div>
+              <div class="modal-form__item">
+                <h4>Email</h4>
+                <input 
+                v-model="email" 
+                placeholder="Введите ваш email"
+                type="email"
+                name="email"
+                >
+              </div>
+              <div class="modal-form__item">
+                <h4>Сообщение</h4>
+                <textarea 
+                v-model="message" 
+                placeholder="Введите ваше сообщение"
+                name="message"
+                maxlength="240" rows="5"></textarea>
+              </div>
+            </div>
+            <slot name="link">
+            </slot>
+            <div v-if="successSent" class="success">Ваше сообщение успешно отправлено</div>
+            <div v-if="errors.length" class="fails">
+              <b>Пожалуйста исправьте указанные ошибки:</b>
+              <ul>
+                <li v-for="error in errors">{{ error }}</li>
+            </ul>
+            </div>
+          </form>
+        </section>
+       </slot>
        <footer class="modal-footer">
           <slot name="footer">
             <button
@@ -42,9 +71,9 @@
               Закрыть
           </button>
             <button
-              type="button"
+              type="submit"
               class="btn-sent"
-              @click="sent"
+              form="modalForm"
             >
               Отправить
           </button>
@@ -59,9 +88,13 @@
   export default {
     name: 'vModal',
     data: () => ({
-
       successSent: false,
-      formData: {},
+      errors: [],
+      name: null,
+      email: null,
+      phone: null,
+      link: null,
+      message: null,
     }),
     methods: {
       close() {
@@ -69,9 +102,33 @@
       },
       sent() {
         this.successSent = true;
+      },
+      checkForm(e) {
+
+        const reName = /^[а-яА-ЯёЁ\s]+/;
+        const rePhone = /(\+7|8)[- _]*\(?[- _]*(\d{3}[- _]*\)?([- _]*\d){7}|\d\d[- _]*\d\d[- _]*\)?([- _]*\d){6})/g;
+        const reEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        
+        this.errors = [];
+
+        if (!reName.test(this.name)) {
+          this.errors.push('Введите корректное имя');
+        }
+        if (!rePhone.test(this.phone)) {
+          this.errors.push('Введите корректный номер');
+        }
+        if (!reEmail.test(this.email)) {
+          this.errors.push('Введите корректный email');
+        }
+        if (!this.errors.length) {
+          this.successSent = true;
+          return true;
+      }
+
+        e.preventDefault();
       }
     },
-  };
+  }
 </script>
 
 <style lang="scss">
@@ -119,6 +176,7 @@
   p {
     margin: 10px 0 0 0;
   }
+
   .modal-body {
     position: relative;
     padding: 20px 10px;
@@ -173,6 +231,16 @@
     height: 20;
     fill: none;
     margin: 0 5px 0 0;
+  }
+  .fails {
+    color: $color-text-alert;
+    background-color: $color-alert;
+    border: 1px solid $color-border-alert;
+    line-height: 1.5;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    font: 16px/1.5em Arimo,sans-serif;
+    border-radius: 5px;
   }
   .btn-close {
     @include buttonSetting(150px, 40px, $color-white, $color-medium-gray, $color-cyan);
