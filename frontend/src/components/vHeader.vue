@@ -24,6 +24,9 @@
         <router-link :to="{name:'Registration'}">
             <a class="header-nav__link" href="">Регистрация</a>
         </router-link>
+        <router-link :to="{name:'Account'}">
+            <a class="header-nav__link" href="">ЛК пользователя</a>
+        </router-link>
     </nav>
 </section>
 </template>

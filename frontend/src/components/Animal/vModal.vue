@@ -5,10 +5,11 @@
         <slot name="header">
           Сообщение хозяину животного         
         </slot>
-            <p>Заполните поля ниже и хозяин животного обязательно свяжется с вами</p>  
+            
       </header>
       <slot name="body">
         <section class="modal-body">
+          <p>Заполните поля ниже и хозяин животного обязательно свяжется с вами</p>  
           <form @submit="checkForm" method="get" id="modalForm" action="/">
             <div class="modal-form">
               <div class="modal-form__item">

@@ -1,0 +1,226 @@
+<template>
+<section class="main">
+    <h3>Личный кабинет</h3>
+    <form  id="userDataForm">
+        <div class="form-item">
+            <h4>Изменить имя</h4>
+            <input 
+                v-model="firstName" 
+                v-bind:placeholder="firstName" 
+                type="text" 
+                name="user-firstName"
+                minlength="2" maxlength="50"      
+            >
+        </div>
+        <div class="form-item">
+            <h4>Изменить фамилию</h4>
+            <input 
+                v-model="lastName" 
+                v-bind:placeholder="lastName" 
+                type="text" 
+                name="user-lastName"
+                minlength="2" maxlength="50"     
+            >
+        </div>
+        <div class="form-item">
+            <h4>Изменить email</h4>
+            <input 
+                v-model="email" 
+                v-bind:placeholder="email" 
+                type="email" 
+                name="user-email"
+            >
+        </div>
+        <div class="form-item">
+            <h4>Изменить пароль</h4>
+            <input 
+                v-model="password" 
+                v-bind:placeholder="password" 
+                type="password" 
+                name="user-password"
+            >
+        </div>
+        <div class="form-item">
+            <h4>Повторите пароль</h4>
+            <input 
+                v-model="password" 
+                v-bind:placeholder="password" 
+                type="password" 
+                name="user-password"
+            >
+        </div>
+        <div v-if="successChange" class="success">Ваше данные успешно обновлены</div>
+        <div v-if="errors.length" class="fails">
+            <b>Пожалуйста исправьте указанные ошибки:</b>
+            <ul>
+            <li v-for="error in errors">{{ error }}</li>
+        </ul>
+        </div>
+        <div class="formButtons">
+            <button
+                type="button"
+                class="btn-close"
+                v-on:click="deleteAccount"
+                >
+                Удалить аккаунт
+            </button>
+            <button
+                type="button"
+                class="btn-sent"
+                form="userDataForm"
+                @click="checkForm"
+                >
+                Сохранить
+            </button>
+
+            <modal v-if="deleteAcc" @close="deleteAcc = false">
+                <h1 slot="header">Вы уверены, что хотите удалить аккаунт?</h1>  
+                <div slot="body"></div>
+                <div slot="footer" class="formButtons">
+                    <button
+                    type="button"
+                    class="btn-close"
+                    @click="deleteAcc = false"
+                    >
+                    Отмена
+                    </button>
+                    <button
+                    type="submit"
+                    class="btn-sent"
+                    @click="deleteAcc = false"
+                    >
+                    Удалить
+                    </button>
+                </div>                    
+            </modal>
+        </div>
+    </form>
+
+</section>
+</template>
+
+<script>
+import modal from '../Animal/vModal.vue'
+
+ export default {
+    name: 'vUserAccount',
+    components: {
+        modal
+        },
+    data: () => ({
+      successChange: false,
+      deleteAcc: false,
+      errors: [],
+      firstName: 'Anna',
+      lastName: 'Puchkova',
+      email: 'puchkova.anne@gmail.com',
+      login: 'Newta',
+      password: null,
+    }),
+    methods: {
+      deleteAccount() {
+          this.deleteAcc = true;
+      },
+      sent() {
+        this.successChange = true;
+      },
+      checkForm(e) {
+
+        const reName = /^[A-zа-яА-ЯёЁ\s]+/;
+        const rePhone = /(\+7|8)[- _]*\(?[- _]*(\d{3}[- _]*\)?([- _]*\d){7}|\d\d[- _]*\d\d[- _]*\)?([- _]*\d){6})/g;
+        const reEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        
+        this.errors = [];
+
+        if (!reName.test(this.firstName)) {
+          this.errors.push('Введите корректное имя');
+        }
+        if (!reName.test(this.lastName)) {
+          this.errors.push('Введите корректную фамилию');
+        }
+        if (!reEmail.test(this.email)) {
+          this.errors.push('Введите корректный email');
+        }
+        if (!this.errors.length) {
+          this.successChange = true;
+          return true;
+      }
+        this.successChange = false;
+        e.preventDefault();
+      }
+    },
+ }
+</script>
+
+<style lang="scss">
+    .main {
+        max-width: 580px;
+        margin: 20px auto 50px;
+        box-sizing: border-box;
+    }
+    .form-item {
+    margin: 20px 0;
+  }
+  .form-item input {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    width: 100%;
+    height: 34px;
+    display: block;
+    padding: 6px 10px;
+    background-image: none;
+    border: 1px solid $color-smoke;
+    background-color: $color-white;
+    font-size: 14px;
+    color: #777;
+    font-family: $font-arimo;
+    transition: border-color 0.5s ease-in-out;
+    box-sizing: border-box;
+    outline: none;
+  }
+  .form-item input:focus {
+    border-color: #999;
+    outline: none;
+  }
+  .form-item input::-webkit-input-placeholder {font-size: 14px;}
+  .form-item input::-moz-placeholder          {font-size: 14px;}
+  .form-item input:-ms-input-placeholder      {font-size: 14px;}
+  
+    .formButtons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items:flex-end;
+        min-width: 100%;
+        margin: 20px 0 0 0;
+    }
+  .success {
+    color: #349E53;
+    font-size: 15px;
+    letter-spacing: -0.015em;
+    font-weight: bold;
+    font-family: $font-arimo;
+  }
+  .success::before {
+    content: "\2713";
+    box-sizing: border-box;
+    width: 20;
+    height: 20;
+    fill: none;
+    margin: 0 5px 0 0;
+  }
+  .fails {
+    color: $color-text-alert;
+    background-color: $color-alert;
+    border: 1px solid $color-border-alert;
+    line-height: 1.5;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    font: 16px/1.5em Arimo,sans-serif;
+    border-radius: 5px;
+  }
+ 
+
+</style>
