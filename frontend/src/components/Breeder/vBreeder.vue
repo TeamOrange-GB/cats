@@ -30,9 +30,7 @@
 
   export default {
     name: 'vBreeder',
-    components: {
-        // breedercats
-     },
+    components: { vCatCatalog },
     data: () => ({
       name: "Юрий Куклачев",
       farm: "Питомник №1",
