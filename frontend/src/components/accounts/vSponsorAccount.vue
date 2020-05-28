@@ -146,7 +146,6 @@ export default {
     flex-wrap: wrap;
     max-width: 580px;
     margin: 20px auto 50px;
-    //background-color: red;
     }
     .form-item {
     margin: 20px 0;

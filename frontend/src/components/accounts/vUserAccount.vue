@@ -45,28 +45,21 @@
             <input 
                 v-model="password" 
                 v-bind:placeholder="password" 
-                type="password" 
+                v-bind:type="[showPass ? 'text' : 'password']"
                 name="user-password"
-                v-show="!showPass"
             >
-            <a href="#" class="password-control" v-show="!showPass"></a>
-            <a href="#" class="password-control view" v-show="showPass"></a>
-            <input 
-                v-model="password" 
-                v-bind:placeholder="password" 
-                type="text" 
-                name="user-password"
-                v-show="showPass"
-            >
+            <a href="#" class="password-control"  @click="showPass = !showPass" v-bind:class="{view: showPass}"></a>
         </div>
         <div class="form-item">
             <h4>Повторите пароль</h4>
             <input 
                 v-model="passwordConfirm" 
                 v-bind:placeholder="passwordConfirm" 
-                type="password" 
+                v-bind:type="[showPassComf ? 'text' : 'password']"
                 name="user-password"
             >
+            <a href="#" class="password-control"  @click="showPassComf = !showPassComf" v-bind:class="{view: showPassComf}"></a>
+
         </div>
         <div v-if="successChange" class="success">Ваше данные успешно обновлены</div>
         <div v-if="errors.length" class="fails">
@@ -127,6 +120,8 @@ import modal from '../Animal/vModal.vue'
         modal
         },
     data: () => ({
+      showPass: false,
+      showPassComf: false,
       successChange: false,
       deleteAcc: false,
       errors: [],
@@ -161,6 +156,9 @@ import modal from '../Animal/vModal.vue'
         }
         if (!reLogin.test(this.userLogin)) {
           this.errors.push('Введите корректный логин: от 2 до 20 символов');
+        }
+        if (this.passwordConfirm !== this.password) {
+          this.errors.push('Пароли должны совпадать');
         }
         if (!this.errors.length) {
           this.successChange = true;
@@ -244,15 +242,19 @@ import modal from '../Animal/vModal.vue'
   }
  .password-control {
 	position: absolute;
-	top: 11px;
+	top: 35px;
 	right: 6px;
 	display: inline-block;
 	width: 20px;
 	height: 20px;
-	background: url('https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/Accounts/no-view.png') 0 0 no-repeat;
+  background-color: red;
+
+	background: url('https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/Accounts/eye-inactive.png');
+  background-size: cover;
 }
-.password-control view {
-	background: url('https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/Accounts/view.png') 0 0 no-repeat;
+.view {
+	background: url('https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/Accounts/eye.png');
+background-size: cover;
 }
 
 </style>
