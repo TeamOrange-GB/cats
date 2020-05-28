@@ -1,26 +1,28 @@
 <template>
     <section class="v-main">
         <vInfo/>
-        <vCatCatalog/>
-        <ArticlesBlock/>
+        <vCatCatalogHome/>
         <Sponsors/>
+        <vSponsorInfo/>
     </section>
 </template>
 
 <script>
+    import vSponsorInfo from "./vSponsorInfo";
     import vInfo from './vInfo'
-    import vCatCatalog from "../Catalog/vCatCatalog";
-    import ArticlesBlock from './vArticlesBlock.vue'
+    import vCatCatalogHome from "../Catalog/vCatCatalogHome";
+    import ArticlesBlock from './vArticlesInfo.vue'
     import Sponsors from './vSponsors.vue'
+
     export default {
+        name: "vMain",
         components:{
             vInfo,
-            vCatCatalog,
+            vCatCatalogHome,
             ArticlesBlock,
+            vSponsorInfo,
             Sponsors
-        },
-
-        name: "vMain"
+        }
     }
 </script>
 

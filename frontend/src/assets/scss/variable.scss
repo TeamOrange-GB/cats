@@ -7,6 +7,7 @@ $color-medium-gray: #373232;
 $color-gray: #333333;
 $color-dark-gray: #222;
 $color-black: #000;
+$color-light-red: #f54949;
 
 /** Alert color **/
 $color-alert: #fff5c3;
@@ -25,8 +26,10 @@ $padding: 20px;
 
 /** Buttons **/
 
-@mixin buttonSetting($wh, $ht, $clrBack, $clrBackTransition, $clrBorder){
-    transition: background-color 0.3s linear, border-color 0.3s linear;
+
+@mixin buttonSetting($wh, $ht, $clrBack, $clrBackTransition){
+    transition-duration: 0.3s;
+
     width: $wh;
     height: $ht;
     background-color: $clrBack;
@@ -39,6 +42,9 @@ $padding: 20px;
         background-color: $clrBackTransition;
         color: white;
         border: 2px solid $clrBackTransition;
+    }
+    &:active{
+        transform: scale(0.95);
     }
 }
 

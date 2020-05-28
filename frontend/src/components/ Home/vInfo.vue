@@ -1,20 +1,20 @@
 <template>
     <section class="v-info">
-        <transition name="v-transition-img">
+
+        <transition name="v-transition-info">
+
             <div class="v-info__img"
-            v-show="infoImgAnimate"
+            v-show="isAnimateStart"
             >
-                <img src="../../assets/image/Home/cats-home.jpg" alt="">
+                <img src="@/assets/image/Home/cats-home.jpg" alt="">
             </div>
         </transition>
-
         <div class="v-info__text">
             <h1>Онлайн выставка животных</h1>
             <p>Мы приветствуем Вас на странице нашего сервиса.
             Голосуйте за понравившихся питомцев, загружайте своих питомцев, участвуствуйте в выставке!</p>
-            <button class="v-info__btn">Принять участие</button>
+            <button class="btn">Принять участие</button>
         </div>
-
     </section>
 </template>
 
@@ -23,14 +23,14 @@
         name: "vHomeInfo",
         data(){
             return {
-                infoImgAnimate: false,
+                isAnimateStart: false,
             }
         },
-        methods: {
-
-        },
         mounted() {
-            this.infoImgAnimate = true;
+            let vm = this;
+            setTimeout(function(){
+                vm.isAnimateStart = true
+            }, 500)
         }
     }
 </script>
@@ -38,23 +38,26 @@
 <style lang="scss">
     .v-info {
         max-width: 1400px;
-        min-height: 750px;
+        // min-height: 750px;
         margin: 0 auto 80px;
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
+        padding: 0 50px;
+
         &__img {
-            min-width: 700px;
             margin-right: 40px;
             img {
+                max-width: 700px;
                 width: 100%;
             }
         }
         &__text {
-            min-width: 660px;
+            max-width: 660px;
             font-size: 20px;
             color: $color-gray;
             line-height: 1.5;
+            box-sizing: border-box;
             h1 {
                 margin: 0 0 40px;
                 font-family: $font-arimo;
@@ -68,11 +71,12 @@
                 margin-bottom: 50px;
             }
         }
+
         &__btn {
-            @include buttonSetting(200px, 60px, $color-cyan, $color-light-grey, $color-cyan);
+            
         }
     }
-    .v-transition-img {
+    .v-transition-info {
         &-enter {
             transform: translateX(-500px);
             opacity: 0;
@@ -85,5 +89,27 @@
         }
     }
 
+@media screen and (max-width: 650px) {
+    .v-info{
+
+        &__img{
+            display: none;
+        }
+        &__text {
+            h1 {
+                margin: 0 0 40px;
+                font-family: $font-arimo;
+                text-transform: uppercase;
+                color: $color-cyan;
+                font-size: 30px;
+                text-align: left;
+                line-height: 1.3;
+            }
+            p {
+                margin-bottom: 50px;
+            }
+        }
+    }
+}
 
 </style>

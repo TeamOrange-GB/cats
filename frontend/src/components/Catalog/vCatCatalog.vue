@@ -1,88 +1,86 @@
 <template>
     <section class="cat-catalog">
-        <div class="cat-catalog__filters">
-            <h3>Фильтры</h3>
-            <div
-                @click="toggleFilterList"
-                class="filter-breed"
-            >
-                <span class="filter-breed__text">Порода</span>
-                <img
-                    :class="{'filter-breed__arrow--rotate': isFilterListVisible}"
-                    class="filter-breed__arrow"
-                    src="@/assets/image/down.svg"
-                    alt=""
-                >
+        <h2 class="cat-catalog__title">Участники выставки</h2>
+        <div class="cat-catalog__list">
+            <div class="cat-catalog__filters">
+                <h3>Фильтры</h3>
                 <div
-                    v-if="isFilterListVisible"
-                    class="filter-breed__list"
+                    @click="toggleFilterList"
+                    class="filter-breed"
                 >
-                    <span>Порода 1</span>
-                    <span>Порода 2</span>
-                    <span>Порода 3</span>
-                    <span>Порода 4</span>
-                    <span>Порода 5</span>
-                    <span>Порода 6</span>
+                    <span class="filter-breed__text">Порода</span>
+                    <img
+                        :class="{'filter-breed__arrow--rotate': isFilterListVisible}"
+                        class="filter-breed__arrow"
+                        src="@/assets/image/down.svg"
+                        alt=""
+                    >
+                    <div
+                        v-if="isFilterListVisible"
+                        class="filter-breed__list"
+                    >
+                        <span>Порода 1</span>
+                        <span>Порода 2</span>
+                        <span>Порода 3</span>
+                        <span>Порода 4</span>
+                        <span>Порода 5</span>
+                        <span>Порода 6</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="filter-param">
-                <span>Параметр 1</span>
-                <label class="filter-checkbox__label">
-                    <input type="checkbox">
-                    <span></span>
-                </label>
-            </div>
-            <div class="filter-param">
-                <span>Параметр 2</span>
-                <label class="filter-checkbox__label">
-                    <input type="checkbox">
-                    <span></span>
-                </label>
-            </div>
-            <div class="filter-param">
-                <span>Параметр 3</span>
-                <label class="filter-checkbox__label">
-                    <input type="checkbox">
-                    <span></span>
-                </label>
-            </div>
-            <div class="filter-param">
-                <span>Параметр 4</span>
-                <label class="filter-checkbox__label">
-                    <input type="checkbox">
-                    <span></span>
-                </label>
-            </div>
-            <div class="filter-param">
-                <span>Параметр 5</span>
-                <label class="filter-checkbox__label">
-                    <input type="checkbox">
-                    <span></span>
-                </label>
-            </div>
+                <div class="filter-param">
+                    <span>Параметр 1</span>
+                    <label class="filter-checkbox__label">
+                        <input type="checkbox">
+                        <span></span>
+                    </label>
+                </div>
+                <div class="filter-param">
+                    <span>Параметр 2</span>
+                    <label class="filter-checkbox__label">
+                        <input type="checkbox">
+                        <span></span>
+                    </label>
+                </div>
+                <div class="filter-param">
+                    <span>Параметр 3</span>
+                    <label class="filter-checkbox__label">
+                        <input type="checkbox">
+                        <span></span>
+                    </label>
+                </div>
+                <div class="filter-param">
+                    <span>Параметр 4</span>
+                    <label class="filter-checkbox__label">
+                        <input type="checkbox">
+                        <span></span>
+                    </label>
+                </div>
+                <div class="filter-param">
+                    <span>Параметр 5</span>
+                    <label class="filter-checkbox__label">
+                        <input type="checkbox">
+                        <span></span>
+                    </label>
+                </div>
 
-        </div>
-        <div class="cat-catalog__gallery">
-            <vCatItem
-                v-for="i in 8"
-                :key="i"
+            </div>
+            <vCatGallery
+                :animalsNumber="10"
+                :isPaginationVisible="true"
             />
-            <div class="cat-catalog__pagination">
-                <span></span>
-            </div>
         </div>
     </section>
 </template>
 
 <script>
 
-    import vCatItem from "./vCatItem";
+    import vCatGallery from "./vCatGallery";
 
 export default {
     name: 'vCatCatalog',
     components: {
-        vCatItem
+        vCatGallery
     },
     data(){
         return{
@@ -98,9 +96,20 @@ export default {
 </script>
 <style lang="scss">
     .cat-catalog{
-        display: flex;
-        justify-content: space-between;
         margin-bottom: 60px;
+        &__title {
+            margin: 0 0 20px;
+            font-family: $font-arimo;
+            text-transform: uppercase;
+            color: $color-cyan;
+            font-size: 45px;
+            text-align: center;
+            line-height: 1.3;
+        }
+        &__list {
+            display: flex;
+            justify-content: space-between;
+        }
         &__filters{
             padding: 20px;
             display: flex;
@@ -116,15 +125,6 @@ export default {
         }
         &__gallery{
             flex-grow: 1;
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            &-item {
-                max-width: 320px;
-                margin: 20px;
-                position: relative;
-            }
         }
     }
 
@@ -165,6 +165,7 @@ export default {
                     display: block;
                     padding: 10px 10px;
                     transition: .2s;
+                    font-family: $font-arimo;
                     &:hover {
                         transition: .2s;
                         background: $color-cyan;
@@ -180,59 +181,8 @@ export default {
             align-items: center;
             margin-bottom: 20px;
             min-width: 200px;
-        }
-    }
-
-    .pet {
-        &__img {
-            width: 100%;
-        }
-        &-info {
-            min-height: 44px;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            &__item {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 0 20px;
-            }
-        }
-        &__name {
-            color: $color-white;
-            margin-left: 10px;
-        }
-        &__breed {
-            color: $color-white;
-            margin-left: 10px;
-        }
-        &__awards {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            &-item {
-                width: 38px;
-                height: 38px;
-                margin-bottom: 5px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background: rgba(0,0,0,0.5);
-                border-radius: 50%;
-                color: $color-cyan;
-                font-size: 30px;
-                img {
-                    width: 100%;
-                }
+            span{
+                font-family: $font-arimo;
             }
         }
     }

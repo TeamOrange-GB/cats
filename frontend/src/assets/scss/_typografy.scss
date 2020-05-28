@@ -2,6 +2,7 @@
  * {
      margin: 0;
      padding: 0;
+     box-sizing: border-box;
  }
 
 
@@ -62,5 +63,10 @@
     }
  }
 
+.btn {
+    @include buttonSetting(200px, 60px, $color-cyan, $color-light-grey);
+    line-height: 2;
+    font-size: 20px;
+}
 
 

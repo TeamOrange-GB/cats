@@ -3,15 +3,20 @@ import VueRouter from 'vue-router'
 
 //  Импортриуем сюда компоненты для роутинга
 
+
 import vPetCard from "../components/Animal/vPetCard";
 import vMain from "../components/ Home/vMain";
 import vRegistration from '../components/Registration/vRegistration';
 import vBreeder from '../components/Breeder/vBreeder';
 import vCatCatalog from '../components/Catalog/vCatCatalog.vue';
+
 import vAccount from '../components/accounts/vAccount';
 import vUserAccount from '../components/accounts/vUserAccount';
 import vSponsorAccount from '../components/accounts/vSponsorAccount';
 import vAddAnimal from '../components/Breeder/vAddAnimal';
+import vPersonalAccount from '../components/PersonalAccount/vPersonalAccount.vue'
+
+
 
 Vue.use(VueRouter);
 
@@ -68,6 +73,11 @@ const routes = [
         path: '/add-animal',
         name: 'AddAnimal',
         component: vAddAnimal,
+
+        path: '/personal-account',
+        name: 'vPersonalAccount',
+        component: vPersonalAccount,
+
         props: true
     },
 ];
@@ -76,6 +86,6 @@ const router = new VueRouter
 ({
     mode: 'history',
     routes
-})
+});
 
 export default router;
