@@ -8,10 +8,10 @@ module.exports = {
     },
     publicPath:
         process.env.NODE_ENV === 'production'
-            ? "public/"
+            ? "./"
             : './',
 
-    outputDir: '../public',
+    outputDir: '../public_html',
     indexPath:
         process.env.NODE_ENV === 'production'
             ? '../resources/views/index.blade.php'
