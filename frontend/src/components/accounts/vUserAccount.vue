@@ -5,21 +5,10 @@
         <div class="form-item">
             <h4>Изменить имя</h4>
             <input 
-                v-model="firstName" 
-                v-bind:placeholder="firstName" 
+                v-model="userName" 
+                v-bind:placeholder="userName" 
                 type="text" 
-                name="user-firstName"
-                minlength="2" maxlength="50"      
-            >
-        </div>
-        <div class="form-item">
-            <h4>Изменить фамилию</h4>
-            <input 
-                v-model="lastName" 
-                v-bind:placeholder="lastName" 
-                type="text" 
-                name="user-lastName"
-                minlength="2" maxlength="50"     
+                name="user-Name"   
             >
         </div>
         <div class="form-item">
@@ -125,12 +114,11 @@ import modal from '../Animal/vModal.vue'
       successChange: false,
       deleteAcc: false,
       errors: [],
-      firstName: 'Anna',
-      lastName: 'Puchkova',
+      userName: 'Anna Puchkova',
       email: 'puchkova.anne@gmail.com',
       userLogin: 'Newta',
-      password: null,
-      passwordConfirm: null,
+      password: '123456',
+      passwordConfirm: '123456',
     }),
     methods: {
       deleteAccount() {
@@ -138,18 +126,15 @@ import modal from '../Animal/vModal.vue'
       },
       checkForm(e) {
 
-        const reName = /^[A-zа-яА-ЯёЁ\s]+/;
+        const reName = /^[A-zа-яА-ЯёЁ\s]{2,20}$/;
         const rePhone = /(\+7|8)[- _]*\(?[- _]*(\d{3}[- _]*\)?([- _]*\d){7}|\d\d[- _]*\d\d[- _]*\)?([- _]*\d){6})/g;
         const reEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         const reLogin = /^[а-яА-ЯёЁa-zA-Z0-9-_\.]{2,20}$/;
 
         this.errors = [];
 
-        if (!reName.test(this.firstName)) {
-          this.errors.push('Введите корректное имя');
-        }
-        if (!reName.test(this.lastName)) {
-          this.errors.push('Введите корректную фамилию');
+        if (!reName.test(this.userName)) {
+          this.errors.push('Введите корректное имя: от 2 до 50 букв');
         }
         if (!reEmail.test(this.email)) {
           this.errors.push('Введите корректный email');
@@ -247,8 +232,6 @@ import modal from '../Animal/vModal.vue'
 	display: inline-block;
 	width: 20px;
 	height: 20px;
-  background-color: red;
-
 	background: url('https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/Accounts/eye-inactive.png');
   background-size: cover;
 }
