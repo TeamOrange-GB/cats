@@ -27,7 +27,7 @@ $padding: 20px;
 /** Buttons **/
 
 
-@mixin buttonSetting($wh, $ht, $clrBack, $clrBackTransition){
+@mixin buttonSetting($wh, $ht, $clrBack, $clrBackTransition, $clrBorder){
     transition-duration: 0.3s;
 
     width: $wh;

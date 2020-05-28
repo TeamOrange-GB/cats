@@ -64,7 +64,7 @@
  }
 
 .btn {
-    @include buttonSetting(200px, 60px, $color-cyan, $color-light-grey);
+    @include buttonSetting(200px, 60px, $color-cyan, $color-light-grey, 5px);
     line-height: 2;
     font-size: 20px;
 }
