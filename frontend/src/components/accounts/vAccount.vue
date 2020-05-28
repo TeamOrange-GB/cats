@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="user-wrapper">
-            <router-link :to="{name:'Breeder'}">
+            <router-link :to="{name:'AddAnimal'}">
             <a href="#" id="account-owner" class="user-block">                           
                 <h3>Стать Заводчиком</h3>
             </a>

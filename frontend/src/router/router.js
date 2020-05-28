@@ -11,6 +11,7 @@ import vCatCatalog from '../components/Catalog/vCatCatalog.vue';
 import vAccount from '../components/accounts/vAccount';
 import vUserAccount from '../components/accounts/vUserAccount';
 import vSponsorAccount from '../components/accounts/vSponsorAccount';
+import vAddAnimal from '../components/Breeder/vAddAnimal';
 
 Vue.use(VueRouter);
 
@@ -61,6 +62,12 @@ const routes = [
         path: '/sponsor-account',
         name: 'SponsorAccount',
         component: vSponsorAccount,
+        props: true
+    },
+    {
+        path: '/add-animal',
+        name: 'AddAnimal',
+        component: vAddAnimal,
         props: true
     },
 ];
