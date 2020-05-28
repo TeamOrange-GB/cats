@@ -33,10 +33,12 @@
                 <router-link :to="{name:'Registration'}" class="header-navigation__link">
                    Регистрация
                 </router-link>
+                <router-link :to="{name:'Account'}" class="header-navigation__link">
+                  ЛК пользователя
+                </router-link>
             </nav>
         </transition>
     </div>
-
 </section>
 </template>
 

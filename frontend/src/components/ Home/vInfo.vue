@@ -71,6 +71,10 @@
                 margin-bottom: 50px;
             }
         }
+
+        &__btn {
+            
+        }
     }
     .v-transition-info {
         &-enter {
