@@ -1,6 +1,8 @@
 <template>
     <section class="v-info">
+
         <transition name="v-transition-info">
+
             <div class="v-info__img"
             v-show="isAnimateStart"
             >
@@ -36,11 +38,13 @@
 <style lang="scss">
     .v-info {
         max-width: 1400px;
-        min-height: 750px;
+        // min-height: 750px;
         margin: 0 auto 80px;
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        padding: 0 50px;
+
         &__img {
             margin-right: 40px;
             img {
@@ -53,6 +57,7 @@
             font-size: 20px;
             color: $color-gray;
             line-height: 1.5;
+            box-sizing: border-box;
             h1 {
                 margin: 0 0 40px;
                 font-family: $font-arimo;
@@ -80,5 +85,27 @@
         }
     }
 
+@media screen and (max-width: 650px) {
+    .v-info{
+
+        &__img{
+            display: none;
+        }
+        &__text {
+            h1 {
+                margin: 0 0 40px;
+                font-family: $font-arimo;
+                text-transform: uppercase;
+                color: $color-cyan;
+                font-size: 30px;
+                text-align: left;
+                line-height: 1.3;
+            }
+            p {
+                margin-bottom: 50px;
+            }
+        }
+    }
+}
 
 </style>

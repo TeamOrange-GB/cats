@@ -13,6 +13,7 @@
         </div>
     </section>
 </template>
+
 <style lang="scss">
     .sponsors{
         padding: 50px;
