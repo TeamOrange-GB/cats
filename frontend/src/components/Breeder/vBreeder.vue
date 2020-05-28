@@ -40,9 +40,6 @@
       city: "Москва",
       addInfo: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus ullam animi tempore obcaecati officiis incidunt? Deleniti reprehenderit fugiat temporibus vitae harum optio nulla assumenda cum quidem ab iste facilis quam libero doloremque id pariatur at sapiente, unde dolorem aut quas nemo? Natus doloribus laudantium nihil consequuntur ducimus quibusdam sed repudiandae.",
     }),
-    computed: {
-
-    },
   }
 </script>
 
@@ -65,7 +62,7 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    margin-bottom: 50px;    
+    margin-bottom: 50px;
   }
 
   .breeder__info {

@@ -28,7 +28,9 @@
         flex-wrap: wrap;
         margin-bottom: 50px;
         .article{
-            flex-basis: 30%;
+            max-width: 500px;
+            width: 100%;
+            // flex-basis: 30%;
             padding: 20px;
             margin: 10px;
             img {
