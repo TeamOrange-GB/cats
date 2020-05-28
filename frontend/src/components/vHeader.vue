@@ -13,30 +13,32 @@
         </svg>
         <transition name=fade>
             <nav class="header-navigation__list" v-show="show"  :style="{ width: widthDevice + 'px' }">
-                <router-link :to="{name:'Main'}" class="header-navigation__list__link">
-                    <a  href="">Главная</a>
+                <router-link :to="{name:'Main'}" class="header-navigation__link">
+                   Главная
                 </router-link>
 
-                <router-link :to="{name:'vCatCatalog'}" class="header-navigation__list__link">
-                    <a  href="">Котики</a>
+                <router-link :to="{name:'vCatCatalog'}" class="header-navigation__link">
+                    Котики
                 </router-link>
-                
-                <a class="header-navigation__list__link" href="#">Выставки</a>
-                <a class="header-navigation__list__link" href="#">О нас</a>
-                <a class="header-navigation__list__link" href="#">Контакты</a>
-                <router-link :to="{name:'PetCard'}" class="header-navigation__list__link">
-                    <a href="">PetCard</a>
+
+                <a class="header-navigation__link" href="#">Выставки</a>
+                <a class="header-navigation__link" href="#">О нас</a>
+                <a class="header-navigation__link" href="#">Контакты</a>
+                <router-link :to="{name:'PetCard'}" class="header-navigation__link">
+                    PetCard
                 </router-link>
-                <router-link :to="{name:'Breeder'}" class="header-navigation__list__link">
-                    <a href="">BreederCard</a>
+                <router-link :to="{name:'Breeder'}" class="header-navigation__link">
+                  BreederCard
                 </router-link>
-                <router-link :to="{name:'Registration'}" class="header-navigation__list__link">
-                    <a href="">Регистрация</a>
+                <router-link :to="{name:'Registration'}" class="header-navigation__link">
+                   Регистрация
+                </router-link>
+                <router-link :to="{name:'Account'}" class="header-navigation__link">
+                  ЛК пользователя
                 </router-link>
             </nav>
         </transition>
     </div>
-    
 </section>
 </template>
 
@@ -80,7 +82,7 @@
         }
     }
     .header-navigation{
-        
+
         width: 100%;
         &__burger-menu{
             display: none;
@@ -91,7 +93,7 @@
             }
         }
         &__list{
-            
+
             padding: 10px 50px;
             background-color:$color-smoke;
             margin-top: 20px;
@@ -100,12 +102,11 @@
             align-items: center;
             box-sizing: border-box;
             flex-wrap: wrap;
-            &__link{
-                margin: 0 15px;
-                font-size: $font-size;
-                font-family: $font-montserrat;
-            }
-    
+        }
+        &__link{
+            margin: 0 15px;
+            font-size: $font-size;
+            font-family: $font-montserrat;
         }
     }
     .fade-enter-active, .fade-leave-active {
@@ -114,7 +115,8 @@
     .fade-enter, .fade-leave-to{
         opacity: 0;
     }
-    
+
+
 
 @media screen and (max-width: 650px) {
     .header{
@@ -148,5 +150,6 @@
             }
         }
     }
+
 }
 </style>

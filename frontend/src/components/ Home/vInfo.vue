@@ -1,20 +1,20 @@
 <template>
     <section class="v-info">
-        <transition name="v-transition-img" class="transition-img">
+
+        <transition name="v-transition-info">
+
             <div class="v-info__img"
-            v-show="infoImgAnimate"
+            v-show="isAnimateStart"
             >
-                <img src="../../assets/image/Home/cats-home.jpg" alt="">
+                <img src="@/assets/image/Home/cats-home.jpg" alt="">
             </div>
         </transition>
-
         <div class="v-info__text">
             <h1>Онлайн выставка животных</h1>
             <p>Мы приветствуем Вас на странице нашего сервиса.
             Голосуйте за понравившихся питомцев, загружайте своих питомцев, участвуствуйте в выставке!</p>
-            <button class="v-info__btn">Принять участие</button>
+            <button class="btn">Принять участие</button>
         </div>
-
     </section>
 </template>
 
@@ -23,14 +23,14 @@
         name: "vHomeInfo",
         data(){
             return {
-                infoImgAnimate: false,
+                isAnimateStart: false,
             }
         },
-        methods: {
-
-        },
         mounted() {
-            this.infoImgAnimate = true;
+            let vm = this;
+            setTimeout(function(){
+                vm.isAnimateStart = true
+            }, 500)
         }
     }
 </script>
@@ -41,20 +41,19 @@
         // min-height: 750px;
         margin: 0 auto 80px;
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
         padding: 0 50px;
-        
+
         &__img {
-            min-width: 700px;
             margin-right: 40px;
             img {
+                max-width: 700px;
                 width: 100%;
             }
         }
         &__text {
             max-width: 660px;
-            width: 100%;
             font-size: 20px;
             color: $color-gray;
             line-height: 1.5;
@@ -72,11 +71,12 @@
                 margin-bottom: 50px;
             }
         }
+
         &__btn {
-            @include buttonSetting(200px, 60px, $color-cyan, $color-light-grey);
+            
         }
     }
-    .v-transition-img {
+    .v-transition-info {
         &-enter {
             transform: translateX(-500px);
             opacity: 0;
@@ -91,7 +91,7 @@
 
 @media screen and (max-width: 650px) {
     .v-info{
-        
+
         &__img{
             display: none;
         }
