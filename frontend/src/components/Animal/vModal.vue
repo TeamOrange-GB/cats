@@ -118,7 +118,7 @@
         if (!rePhone.test(this.phone)) {
           this.errors.push('Введите корректный номер');
         }
-        if (!reEmail.test(this.email)) {
+        if (!reEmail.test(this.email) && this.email !== null) {
           this.errors.push('Введите корректный email');
         }
         if (!this.errors.length) {

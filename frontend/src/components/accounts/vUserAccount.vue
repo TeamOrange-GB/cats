@@ -1,5 +1,5 @@
 <template>
-<section class="main">
+<section class="main-UserAccount">
     <h3>Личный кабинет</h3>
     <form  id="userDataForm">
         <div class="form-item">
@@ -23,6 +23,15 @@
             >
         </div>
         <div class="form-item">
+            <h4>Изменить логин</h4>
+            <input 
+                v-model="userLogin" 
+                v-bind:placeholder="userLogin" 
+                type="text" 
+                name="user-userLogin"   
+            >
+        </div>
+        <div class="form-item">
             <h4>Изменить email</h4>
             <input 
                 v-model="email" 
@@ -38,13 +47,23 @@
                 v-bind:placeholder="password" 
                 type="password" 
                 name="user-password"
+                v-show="!showPass"
+            >
+            <a href="#" class="password-control" v-show="!showPass"></a>
+            <a href="#" class="password-control view" v-show="showPass"></a>
+            <input 
+                v-model="password" 
+                v-bind:placeholder="password" 
+                type="text" 
+                name="user-password"
+                v-show="showPass"
             >
         </div>
         <div class="form-item">
             <h4>Повторите пароль</h4>
             <input 
-                v-model="password" 
-                v-bind:placeholder="password" 
+                v-model="passwordConfirm" 
+                v-bind:placeholder="passwordConfirm" 
                 type="password" 
                 name="user-password"
             >
@@ -114,22 +133,21 @@ import modal from '../Animal/vModal.vue'
       firstName: 'Anna',
       lastName: 'Puchkova',
       email: 'puchkova.anne@gmail.com',
-      login: 'Newta',
+      userLogin: 'Newta',
       password: null,
+      passwordConfirm: null,
     }),
     methods: {
       deleteAccount() {
           this.deleteAcc = true;
-      },
-      sent() {
-        this.successChange = true;
       },
       checkForm(e) {
 
         const reName = /^[A-zа-яА-ЯёЁ\s]+/;
         const rePhone = /(\+7|8)[- _]*\(?[- _]*(\d{3}[- _]*\)?([- _]*\d){7}|\d\d[- _]*\d\d[- _]*\)?([- _]*\d){6})/g;
         const reEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        
+        const reLogin = /^[а-яА-ЯёЁa-zA-Z0-9-_\.]{2,20}$/;
+
         this.errors = [];
 
         if (!reName.test(this.firstName)) {
@@ -140,6 +158,9 @@ import modal from '../Animal/vModal.vue'
         }
         if (!reEmail.test(this.email)) {
           this.errors.push('Введите корректный email');
+        }
+        if (!reLogin.test(this.userLogin)) {
+          this.errors.push('Введите корректный логин: от 2 до 20 символов');
         }
         if (!this.errors.length) {
           this.successChange = true;
@@ -153,13 +174,13 @@ import modal from '../Animal/vModal.vue'
 </script>
 
 <style lang="scss">
-    .main {
+    .main-UserAccount {
         max-width: 580px;
         margin: 20px auto 50px;
-        box-sizing: border-box;
     }
     .form-item {
     margin: 20px 0;
+    position: relative;
   }
   .form-item input {
     border-radius: 5px;
@@ -221,6 +242,17 @@ import modal from '../Animal/vModal.vue'
     font: 16px/1.5em Arimo,sans-serif;
     border-radius: 5px;
   }
- 
+ .password-control {
+	position: absolute;
+	top: 11px;
+	right: 6px;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url('https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/Accounts/no-view.png') 0 0 no-repeat;
+}
+.password-control view {
+	background: url('https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/Accounts/view.png') 0 0 no-repeat;
+}
 
 </style>

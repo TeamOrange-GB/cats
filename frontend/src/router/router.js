@@ -8,8 +8,9 @@ import vMain from "../components/ Home/vMain";
 import vRegistration from '../components/Registration/vRegistration';
 import vBreeder from '../components/Breeder/vBreeder';
 import vCatCatalog from '../components/Catalog/vCatCatalog.vue';
-import vUserAccount from '../components/accounts/vUserAccount';
 import vAccount from '../components/accounts/vAccount';
+import vUserAccount from '../components/accounts/vUserAccount';
+import vSponsorAccount from '../components/accounts/vSponsorAccount';
 
 Vue.use(VueRouter);
 
@@ -54,6 +55,12 @@ const routes = [
         path: '/account',
         name: 'Account',
         component: vAccount,
+        props: true
+    },
+    {
+        path: '/sponsor-account',
+        name: 'SponsorAccount',
+        component: vSponsorAccount,
         props: true
     },
 ];
