@@ -43,7 +43,7 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        padding: 0 50px;
+        //padding: 0 50px;
 
         &__img {
             margin-right: 40px;
@@ -108,6 +108,9 @@
             p {
                 margin-bottom: 50px;
             }
+        }
+        .btn{
+            margin: 0 auto;
         }
     }
 }

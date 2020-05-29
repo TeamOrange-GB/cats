@@ -89,5 +89,15 @@
             transform: translateX(-500px);
         }
     }
+    @media screen and (max-width: 650px){
+        .sponsor-info__img{
+            display: none;
+        }
+        .sponsor-info__text{
+            .btn{
+                margin: 0 auto;
+            }
+        }
+    }
 
 </style>
