@@ -1,16 +1,57 @@
-$color: #666;
-
 //*** Buttons and fonts colors ***//
-$cyan: #49bcab;
-$white: #ffffff;
-$smoke: #f5f5f5;
-$light-grey: #777;
-$medium-gray: #373232;
-$gray: #333333;
-$dark-gray: #222;
-$black: #000;
+$color-cyan: #49bcab;
+$color-white: #ffffff;
+$color-smoke: #f5f5f5;
+$color-light-grey: #757575;
+$color-medium-gray: #373232;
+$color-gray: #333333;
+$color-dark-gray: #222;
+$color-black: #000;
+$color-light-red: #f54949;
 
 /** Alert color **/
-$alert-color: #fff5c3;
-$alert-border: #edd870;
-$alert-text: #85741f;
+$color-alert: #fff5c3;
+$color-border-alert: #edd870;
+$color-text-alert: #85741f;
+
+/** font and size **/
+$font-montserrat: 'MontserratRegular', sans-serif;
+$font-arimo: 'arimo', sans-serif;
+$font-size: 16px;
+$font-arimo: 'arimo', sans-serif;
+/** Margin & Padding **/
+
+$margin: 20px;
+$padding: 20px;
+
+/** Buttons **/
+
+
+@mixin buttonSetting($wh, $ht, $BasicColor1, $BasicColor2 ){
+    padding: 0;
+    transition-duration: 0.2s;
+    width: $wh;
+    height: $ht;
+    background-color: $BasicColor1;
+    border: 2px solid $BasicColor2;
+    outline: none;
+    border-radius: 5px;
+    font-weight: bold;
+    color: $BasicColor2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 2;
+    font-size: 20px;
+    &:hover{
+        background-color: $BasicColor2;
+        color: $BasicColor1;
+        //border-color: $BasicColor1;
+    }
+    &:active{
+        transform: scale(0.97);
+    }
+}
+
+
+
