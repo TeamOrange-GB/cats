@@ -73,11 +73,11 @@ const routes = [
         path: '/add-animal',
         name: 'AddAnimal',
         component: vAddAnimal,
-
+    },
+    {
         path: '/personal-account',
         name: 'PersonalAccount',
         component: vPersonalAccount,
-
         props: true
     },
 ];
