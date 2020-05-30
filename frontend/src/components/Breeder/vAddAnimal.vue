@@ -20,7 +20,6 @@
                             name="animal-Breed"   
                         >
                     </div>
-                    </div>
                     <div class="form-item">
                         <h4>Дата рождения</h4>
                         <input 
@@ -94,7 +93,7 @@
 
 <script>
 export default {
-    name: 'vAddAnimal',
+    name: 'AddAnimal',
     data: () => ({
         isFilterListVisible: false,
         animalName: null,
