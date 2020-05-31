@@ -27,24 +27,29 @@ $padding: 20px;
 /** Buttons **/
 
 
-@mixin buttonSetting($wh, $ht, $clrBack, $clrBackTransition){
-    transition-duration: 0.3s;
-
+@mixin buttonSetting($wh, $ht, $BasicColor1, $BasicColor2 ){
+    padding: 0;
+    transition-duration: 0.2s;
     width: $wh;
     height: $ht;
-    background-color: $clrBack;
-    border: 2px solid $clrBorder;
+    background-color: $BasicColor1;
+    border: 2px solid $BasicColor2;
     outline: none;
     border-radius: 5px;
     font-weight: bold;
-    color: $color-white;
+    color: $BasicColor2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 2;
+    font-size: 20px;
     &:hover{
-        background-color: $clrBackTransition;
-        color: white;
-        border: 2px solid $clrBackTransition;
+        background-color: $BasicColor2;
+        color: $BasicColor1;
+        //border-color: $BasicColor1;
     }
     &:active{
-        transform: scale(0.95);
+        transform: scale(0.97);
     }
 }
 

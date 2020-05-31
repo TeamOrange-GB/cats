@@ -1,6 +1,7 @@
 export default {
     SET_CATALOG_TO_STATE: (state, catalog) => {
         let array = catalog;
+        console.log(array);
         array.forEach(function(item,i){
             if(item.gender === 'male'){
                 item.gender = 'male.svg'

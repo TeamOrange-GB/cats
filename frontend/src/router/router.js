@@ -13,7 +13,7 @@ import vCatCatalog from '../components/Catalog/vCatCatalog.vue';
 import vAccount from '../components/accounts/vAccount';
 import vUserAccount from '../components/accounts/vUserAccount';
 import vSponsorAccount from '../components/accounts/vSponsorAccount';
-import vAddAnimal from '../components/Breeder/vAddAnimal';
+import vAddAnimal from '../components/Breeder/vAddAnimal.vue';
 import vPersonalAccount from '../components/PersonalAccount/vPersonalAccount.vue'
 
 
@@ -73,11 +73,11 @@ const routes = [
         path: '/add-animal',
         name: 'AddAnimal',
         component: vAddAnimal,
-
+    },
+    {
         path: '/personal-account',
-        name: 'vPersonalAccount',
+        name: 'PersonalAccount',
         component: vPersonalAccount,
-
         props: true
     },
 ];
