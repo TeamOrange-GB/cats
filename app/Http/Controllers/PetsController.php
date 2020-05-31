@@ -17,9 +17,9 @@ class PetsController extends Controller
     ->join('breeds', 'pets.breed_id', '=', 'breeds.id')
     ->join('species', 'pets.species_id', '=', 'species.id')
     ->get();
-    dump($pets);
-    return File::put(storage_path() . '/pets.json', json_encode($pets, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
-
-
+    //dump($pets);
+    //return File::put(storage_path() . '/pets.json', json_encode($pets, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+    $petsJSON = json_encode($pets, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+    return response($petsJSON);
     }
 }
