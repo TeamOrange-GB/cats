@@ -10,6 +10,12 @@ import vRegistration from '../components/Registration/vRegistration';
 import vBreeder from '../components/Breeder/vBreeder';
 import vCatCatalog from '../components/Catalog/vCatCatalog.vue';
 
+import vAccount from '../components/accounts/vAccount';
+import vUserAccount from '../components/accounts/vUserAccount';
+import vSponsorAccount from '../components/accounts/vSponsorAccount';
+import vAddAnimal from '../components/Breeder/vAddAnimal.vue';
+import vPersonalAccount from '../components/PersonalAccount/vPersonalAccount.vue'
+
 
 
 Vue.use(VueRouter);
@@ -43,6 +49,35 @@ const routes = [
         path: '/cat-catalog',
         name: 'vCatCatalog',
         component: vCatCatalog,
+        props: true
+    },
+    {
+        path: '/user-account',
+        name: 'UserAccount',
+        component: vUserAccount,
+        props: true
+    },
+    {
+        path: '/account',
+        name: 'Account',
+        component: vAccount,
+        props: true
+    },
+    {
+        path: '/sponsor-account',
+        name: 'SponsorAccount',
+        component: vSponsorAccount,
+        props: true
+    },
+    {
+        path: '/add-animal',
+        name: 'AddAnimal',
+        component: vAddAnimal,
+    },
+    {
+        path: '/personal-account',
+        name: 'PersonalAccount',
+        component: vPersonalAccount,
         props: true
     },
 ];

@@ -4,66 +4,26 @@
         <div class="cat-catalog__list">
             <div class="cat-catalog__filters">
                 <h3>Фильтры</h3>
-                <div
-                    @click="toggleFilterList"
-                    class="filter-breed"
-                >
-                    <span class="filter-breed__text">Порода</span>
-                    <img
-                        :class="{'filter-breed__arrow--rotate': isFilterListVisible}"
-                        class="filter-breed__arrow"
-                        src="@/assets/image/down.svg"
-                        alt=""
-                    >
-                    <div
-                        v-if="isFilterListVisible"
-                        class="filter-breed__list"
-                    >
-                        <span>Порода 1</span>
-                        <span>Порода 2</span>
-                        <span>Порода 3</span>
-                        <span>Порода 4</span>
-                        <span>Порода 5</span>
-                        <span>Порода 6</span>
+                <div class="cat-catalog__filters-list">
+                    <vFilterSelect
+
+                    />
+
+                    <div class="filter-param">
+                        <span>По лайкам</span>
+                        <label class="filter-checkbox__label">
+                            <input type="checkbox">
+                            <span></span>
+                        </label>
+                    </div>
+                    <div class="filter-param">
+                        <span>По дате добавления</span>
+                        <label class="filter-checkbox__label">
+                            <input type="checkbox">
+                            <span></span>
+                        </label>
                     </div>
                 </div>
-
-                <div class="filter-param">
-                    <span>Параметр 1</span>
-                    <label class="filter-checkbox__label">
-                        <input type="checkbox">
-                        <span></span>
-                    </label>
-                </div>
-                <div class="filter-param">
-                    <span>Параметр 2</span>
-                    <label class="filter-checkbox__label">
-                        <input type="checkbox">
-                        <span></span>
-                    </label>
-                </div>
-                <div class="filter-param">
-                    <span>Параметр 3</span>
-                    <label class="filter-checkbox__label">
-                        <input type="checkbox">
-                        <span></span>
-                    </label>
-                </div>
-                <div class="filter-param">
-                    <span>Параметр 4</span>
-                    <label class="filter-checkbox__label">
-                        <input type="checkbox">
-                        <span></span>
-                    </label>
-                </div>
-                <div class="filter-param">
-                    <span>Параметр 5</span>
-                    <label class="filter-checkbox__label">
-                        <input type="checkbox">
-                        <span></span>
-                    </label>
-                </div>
-
             </div>
             <vCatGallery
                 :animalsNumber="10"
@@ -76,21 +36,13 @@
 <script>
 
     import vCatGallery from "./vCatGallery";
+    import vFilterSelect from "./vFilterSelect";
 
 export default {
     name: 'vCatCatalog',
     components: {
-        vCatGallery
-    },
-    data(){
-        return{
-            isFilterListVisible:false
-        }
-    },
-    methods: {
-        toggleFilterList(){
-            this.isFilterListVisible = !this.isFilterListVisible
-        }
+        vCatGallery,
+        vFilterSelect
     }
 }
 </script>
@@ -109,18 +61,20 @@ export default {
         &__list {
             display: flex;
             justify-content: space-between;
+            flex-direction: column;
         }
         &__filters{
             padding: 20px;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            min-width: 340px;
-            border-right: 1px solid $color-cyan;
+            border-bottom: 1px solid $color-cyan;
             h3 {
-                color: $color-light-grey;
+                color: $color-cyan;
                 text-align: center;
                 margin-bottom: 40px;
+            }
+            &-list {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
         }
         &__gallery{
@@ -129,57 +83,15 @@ export default {
     }
 
     .filter {
-        &-breed {
-            color: $color-light-grey;
-            border: 1px solid $color-light-grey;
-            padding: 10px;
-            min-width: 200px;
-            min-height: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            cursor: pointer;
-            margin-bottom: 40px;
-            &__text {
-
-            }
-            &__arrow {
-                width: 16px;
-                height: 16px;
-                transition: .5s;
-                &--rotate {
-                    transition: .5s;
-                    transform: rotate(180deg);
-                }
-            }
-            &__list {
-                position: absolute;
-                top: 45px;
-                left: 0;
-                z-index: 10;
-                background: $color-white;
-                width: 220px;
-                border: 1px solid $color-light-grey;
-                span {
-                    display: block;
-                    padding: 10px 10px;
-                    transition: .2s;
-                    &:hover {
-                        transition: .2s;
-                        background: $color-cyan;
-                        color: $color-white;
-                    }
-                }
-            }
-        }
         &-param {
             color: $color-light-grey;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            min-width: 200px;
+            span{
+                font-family: $font-arimo;
+                margin-right: 10px;
+            }
         }
     }
 
@@ -205,7 +117,7 @@ export default {
                 margin-top: -10px;
                 width: 44px;
                 border-radius: 20px;
-                background: #BFBFBF;
+                background: white;
                 box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
             }
             &::after{
@@ -213,7 +125,7 @@ export default {
                 height: 16px;
                 width: 16px;
                 margin-top: -7px;
-                background: $color-white;
+                background: $color-cyan;
                 border-radius: 50%;
             }
 
@@ -233,6 +145,7 @@ export default {
         }
         input:checked + span:after {
             left: 24px;
+            background-color: white;
         }
     }
 

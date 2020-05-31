@@ -49,4 +49,11 @@
             }
         }
     }
+    @media screen and (max-width: 650px){
+        .catalog-home{
+            &__title{
+                font-size: 30px;
+            }
+        }
+    }
 </style>

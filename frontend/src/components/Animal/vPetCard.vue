@@ -20,14 +20,33 @@
                 <div class="petcard-content__docs">
                     <h3>Документы</h3>
                     <h4>Ветпаспорт</h4>
-                    <a href="#"><img :src="vetPassImg" alt="vet-passport"></a>
+                    <a href="#"><img :src="vetPassImg" alt="vet-passport" tabindex="0"></a>
                     <h4>Титульный сертификат</h4>
-                    <a href="#"><img :src="titulImg" alt="titul"></a>
+                    <a href="#"><img :src="titulImg" alt="titul" tabindex="0"></a>
                 </div>
             </div>
             <div class="petcard-content__gallery">
                 <div class="petcard-content__mainphoto">
                     <a href="#"><img :src="mainImg" alt="Maine-Coon"></a>
+                    <div class="petcard-content__icons">
+                        <a href="#" class="shareLink">Поделиться</a>
+                        <a href="#" class="matchLink"  @click="showInviteMatch = true">Пригласить на вязку</a>
+                            <modal v-if="showInviteMatch" 
+                                   @close="showInviteMatch = false" 
+                                    >
+                                    <h3 slot="header">Приглашение на вязку</h3>  
+                                    <div slot="link">      
+                                        <h4>Ссылка на страницу вашего животного</h4>
+                                        <input placeholder="Введите вашу ссылку" v-model="link">
+                                    </div>            
+                            </modal>
+                        <a href="#" class="kittenLink" @click="showRequestKitten = true">Купить котенка</a>
+                            <modal v-if="showRequestKitten" 
+                                   @close="showRequestKitten = false"
+                                   >
+                                    <h3 slot="header">Я хочу купить котенка</h3>                       
+                            </modal>
+                    </div>
                 </div>
                     <gallery />
 
@@ -37,12 +56,19 @@
 </template>
 
 <script>
-import gallery from './vGallery.vue'
+import gallery from './vGallery.vue';
+import modal from './vModal.vue'
 
 export default {
     name: 'vPetCard',
-    components: {gallery},
+    components: {
+        gallery,
+        modal
+        },
     data: () => ({
+        showRequestKitten: false,
+        showInviteMatch: false,
+
         petName: 'Василий',
         breed: 'maine coon',
         birthDate: '2019-05-21',
@@ -109,16 +135,67 @@ export default {
         margin: 0 0 20px 0;
     }
     &__mainphoto {
+        position: relative;
         img{
             width: 750px;
             height: 470px;
             margin: 0;
             object-fit: cover;
         }
+        
+    }
+    &__icons {
+        position: absolute;
+        width: 750px;
+        height: 50px;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+        box-sizing: border-box;
+        a {
+            color: $color-white;
+            font-size: 20px;
+        }
+        a::before {
+            margin: 0 5px 0 0;
+        }
+        .shareLink::before {
+            content: "\27A4";
+        }
+        .kittenLink::before {
+            content: "\1F6D2";
+        }
+        .matchLink::before {
+            content: "\262F";
+        }
     }
 
-
 }
-
+img[tabindex="0"] {
+  cursor: zoom-in;
+}
+img[tabindex="0"]:focus {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: auto;
+  height: auto;
+  max-width: 99%;
+  max-height: 99%;
+  margin: auto;
+  box-shadow: 0 0 20px #000, 0 0 0 1000px rgba(210,210,210,.4);
+}
+img[tabindex="0"]:focus,  /* убрать строку, если не нужно, чтобы при клике на увеличенное фото, оно возвращалось в исходное состояние */
+img[tabindex="0"]:focus ~ * {
+  pointer-events: none;
+  cursor: zoom-out;
+}
 
 </style>
