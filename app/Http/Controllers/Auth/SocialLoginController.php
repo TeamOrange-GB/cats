@@ -6,7 +6,6 @@ use App\Adaptors\SocialAdaptor as Adaptor;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Socialite;
-use App\Adaptors\SocialAdaptor;
 use Illuminate\Support\Facades\Auth;
 
 
