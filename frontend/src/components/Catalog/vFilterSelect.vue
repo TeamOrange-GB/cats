@@ -43,8 +43,8 @@
 <style lang="scss">
     .filter{
         &-breed {
-            color: $color-light-grey;
-            border: 1px solid $color-light-grey;
+            color: $color-cyan;
+            border: 1px solid $color-cyan;
             padding: 10px;
             min-width: 200px;
             min-height: 20px;
@@ -72,7 +72,7 @@
                 z-index: 10;
                 background: $color-white;
                 width: 220px;
-                border: 1px solid $color-light-grey;
+                border: 1px solid $color-cyan;
 
                 span {
                     display: block;
