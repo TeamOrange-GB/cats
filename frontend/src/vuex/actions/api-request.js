@@ -15,14 +15,30 @@ export default {
                 return error;
             })
     },
-    SENDING_REGISTRATION_DATA_IN_API({commit}, result) {
-        return axios ('/api/login', {
+    SENDING_AUTH_DATA_IN_API({commit}, result) {
+        return axios ('/api/register', {
             method: "POST",
             data: result
         })
             .then((response) => {
                 commit('SET_REGISTRATION_DATA_IN_API', response.data);
                 return response;
+            })
+            .catch((error) => {
+                console.log(error);
+                return error;
+            })
+    },
+    SENDING_REGISTRATION_DATA_IN_API(name, email, password, conf_pass) {
+        return axios ('/api/register', {
+            method: "POST",
+            name: name,
+            email: email,
+            password: password,
+            password_confirmation: conf_pass
+        })
+            .then((response) => {
+                console.log(response)
             })
             .catch((error) => {
                 console.log(error);
