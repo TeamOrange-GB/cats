@@ -14,6 +14,8 @@
     import ArticlesBlock from './vArticlesInfo.vue'
     import Sponsors from './vSponsors.vue'
 
+    import {mapActions} from 'vuex'
+
     export default {
         name: "vMain",
         components:{
@@ -22,7 +24,16 @@
             ArticlesBlock,
             vSponsorInfo,
             Sponsors
+        },
+        methods: {
+            ...mapActions([
+                'FIRST_USER_LOGIN'
+            ])
+        },
+        mounted() {
+            this.FIRST_USER_LOGIN()
         }
+
     }
 </script>
 
