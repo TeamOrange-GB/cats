@@ -3,7 +3,7 @@
         @click="toggleFilterList"
         class="filter-breed"
     >
-        <span class="filter-breed__text">Дополнительные фильтры</span>
+        <span class="filter-breed__text">Порода</span>
         <img
             :class="{'filter-breed__arrow--rotate': isFilterListVisible}"
             class="filter-breed__arrow"
@@ -43,10 +43,10 @@
 <style lang="scss">
     .filter{
         &-breed {
-            color: $color-cyan;
-            border: 1px solid $color-cyan;
+            color: $color-light-grey;
+            border: 1px solid $color-light-grey;
             padding: 10px;
-            min-width: 250px;
+            min-width: 200px;
             min-height: 20px;
             display: flex;
             justify-content: space-between;
@@ -71,8 +71,8 @@
                 left: 0;
                 z-index: 10;
                 background: $color-white;
-                width: 250px;
-                border: 1px solid $color-cyan;
+                width: 220px;
+                border: 1px solid $color-light-grey;
 
                 span {
                     display: block;
