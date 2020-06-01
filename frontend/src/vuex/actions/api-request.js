@@ -30,7 +30,7 @@ export default {
             })
     },
     FIRST_USER_LOGIN(){
-        return axios('/api/user', {
+        return axios('http://cats.xyz/api/user', {
             method: "GET"
         })
             .then((response)=> {

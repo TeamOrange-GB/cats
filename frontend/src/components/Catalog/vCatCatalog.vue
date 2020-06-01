@@ -84,7 +84,7 @@ export default {
 
     .filter {
         &-param {
-            color: $color-light-grey;
+            color: $color-cyan;
             display: flex;
             justify-content: space-between;
             align-items: center;

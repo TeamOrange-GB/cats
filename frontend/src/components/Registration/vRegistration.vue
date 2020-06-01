@@ -3,9 +3,7 @@
     <h1 class="reg-title">Регистрация</h1>
       <div class="reg-form">
         <input v-model="name_var" class="reg-form__text" type="text" name="name" placeholder="Ваше имя" />
-        <input class="reg-form__text" type="text" name="surname" placeholder="Ваша фамилия" />
         <input v-model="login_var" class="reg-form__text" type="text" name="email" placeholder="Ваша почта" />
-        <input class="reg-form__text" type="text" name="login" placeholder="Придумайте логин" />
         <input v-model="password_var" class="reg-form__text" type="password" name="pass" placeholder="Придумайте пароль" />
         <input
           class="reg-form__text"
@@ -22,7 +20,7 @@
       </div>
       <span class="or-text">Или войдите через:</span>
       <div class="social">
-        <a href="#" class="social__text">
+        <a href="/login/vkontakte" class="social__text">
           <svg width="82" height="82" viewBox="0 0 400 400">
             <g transform="matrix(6.25 0 0 6.25 204.68 204.69)" id="vk_x2C__Vkontakte"  >
               <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(128,216,255); fill-rule: nonzero; opacity: 1;"  transform=" translate(-16.75, -16.75)" d="M 21.64 4 H 12.36 C 5.219 4 4 5.219 4 12.36 v 9.28 c 0 3.106 0.313 5.228 1.196 6.664 C 6.632 29.187 8.754 29.5 11.86 29.5 h 8.279 c 7.561 0 9.36 -1.8 9.36 -9.36 v -8.28 c 0 -3.106 -0.313 -5.228 -1.196 -6.664 C 26.868 4.313 24.746 4 21.64 4 z" stroke-linecap="round" />
@@ -43,8 +41,10 @@
 </template>
 
 <script>
+
     import {mapActions} from 'vuex'
     import vUser from './vUser'
+
     export default {
         name: "vRegistration",
         components: {
@@ -67,7 +67,7 @@
                     ['name_var', this.name_var],
                     ['password_var', this.password_var]
                 ]);
-                console.log(resultReg)
+                console.log(resultReg);
                 this.SENDING_REGISTRATION_DATA_IN_API(resultReg)
             }
         }
