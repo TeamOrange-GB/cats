@@ -3,7 +3,7 @@
         @click="toggleFilterList"
         class="filter-breed"
     >
-        <span class="filter-breed__text">Порода</span>
+        <span class="filter-breed__text">Дополнительные фильтры</span>
         <img
             :class="{'filter-breed__arrow--rotate': isFilterListVisible}"
             class="filter-breed__arrow"
@@ -46,7 +46,7 @@
             color: $color-cyan;
             border: 1px solid $color-cyan;
             padding: 10px;
-            min-width: 200px;
+            min-width: 250px;
             min-height: 20px;
             display: flex;
             justify-content: space-between;
@@ -71,7 +71,7 @@
                 left: 0;
                 z-index: 10;
                 background: $color-white;
-                width: 220px;
+                width: 250px;
                 border: 1px solid $color-cyan;
 
                 span {

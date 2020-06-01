@@ -2,22 +2,23 @@
   <section>
     <h1 class="reg-title">Регистрация</h1>
       <div class="reg-form">
-        <input v-model="name_var" class="reg-form__text" type="text" name="name" placeholder="Ваше имя" />
-        <input v-model="login_var" class="reg-form__text" type="text" name="email" placeholder="Ваша почта" />
-        <input v-model="password_var" class="reg-form__text" type="password" name="pass" placeholder="Придумайте пароль" />
+        <input v-model="name_var" class="reg-form__text" type="text" name="name_var" placeholder="Ваше имя" />
+        <input v-model="login_var" class="reg-form__text" type="text" name="login_var" placeholder="Ваша почта" />
+        <input v-model="password_var" class="reg-form__text" type="password" name="password_var" placeholder="Придумайте пароль" />
         <input
+            v-model="password_confirmation_var"
           class="reg-form__text"
           type="password"
-          name="confirmpass"
+          name="password_confirmation_var"
           placeholder="Повторите пароль"
         />
       </div>
-      <div class="btn">
-        <button
+      <button
             @click="regUser"
-            class="btn__text"
-        >Зарегистрироваться</button>
-      </div>
+            class="btn btn--reg"
+        >
+          Зарегистрироваться
+      </button>
       <span class="or-text">Или войдите через:</span>
       <div class="social">
         <a href="/login/vkontakte" class="social__text">
@@ -52,9 +53,10 @@
         },
         data(){
             return {
-                name_var: '',
-                login_var: '',
-                password_var: ''
+                name_var: 'Oleg',
+                login_var: '123test@mail.ru',
+                password_var: '123456',
+                password_confirmation_var: '123456'
             }
         },
         methods: {
@@ -62,13 +64,7 @@
                 'SENDING_REGISTRATION_DATA_IN_API'
             ]),
             regUser(){
-                let resultReg = new Map([
-                    ['login_var', this.login_var],
-                    ['name_var', this.name_var],
-                    ['password_var', this.password_var]
-                ]);
-                console.log(resultReg);
-                this.SENDING_REGISTRATION_DATA_IN_API(resultReg)
+                this.SENDING_REGISTRATION_DATA_IN_API(this.name_var, this.login_var, this.password_var, this.password_confirmation_var)
             }
         }
     }
@@ -98,30 +94,14 @@
 }
 
 .btn {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  &__text {
-    width: 200px;
-    height: 60px;
-    font-size: 16px;
-    font-family: $font-montserrat;
-    border: none;
-    border-radius: 10px;
-    color: $color-white;
-    background-color: $color-cyan;
-    &:hover {
-      background-color: $color-light-grey;
+    margin: 0 auto 40px;
+    &--reg {
+        font-size: 16px!important;
     }
-    &:active {
-      color: $color-light-grey;
-      background-color: $color-cyan;
-    }
-  }
 }
 
 .or-text {
-  padding: 20px;
+  padding:0 20px;
   display: block;
   text-align: center;
   font-size: $font-size;
@@ -133,7 +113,7 @@
   display: flex;
   justify-content: center;
   &__text {
-    padding: 20px;
+    padding: 0 20px;
     font-size: $font-size;
     font-family: $font-montserrat;
   }
