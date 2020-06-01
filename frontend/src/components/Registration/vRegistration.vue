@@ -64,6 +64,10 @@
                 'SENDING_REGISTRATION_DATA_IN_API'
             ]),
             regUser(){
+                let dataReg = new Map(
+                    [name, this.name_var],
+                    [login, this.login_var]
+                );
                 this.SENDING_REGISTRATION_DATA_IN_API(this.name_var, this.login_var, this.password_var, this.password_confirmation_var)
             }
         }
