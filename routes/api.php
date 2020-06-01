@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:airlock')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/catalog', 'PetsController@index');
 
+Route::get('/catalog', 'PetsController@index');

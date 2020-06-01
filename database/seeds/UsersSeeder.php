@@ -14,11 +14,13 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
+        $password = Hash::make('password');
+
         $users = [
             [
                 'name' => 'admin',
-                'email' => Str::random(7).'@mail.ru', 
-                'password' => '111',
+                'email' => Str::random(7).'@mail.ru',
+                'password' => $password,
                 'role' => 'admin',
                 'social_id_vkontakte' => null,
                 'social_id_odnoklassniki' => null,
@@ -32,8 +34,8 @@ class UsersSeeder extends Seeder
             ],
             [
                 'name' => 'user',
-                'email' => Str::random(7).'@mail.ru', 
-                'password' => '222',
+                'email' => Str::random(7).'@mail.ru',
+                'password' => $password,
                 'role' => 'user',
                 'social_id_vkontakte' => null,
                 'social_id_odnoklassniki' => null,
@@ -47,8 +49,8 @@ class UsersSeeder extends Seeder
             ],
             [
                 'name' => 'sponsor',
-                'email' => Str::random(7).'@mail.ru', 
-                'password' => '333',
+                'email' => Str::random(7).'@mail.ru',
+                'password' => $password,
                 'role' => 'sponsor',
                 'social_id_vkontakte' => null,
                 'social_id_odnoklassniki' => null,
@@ -62,8 +64,8 @@ class UsersSeeder extends Seeder
             ],
             [
                 'name' => 'owner',
-                'email' => Str::random(7).'@mail.ru', 
-                'password' => '444',
+                'email' => Str::random(7).'@mail.ru',
+                'password' => $password,
                 'role' => 'owner',
                 'social_id_vkontakte' => null,
                 'social_id_odnoklassniki' => null,
