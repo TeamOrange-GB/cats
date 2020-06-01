@@ -3,6 +3,7 @@ import axios from 'axios'
 export default {
     GET_CATALOG_FROM_API({commit}) {
         return axios ('http://cats.xyz/api/catalog', {
+        // return axios ('http://localhost:3000/catalog', {
             method: "GET"
         })
             .then((catalog) => {
