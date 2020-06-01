@@ -90,7 +90,7 @@
                     return true
                 }
             },
-            paginatedList(){
+            getArrayAnimal(){
                 let from = (this.pageNumber - 1) * this.animalsNumber;
                 let to = from + this.animalsNumber;
                 this.sortByLikes();

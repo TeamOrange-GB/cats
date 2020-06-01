@@ -18,4 +18,5 @@ Route::middleware('auth:airlock')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/', 'PetsController@catalog')->name('petsCatalog');
+
+Route::get('/catalog', 'PetsController@index');
