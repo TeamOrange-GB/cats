@@ -121,7 +121,6 @@ trait AuthenticatesUsersTrait
     {
         //после аутентификации возвращаем сообщение с юзером
         return response()->json([
-            'status' => 'ok',
             'message' => 'authentication successful',
             'user' => $request->user()
         ]);
@@ -169,10 +168,6 @@ trait AuthenticatesUsersTrait
         if ($response = $this->loggedOut($request)) {
             return $response;
         }
-
-//        return $request->wantsJson()
-//            ? new Response('', 204)
-//            : redirect('/');
     }
 
     /**
@@ -185,7 +180,6 @@ trait AuthenticatesUsersTrait
     {
         //после логаута возвращаем сообщение
         return response()->json([
-            'status' => 'ok',
             'message' => 'logout successful',
         ]);
     }
