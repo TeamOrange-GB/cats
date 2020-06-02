@@ -16,6 +16,8 @@ class PetsController extends Controller
     ->join('colors', 'pets.color_id', '=', 'colors.id')
     ->join('breeds', 'pets.breed_id', '=', 'breeds.id')
     ->join('species', 'pets.species_id', '=', 'species.id')
+    ->join('photos', 'pets.id', '=', 'photos.pet_id')
+    ->select('pets.id',  'pets.gender', 'pets.name_real', 'pets.likes_count', 'pets.awards_site', 'pets.awards', 'colors.color', 'breeds.breed', 'species.species', 'photos.path')
     ->get();
     //dump($pets);
     //return File::put(storage_path() . '/pets.json', json_encode($pets, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
