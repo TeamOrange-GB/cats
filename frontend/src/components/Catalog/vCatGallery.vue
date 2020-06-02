@@ -2,8 +2,8 @@
     <div class="cat-catalog__gallery">
         <div class="gallery-list">
             <vCatItem
-                v-for="animal in arrayAnimal"
-                :key="animal.id"
+                v-for="(animal, index) in arrayAnimal"
+                :key="index"
                 :animal="animal"
                 :isAwardsVisible="animal.awards"
                 @likeCountUp="likeCountUp"
@@ -90,7 +90,7 @@
                     return true
                 }
             },
-            getArrayAnimal(){
+            paginatedList(){
                 let from = (this.pageNumber - 1) * this.animalsNumber;
                 let to = from + this.animalsNumber;
                 this.sortByLikes();

@@ -60,34 +60,6 @@
 
 <script>
 
-    // README!!!
-    // Cделал тут mounted для проверки, нужно убрать, но
-    // FIRST_USER_LOGIN, который внутри должен выполняться при запуске SPA, чтобы получить
-    // активного пользователя. Сейчас эта проверка только при открытии странцы регистрации
-    //
-    // Всё должно работать, кроме регистрации и входа через ВК (там нужно делать приложение).
-    // У меня всё работает, но я не буду поддерживать сайт, поэтому доступ
-    // к своему приложению давать не буду.
-    //
-    // Для работы нужно сделать следующее:
-    // 1. composer update
-    //
-    // 2. php artisan migrate rollback (несколько раз, пока не появиться "nothing to migrate"
-    // потом php artisan migrate --seed
-    //
-    // 3. Настроить файл .env:
-    //
-    // в .env добавить:
-    //     SANCTUM_STATEFUL_DOMAINS=cats.xyz
-    //     SESSION_DOMAIN=cats.xyz
-    //
-    // в .env изменить:
-    //     SESSION_DRIVER=cookie (по умолчанию там file)
-    //
-    // Надеюсь всё заработает сразу, и мне не придётся гадать чё там не в порядке. :))
-
-
-
     import {mapActions} from 'vuex'
     import vUser from './vUser'
 
@@ -104,13 +76,9 @@
                 password_confirmation_var: '12345678a'
             }
         },
-        mounted() {
-            this.FIRST_USER_LOGIN({})
-        },
         methods: {
             ...mapActions([
-                'SENDING_REGISTRATION_DATA_IN_API',
-                'FIRST_USER_LOGIN'
+                'SENDING_REGISTRATION_DATA_IN_API'
             ]),
             regUser() {
                 this.SENDING_REGISTRATION_DATA_IN_API(

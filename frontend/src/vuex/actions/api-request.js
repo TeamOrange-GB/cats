@@ -2,8 +2,7 @@ import axios from 'axios'
 
 export default {
     GET_CATALOG_FROM_API({commit}) {
-        return axios('/api/catalog', {
-            // return axios ('http://localhost:3000/catalog', {
+        return axios('http://cats.xyz/api/catalog', {
             method: "GET"
         })
             .then((catalog) => {
@@ -16,7 +15,7 @@ export default {
             })
     },
     SENDING_AUTH_DATA_IN_API(trash, data) {
-        return axios.post('/login', {
+        return axios.post('http://cats.xyz/login', {
             email: data.email,
             password: data.password
         })
@@ -32,7 +31,7 @@ export default {
     },
     SENDING_REGISTRATION_DATA_IN_API(trash, data) {
 
-        return axios.post('/register', {
+        return axios.post('http://cats.xyz/register', {
             'name': data.name,
             'email': data.email,
             'password': data.password,
@@ -43,14 +42,12 @@ export default {
             })
             .catch((error) => {
                 //статус 422, если не получилось зарегистрироваться, подробно в вкладке network отладчика
-
                 console.log(error);
                 return error;
             })
     },
-    FIRST_USER_LOGIN() {
-        console.log('FIRST_USER_LOGIN');
-        return axios.get('api/user')
+    FIRST_VISIT_USER_LOGIN() {
+        return axios.get('http://cats.xyz/api/user')
             .then((response) => {
                 console.log(response);
                 return response;
@@ -61,7 +58,7 @@ export default {
             })
     },
     LOGOUT() {
-        return axios.post('/logout')
+        return axios.post('http://cats.xyz/logout')
             .then((response) => {
                 console.log(response)
             })
