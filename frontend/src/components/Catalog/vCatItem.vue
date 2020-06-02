@@ -85,16 +85,18 @@
             min-height: 44px;
             position: absolute;
             bottom: 0;
+            left: 0;
             width: 100%;
             background: rgba(0, 0, 0, 0.5);
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
             &__item {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                padding: 0 20px;
+                padding: 0 20px 5px;
             }
         }
         &__name {

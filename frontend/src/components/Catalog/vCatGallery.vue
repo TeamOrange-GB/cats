@@ -2,7 +2,7 @@
     <div class="cat-catalog__gallery">
         <div class="gallery-list">
             <vCatItem
-                v-for="animal in paginatedList"
+                v-for="animal in arrayAnimal"
                 :key="animal.id"
                 :animal="animal"
                 :isAwardsVisible="animal.awards"
@@ -53,6 +53,7 @@
         data(){
             return {
                 pageNumber: 1,
+                arrayAnimal: []
                 }
             },
         methods: {
@@ -62,6 +63,7 @@
             ]),
             changePage(index){
                 this.pageNumber = index + 1;
+                this.getArrayAnimal();
             },
             sortByLikes(){
                 this.CATALOG.sort((a,b) => b.likes_count - a.likes_count);
@@ -69,6 +71,10 @@
             likeCountUp(id){
                 this.UPDATE_COUNTS_LIKES(id)
             },
+            getArrayAnimal(){
+                let arr = this.paginatedList;
+                this.arrayAnimal = arr;
+            }
         },
         computed: {
             ...mapGetters([
@@ -84,15 +90,17 @@
                     return true
                 }
             },
-            paginatedList(){
+            getArrayAnimal(){
                 let from = (this.pageNumber - 1) * this.animalsNumber;
                 let to = from + this.animalsNumber;
-                this.sortByLikes()
-                return this.CATALOG.slice(from, to);
+                this.sortByLikes();
+                let arr = this.CATALOG.map(f=>f);
+                return arr.slice(from, to);
             },
         },
         mounted() {
             this.GET_CATALOG_FROM_API()
+                .then(this.getArrayAnimal)
         }
     }
 </script>

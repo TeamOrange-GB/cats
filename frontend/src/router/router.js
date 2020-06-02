@@ -15,6 +15,7 @@ import vUserAccount from '../components/accounts/vUserAccount';
 import vSponsorAccount from '../components/accounts/vSponsorAccount';
 import vAddAnimal from '../components/Breeder/vAddAnimal.vue';
 import vPersonalAccount from '../components/PersonalAccount/vPersonalAccount.vue'
+import vAuth from "../components/Registration/vAuth";
 
 
 
@@ -73,13 +74,19 @@ const routes = [
         path: '/add-animal',
         name: 'AddAnimal',
         component: vAddAnimal,
-
+    },
+    {
         path: '/personal-account',
         name: 'PersonalAccount',
         component: vPersonalAccount,
-
         props: true
     },
+    {
+        path: '/auth',
+        name: 'Auth',
+        component: vAuth,
+        props: true
+    }
 ];
 
 const router = new VueRouter

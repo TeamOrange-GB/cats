@@ -75,6 +75,9 @@ class AddForeignKeys extends Migration
         Schema::table('pets', function (Blueprint $table) {
             $table->foreign('color_id')->references('id')->on('colors');
         });
+        Schema::table('pets', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
+        });
         //статья ссылается на пользователя
         Schema::table('posts', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
@@ -116,6 +119,9 @@ class AddForeignKeys extends Migration
         });
         Schema::table('pets', function (Blueprint $table) {
             $table->dropForeign(['species_id']);
+        });
+        Schema::table('pets', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
         });
         Schema::table('pet_likes_users', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
