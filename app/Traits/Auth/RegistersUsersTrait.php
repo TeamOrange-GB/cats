@@ -57,7 +57,6 @@ trait RegistersUsersTrait
     {
         //после регистрации возвращаем сообщение с юзером
         return response()->json([
-            'status' => 'ok',
             'message' => 'registration successful',
             'user' => $request->user()
         ]);

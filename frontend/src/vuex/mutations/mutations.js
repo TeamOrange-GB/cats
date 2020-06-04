@@ -1,14 +1,13 @@
 export default {
     SET_CATALOG_TO_STATE: (state, catalog) => {
         let array = catalog;
-        console.log(array);
         array.forEach(function(item,i){
-            if(item.gender === 'male'){
+            if(item.gender === 1){
                 item.gender = 'male.svg'
             }else {
                 item.gender = 'female.svg'
             }
-            if(item.awards_site != ''){
+            if(item.awards_site != '' && item.awards_site != null){
                 item.awards = true
             } else {
                 item.awards = false

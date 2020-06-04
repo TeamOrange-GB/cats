@@ -27,13 +27,12 @@
         },
         methods: {
             ...mapActions([
-                'FIRST_USER_LOGIN'
+                'FIRST_VISIT_USER_LOGIN'
             ])
         },
         mounted() {
-            this.FIRST_USER_LOGIN()
+            this.FIRST_VISIT_USER_LOGIN()
         }
-
     }
 </script>
 
