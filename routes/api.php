@@ -27,3 +27,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/catalog', 'PetsController@index');
+Route::get('/breeds', 'BreedController@index');
