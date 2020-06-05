@@ -154,6 +154,7 @@
     flex-direction: column;
     min-width: 700px;
     padding: 20px;
+    box-sizing: border-box;
   }
 
   .modal-header,
@@ -244,7 +245,7 @@
     border-radius: 5px;
   }
   .btn-close {
-    @include buttonSetting(150px, 40px, $color-white, $color-medium-gray, $color-cyan);
+    @include buttonSetting(150px, 40px, $color-white, $color-medium-gray);
     color: $color-cyan;
   }
   .btn-close:hover {
@@ -253,6 +254,6 @@
   }
 
   .btn-sent {
-    @include buttonSetting(150px, 40px, $color-cyan, $color-medium-gray, $color-cyan);
+    @include buttonSetting(150px, 40px, $color-cyan, $color-medium-gray);
   }
 </style>
