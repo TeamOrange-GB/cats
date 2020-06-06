@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use http\Client\Response;
 use Illuminate\Http\Request;
 use App\Pet;
 use Illuminate\Support\Facades\DB;
@@ -25,3 +27,6 @@ class PetsController extends Controller
     return response($petsJSON);
     }
 }
+
+
+
