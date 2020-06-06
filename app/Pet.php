@@ -3,6 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Breed;
+use App\Color;
+use App\User;
 
 /**
  * App\Pet
@@ -82,4 +85,48 @@ class Pet extends Model
         'color_id',
         'user_id',
     ];
+
+    /**
+     * Метод возвращает данные животного.
+     *
+     * @param bool $addUserData нужно ли добавлять данные о юзерe.
+     * @return array
+     */
+    public function getPetData(bool $addUserData)
+    {
+        $data = [
+            'id' => $this->id,
+            'birthday_at' => $this->birthday_at,
+            'gender' => $this->gender,
+            'mating' => $this->mating,
+            'name_real' => $this->name_real,
+            'name_doc' => $this->name_doc,
+            'titles' => $this->titles,
+            'description' => $this->description,
+            'pedigree' => $this->pedigree,
+            'certificate' => $this->certificate,
+            'veterinary_certificate' => $this->veterinary_certificate,
+            'metrics' => $this->metrics,
+            'likes_count' => $this->likes_count,
+            'class' => $this->class,
+            'awards_site' => $this->awards_site,
+            'awards' => $this->awards,
+            'status' => $this->status,
+            //вернём не только id вида, но и название
+            'species_id' => $this->species_id,
+            'species' => Species::findOrFail($this->species_id)->species,
+            //вернём не только id породы, но и название
+            'breed_id' => $this->breed_id,
+            'breed' => Breed::findOrFail($this->breed_id)->breed,
+            //вернём не только id цвета, но и название
+            'color_id' => $this->color_id,
+            'color' => Color::findOrFail($this->color_id)->color,
+            'user_id' => $this->user_id,
+        ];
+
+        if ($addUserData) {
+            $data['user'] = User::findOrFail($this->user_id)->name;
+        }
+        return $data;
+    }
 }

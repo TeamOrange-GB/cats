@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use http\Client\Response;
 use Illuminate\Http\Request;
 use App\Pet;
@@ -20,4 +21,17 @@ class PetsController extends Controller
 
         return response()->json($pets);
     }
+
+    public function getOwner($id)
+    {
+        $pet = Pet::findOrFail($id);
+        $user = User::findOrFail($pet['user_id']);
+        //получаем не только данные о хозяине, но и данные о его животных
+        $owner = $user->getUserData(true);
+
+        return response()->json($owner);
+    }
 }
+
+
+

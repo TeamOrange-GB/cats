@@ -2,9 +2,12 @@
 
 namespace App;
 
+use App\City;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Region;
+use App\Pet;
 
 /**
  * App\User
@@ -83,5 +86,56 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Метод возвращает данные пользователя.
+     *
+     * @param bool $addPetsData нужно ли добавлять данные о животных юзера.
+     * @return array
+     * @summary
+     */
+    public function getUserData($addPetsData)
+    {
+        $city = City::findOrFail($this['city_id']);
 
+        $data = [
+            //'email' => $this->email,  не думаю, что стоит светить емейл юзера, нужно обсудить
+            'id' => $this->id,
+            'name' => $this->name,
+            'role' => $this->role,
+            'link_vkontakte' => $this->link_vkontakte,
+            'link_odnoklassniki' => $this->link_odnoklassniki,
+            'link_google' => $this->link_google,
+            'status' => $this->status,
+            'description' => $this->description,
+            'phone' => $this->phone,
+            'avatar' => $this->avatar,
+            //вернём не только id города, но и название
+            'city_id' => $this->city_id,
+            'city' => $city->name,
+            //вернём не только id региона, но и название
+            'region_id' => $city->region_id,
+            'region' => Region::findOrFail($city['region_id'])->region,
+        ];
+
+        if($addPetsData){
+            $data['pets'] = $this->getUserPets();
+        }
+        return $data;
+    }
+    /**
+     * Метод возвращает список животных пользователя.
+     *
+     * @return array
+     */
+    public function getUserPets(){
+        $pets = Pet::where('user_id', $this->id)->get();
+        $petsData = [];
+        foreach ($pets as $pet){
+            //false - инфу о юзере не запрашиваем, добавим тут
+            $newPet = $pet->getPetData(false);
+            $newPet['user_name'] = $this['name'];
+            $petsData[] = $newPet;
+        }
+        return $petsData;
+    }
 }
