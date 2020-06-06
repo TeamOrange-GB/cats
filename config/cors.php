@@ -15,7 +15,13 @@ return [
     |
     */
 
-    'paths' => ['api/*'],
+    //тут можно дописать дополнительные пути по которым будет работать CORS
+    'paths' => [
+        'api/*',
+        'login',
+        'logout',
+        'sanctum/csrf-cookie'
+    ],
 
     'allowed_methods' => ['*'],
 
@@ -29,6 +35,9 @@ return [
 
     'max_age' => 0,
 
+    //по умолчанию тут значение false, если будут проблемы с аутентификацией,
+    //то можно попробовать поменять, но в тестовом примере всё работало и так
+    //supports_credentials' => true,
     'supports_credentials' => false,
 
 ];

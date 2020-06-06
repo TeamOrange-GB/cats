@@ -1,25 +1,27 @@
 <template>
-    <section>
-        <h1 class="reg-title">Регистрация</h1>
+    <section class="v-auth">
+        <h1 class="reg-title">Авторизация</h1>
         <div class="reg-form">
-            <input v-model="name_var" class="reg-form__text" type="text" name="name_var" placeholder="Ваше имя"/>
-            <input v-model="login_var" class="reg-form__text" type="text" name="login_var" placeholder="Ваша почта"/>
+            <input v-model="login_var" class="reg-form__text" type="text" name="login_var" placeholder="Введите логин"/>
             <input v-model="password_var" class="reg-form__text" type="password" name="password_var"
-                   placeholder="Придумайте пароль"/>
-            <input
-                v-model="password_confirmation_var"
-                class="reg-form__text"
-                type="password"
-                name="password_confirmation_var"
-                placeholder="Повторите пароль"
-            />
+                   placeholder="Введите пароль"/>
         </div>
         <button
-            @click="regUser"
+            @click="authUser"
             class="btn btn--reg"
         >
-            Зарегистрироваться
+            Авторизоваться
         </button>
+
+        <!-- сделал кнопку для выхода-->
+        <button
+            @click="logout"
+            class="btn btn--reg"
+        >
+            Выход
+        </button>
+
+
         <span class="or-text">Или войдите через:</span>
         <div class="social">
             <a href="/login/vkontakte" class="social__text">
@@ -61,87 +63,32 @@
 <script>
 
     import {mapActions} from 'vuex'
-    import vUser from './vUser'
 
     export default {
-        name: "vRegistration",
-        components: {
-            vUser
-        },
+        name: "vAuth",
         data() {
             return {
-                name_var: 'Oleg',
                 login_var: '123test@mail.ru',
-                password_var: '12345678a',
-                password_confirmation_var: '12345678a'
+                password_var: '12345678a'
             }
         },
         methods: {
             ...mapActions([
-                'SENDING_REGISTRATION_DATA_IN_API'
+                'SENDING_AUTH_DATA_IN_API', 'LOGOUT'
             ]),
-            regUser() {
-                this.SENDING_REGISTRATION_DATA_IN_API(
-                    {
-                        'email': this.login_var,
-                        'name': this.name_var,
-                        'password': this.password_var,
-                        'password_confirmation': this.password_confirmation_var
-                    })
+            authUser() {
+                this.SENDING_AUTH_DATA_IN_API({
+                    'email': this.login_var,
+                    'password': this.password_var,
+                })
+            },
+            logout() {
+                this.LOGOUT()
             }
         }
     }
-
 </script>
 
-<style lang="scss">
-    .reg-title {
-        font-size: $font-size;
-        color: $color-cyan;
-        font-family: $font-montserrat;
-    }
+<style scoped>
 
-    .reg-form {
-        margin: 10px;
-        display: flex;
-        flex-flow: column wrap;
-        align-items: center;
-
-        &__text {
-            width: 190px;
-            height: 30px;
-            margin-bottom: 10px;
-            padding-left: 10px;
-            font-size: 16px;
-            font-family: $font-montserrat;
-        }
-    }
-
-    .btn {
-        margin: 0 auto 40px;
-
-        &--reg {
-            font-size: 16px !important;
-        }
-    }
-
-    .or-text {
-        padding: 0 20px;
-        display: block;
-        text-align: center;
-        font-size: $font-size;
-        font-family: $font-montserrat;
-        color: $color-cyan;
-    }
-
-    .social {
-        display: flex;
-        justify-content: center;
-
-        &__text {
-            padding: 0 20px;
-            font-size: $font-size;
-            font-family: $font-montserrat;
-        }
-    }
 </style>

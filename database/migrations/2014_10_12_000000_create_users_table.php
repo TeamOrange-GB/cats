@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table
                 ->string('email', 100)
                 ->unique()
+                ->nullable()
                 ->comment('E-mail пользователя');
             $table
                 ->string('password', 100)
@@ -36,22 +37,23 @@ class CreateUsersTable extends Migration
                 ->default('user')
                 ->comment('Полномочия пользователя');
             $table
-                ->string('social_id_vkontakte', 50)
+                ->string('link_vkontakte', 50)
                 ->nullable()
-                ->unique()
-                ->comment('id в контакте');
+                ->comment('ссылка на В контакте');
             $table
-                ->string('social_id_odnoklassniki', 50)
+                ->string('link_odnoklassniki', 50)
                 ->nullable()
-                ->unique()
-                ->comment('id в одноклассниках');
+                ->comment('ссылка на Одноклассники');
             $table
-                ->string('social_id_google', 50)
+                ->string('link_google', 50)
                 ->nullable()
-                ->unique()
-                ->comment('id в google');
+                ->comment('Ссылка на google');
             $table
-                ->enum('type_auth', ['site', 'vk', 'google', 'odnoklassniki'])
+                ->string('social_id', 50)
+                ->nullable()
+                ->comment('Id в социальной сети, через которую была регистрация');
+            $table
+                ->enum('type_auth', ['site', 'vkontakte', 'google', 'odnoklassniki'])
                 ->default('site')
                 ->comment('Тип авторизации');
             $table
@@ -77,8 +79,7 @@ class CreateUsersTable extends Migration
                 ->nullable()
                 ->comment('Id населённого пункта');
 
-
-//            $table->rememberToken();
+            $table->rememberToken();
         });
     }
 

@@ -16,7 +16,7 @@
         </svg>
     </div>
     <div class="header-navigation" >
-        
+
         <transition name=fade>
             <nav class="header-navigation__list" v-show="show"  >
                 <!-- :style="{ width: widthDevice + 'px' }" -->
@@ -45,6 +45,9 @@
                 </router-link>
                 <router-link :to="{name:'AddAnimal'}" class="header-navigation__link">
                   Создание карточки
+                </router-link>
+                <router-link :to="{name:'Auth'}" class="header-navigation__link">
+                    Авторизация
                 </router-link>
             </nav>
         </transition>
@@ -122,9 +125,9 @@
                 }
             }
         }
-        
+
     }
-    
+
     .header-navigation{
         width: 100%;
         &__list{
@@ -153,16 +156,16 @@
 
 @media screen and (max-width: 650px) {
     .header{
-        
+
         padding: 20px 50px;
         justify-content: space-between;
         &__top{
             justify-content: space-between;
-            
+
             &__logo{
                 width: 140px;
             }
-            
+
             &__avatar{
                 display: none;
             }
