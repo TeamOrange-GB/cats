@@ -154,6 +154,7 @@
     flex-direction: column;
     min-width: 700px;
     padding: 20px;
+    box-sizing: border-box;
   }
 
   .modal-header,
@@ -243,11 +244,6 @@
     font: 16px/1.5em Arimo,sans-serif;
     border-radius: 5px;
   }
-  // .btn-close {
-  //   @include buttonSetting(200px, 60px, $color-white, $color-cyan, $color-cyan, $color-cyan);
-  
-  //   color: $color-cyan;
-  // }
   .btn-close:hover {
     background-color: $color-cyan;
     border-color: $color-cyan;

@@ -120,16 +120,16 @@ export default {
 <style lang="scss">
 .iconsGallery {
   flex-direction: column;
-
 }
   .gallery {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
     align-items: space-around;
-    width: 750px;
+    max-width: 730px;
+    width: 100%;
     margin: 20px 0;
-    padding: 15px 30px;
+    padding: 15px 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     box-sizing: border-box;
   }
@@ -139,11 +139,13 @@ export default {
     color: $color-light-grey;
     font-family: $font-arimo;
     font-size: 18px;
+    box-sizing: border-box;
   }
   .gallery-img {
     width: 200px;
     height: 150px;
     margin: 15px;
+    box-sizing: border-box;
     img {
       width: 100%;
       height: 100%;
