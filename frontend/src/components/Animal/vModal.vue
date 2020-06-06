@@ -66,14 +66,14 @@
           <slot name="footer">
             <button
               type="button"
-              class="btn-close"
+              class="btn-close btn-reverse"
               @click="$emit('close')"
             >
               Закрыть
           </button>
             <button
               type="submit"
-              class="btn-sent"
+              class="btn-send btn"
               form="modalForm"
             >
               Отправить
@@ -244,16 +244,12 @@
     font: 16px/1.5em Arimo,sans-serif;
     border-radius: 5px;
   }
-  .btn-close {
-    @include buttonSetting(150px, 40px, $color-white, $color-medium-gray);
-    color: $color-cyan;
-  }
   .btn-close:hover {
     background-color: $color-cyan;
     border-color: $color-cyan;
   }
 
-  .btn-sent {
-    @include buttonSetting(150px, 40px, $color-cyan, $color-medium-gray);
-  }
+  // .btn-send {
+  //   @include buttonSetting(150px, 40px, $color-cyan, $color-medium-gray, $color-cyan);
+  // }
 </style>

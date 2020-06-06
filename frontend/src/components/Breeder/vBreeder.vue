@@ -20,19 +20,18 @@
         <img class="breeder__photo" src="https://avatars.mds.yandex.net/get-zen_doc/1811900/pub_5cd124aba8ac8300b34993a0_5cd1261b583aa800af53c31d/scale_1200" alt="Фото">
       </figure>
     </div>
-    <vCatCatalog />
+    <vCatGallery :animalsNumber="10"
+                :isPaginationVisible="true" />
   </section>
 </template>
 
 <script>
   // import breedercats from './vBreederCats'
-  import vCatCatalog from "../Catalog/vCatCatalog";
+  import vCatGallery from "../Catalog/vCatGallery";
 
   export default {
     name: 'vBreeder',
-    components: {
-        // breedercats
-     },
+    components: { vCatGallery },
     data: () => ({
       name: "Юрий Куклачев",
       farm: "Питомник №1",
