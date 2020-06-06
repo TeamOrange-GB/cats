@@ -4,7 +4,7 @@
         <h2>{{ petColor }}</h2>
         <div class="petcard-content">
             <div class="petcard-content__info">
-                <div class="petcard-content__maininfo">
+
                     <h3>Основные сведения</h3>
                     <h4>Дата рождения</h4>
                     <p>{{ birthDate }}</p>
@@ -16,14 +16,12 @@
                     <p>{{ showClass }}</p>
                     <h4>Титул</h4>
                     <p>{{ titul }}</p>
-                </div>
-                <div class="petcard-content__docs">
-                    <h3>Документы</h3>
+
                     <h4>Ветпаспорт</h4>
-                    <a href="#"><img :src="vetPassImg" alt="vet-passport" tabindex="0"></a>
+                    <a href="#"><img :src="vetPassImg" alt="vet-passport" tabindex="0" class="docs_img"></a>
                     <h4>Титульный сертификат</h4>
-                    <a href="#"><img :src="titulImg" alt="titul" tabindex="0"></a>
-                </div>
+                    <a href="#"><img :src="titulImg" alt="titul" tabindex="0" class="docs_img"></a>
+
             </div>
             <div class="petcard-content__gallery">
                 <div class="petcard-content__mainphoto">
@@ -48,7 +46,7 @@
                             </modal>
                     </div>
                 </div>
-                    <gallery />
+            <gallery />
 
             </div>
         </div>
@@ -105,40 +103,45 @@ export default {
 </script>
 
 <style lang="scss">
-
-.petcard{
-    margin: $margin 0;
-}
-
+.petcard {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1230px;
+  }
+    .petcard h1,
+    .petcard h2 {
+    width: 100%;
+  }
 .petcard-content{
     display: flex;
+    flex-flow: row wrap;
     justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
-    max-width: 1230px;
-    margin: 0 auto;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+
     &__info, &__gallery{
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column;
+
+        box-sizing: border-box;
     }
-    &__docs{
-        margin: 0 0 20px 0;
-        img {
-            width: 200px;
-            height: 100px;
-            margin: 20px 0 0 0;
-            object-fit: cover;
-        }
-    }
-    &__maininfo {
+    &__info {
+       max-width: 500px;
         margin: 0 0 20px 0;
     }
+    &__gallery {
+        max-width: 730px;
+        box-sizing: border-box;
+        text-align: center;
+    }      
+
     &__mainphoto {
         position: relative;
+        box-sizing: border-box;
+
         img{
-            width: 750px;
-            height: 470px;
+            width: 100%;
             margin: 0;
             object-fit: cover;
         }
@@ -146,7 +149,7 @@ export default {
     }
     &__icons {
         position: absolute;
-        width: 750px;
+        width: 100%;
         height: 50px;
         bottom: 0;
         background: rgba(0, 0, 0, 0.5);
@@ -175,6 +178,12 @@ export default {
     }
 
 }
+        .docs_img {
+            width: 40%;
+            margin: 20px 0 0 0;
+            object-fit: cover;
+        }
+
 img[tabindex="0"] {
   cursor: zoom-in;
 }
@@ -196,6 +205,41 @@ img[tabindex="0"]:focus,  /* убрать строку, если не нужно
 img[tabindex="0"]:focus ~ * {
   pointer-events: none;
   cursor: zoom-out;
+}
+@media all and (max-width: 800px) {
+    .petcard {
+        width: 95%
+    }
+    .petcard-content {
+        &__info, &__gallery {
+            width: 100%;
+            box-sizing: border-box;
+           
+        }
+        &__mainphoto {
+            margin: 20px 0 100px 0;
+        }
+        &__icons {
+       
+        height: 70px;
+        bottom: -70px;
+        background: rgba(0, 0, 0, 0);
+
+        flex-direction: column;
+
+        align-items: flex-start;
+        padding: 5px 0;
+
+        a {
+            color: $color-cyan;
+            font-size: 15px;
+        }
+        a:hover {
+            color: $color-gray;
+        }
+        }
+    }
+
 }
 
 </style>
