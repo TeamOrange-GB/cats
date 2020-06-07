@@ -26,6 +26,16 @@ class PetsController extends Controller
     $petsJSON = json_encode($pets, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     return response($petsJSON);
     }
+
+    public function getOwner($id)
+    {
+        $pet = Pet::findOrFail($id);
+        $user = User::findOrFail($pet['user_id']);
+        //получаем не только данные о хозяине, но и данные о его животных
+        $owner = $user->getUserData(true);
+
+        return response()->json($owner);
+    }
 }
 
 
