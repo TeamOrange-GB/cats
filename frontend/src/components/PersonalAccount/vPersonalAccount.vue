@@ -76,6 +76,8 @@ export default {
         &__content{
             display: flex;
             .control-block{
+                max-width: 1000px;
+                width: 100%;
                 &__tab-button{
                     padding: 6px 10px;
                     border-top-left-radius: 3px;
@@ -95,55 +97,6 @@ export default {
                         background: $color-cyan;
                         color: $color-white;
                 }
-                .tab {
-                    // border: 1px solid #ccc;
-                    // padding: 10px;
-                }
-            }
-            .info-block{
-                // border: 1px solid red;
-                display: flex;
-                &__title,
-                &__edit{
-                    display: flex;
-                    flex-direction: column;
-                    border-top: 1px solid lighten($color: $color-light-grey, $amount: 30%);
-                    background-color: $color-smoke;
-                    span{
-                        font-size: $font-size;
-                        color: $color-medium-gray;
-                        font-family: $font-montserrat;
-                        
-                        border-bottom: 1px solid lighten($color: $color-light-grey, $amount: 30%);
-                        padding: 10px;
-                    }
-                }
-                &__data{
-                    // border: 1px solid red;
-                    display: flex;
-                    flex-direction: column;
-                    border-top: 1px solid lighten($color: $color-light-grey, $amount: 30%);
-                    background-color: $color-smoke;
-                    
-                    span{
-                        padding: 10px;
-                        font-size: $font-size;
-                        color: $color-medium-gray;
-                        font-family: $font-montserrat;
-                        
-                        border-bottom: 1px solid lighten($color: $color-light-grey, $amount: 30%) ;
-                    }
-                }
-                &__edit{
-                    button{
-                        padding: 9px 20px;
-                        border: none;
-                        background: none;
-                        outline: none;
-                        border-bottom: 1px solid lighten($color: $color-light-grey, $amount: 30%);
-                        color: $color-cyan;
-                    }
-                }
             }
         }
         .avatar{
@@ -151,7 +104,6 @@ export default {
             display: flex;
             justify-content: center;
             align-items: center;
-            // border: 1px solid red;
             width: 200px;
             height: 200px;
             border-radius: 50%;

@@ -9,7 +9,7 @@
           <a href="#"><img :src="p.src" alt="Maine-Coon" tabindex="0"></a>
         </div>
       </div>
-      
+
   </div>
   <div class="paginationButtons">
         <button
@@ -18,8 +18,8 @@
             class="arrowButton">
             <
         </button>
-        <button 
-          v-for="(n, i) in pageCount" 
+        <button
+          v-for="(n, i) in pageCount"
           class="pageButton"
           :disabled="pageNumber + 1 === n"
           @click="openPage(i)">
@@ -120,13 +120,17 @@ export default {
 <style lang="scss">
 .iconsGallery {
   flex-direction: column;
+<<<<<<< HEAD
 width: 100%;
   
+=======
+
+>>>>>>> upstream/dev
 }
   .gallery {
     display: flex;
     flex-flow: row wrap;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: space-around;
     max-width: 730px;
     width: 100%;
@@ -161,7 +165,7 @@ width: 100%;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  justify-content: start;
+  justify-content: flex-start;
 
   .arrowButton,
   .arrowButton:hover,
