@@ -23,3 +23,6 @@ Route::get('/catalog', 'PetsController@index');
 //получение хозяина животного и всех его животных
 Route::get('/owner/{id}', 'PetsController@getOwner');
 
+//получение конкретного животного
+Route::get('/pet/{id}', 'PetsController@getPet');
+

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Breed;
 use App\Color;
+use App\Photo;
 use App\User;
 
 /**
@@ -121,6 +122,7 @@ class Pet extends Model
             //вернём не только id цвета, но и название
             'color_id' => $this->color_id,
             'color' => Color::findOrFail($this->color_id)->color,
+            'photos' => Photo::where('pet_id', '=', $this->id)->select('path', 'likes_count')->get(),
             'user_id' => $this->user_id,
         ];
 
