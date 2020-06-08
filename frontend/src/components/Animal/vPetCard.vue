@@ -4,7 +4,7 @@
         <h2>{{ petColor }}</h2>
         <div class="petcard-content">
             <div class="petcard-content__info">
-                <div class="petcard-content__maininfo">
+
                     <h3>Основные сведения</h3>
                     <h4>Дата рождения</h4>
                     <p>{{ birthDate }}</p>
@@ -16,20 +16,37 @@
                     <p>{{ showClass }}</p>
                     <h4>Титул</h4>
                     <p>{{ titul }}</p>
-                </div>
-                <div class="petcard-content__docs">
-                    <h3>Документы</h3>
+
                     <h4>Ветпаспорт</h4>
-                    <a href="#"><img :src="vetPassImg" alt="vet-passport"></a>
+                    <a href="#"><img :src="vetPassImg" alt="vet-passport" tabindex="0" class="docs_img"></a>
                     <h4>Титульный сертификат</h4>
-                    <a href="#"><img :src="titulImg" alt="titul"></a>
-                </div>
+                    <a href="#"><img :src="titulImg" alt="titul" tabindex="0" class="docs_img"></a>
+
             </div>
             <div class="petcard-content__gallery">
                 <div class="petcard-content__mainphoto">
                     <a href="#"><img :src="mainImg" alt="Maine-Coon"></a>
+                    <div class="petcard-content__icons">
+                        <a href="#" class="shareLink">Поделиться</a>
+                        <a href="#" class="matchLink"  @click="showInviteMatch = true">Пригласить на вязку</a>
+                            <modal v-if="showInviteMatch" 
+                                   @close="showInviteMatch = false" 
+                                    >
+                                    <h3 slot="header">Приглашение на вязку</h3>  
+                                    <div slot="link">      
+                                        <h4>Ссылка на страницу вашего животного</h4>
+                                        <input placeholder="Введите вашу ссылку" v-model="link">
+                                    </div>            
+                            </modal>
+                        <a href="#" class="kittenLink" @click="showRequestKitten = true">Купить котенка</a>
+                            <modal v-if="showRequestKitten" 
+                                   @close="showRequestKitten = false"
+                                   >
+                                    <h3 slot="header">Я хочу купить котенка</h3>                       
+                            </modal>
+                    </div>
                 </div>
-                    <gallery />
+            <gallery />
 
             </div>
         </div>
@@ -37,12 +54,19 @@
 </template>
 
 <script>
-import gallery from './vGallery.vue'
+import gallery from './vGallery.vue';
+import modal from './vModal.vue'
 
 export default {
     name: 'vPetCard',
-    components: {gallery},
+    components: {
+        gallery,
+        modal
+        },
     data: () => ({
+        showRequestKitten: false,
+        showInviteMatch: false,
+
         petName: 'Василий',
         breed: 'maine coon',
         birthDate: '2019-05-21',
@@ -79,46 +103,143 @@ export default {
 </script>
 
 <style lang="scss">
-
-.petcard{
-    margin: $margin 0;
-}
-
+.petcard {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1230px;
+  }
+    .petcard h1,
+    .petcard h2 {
+    width: 100%;
+  }
 .petcard-content{
     display: flex;
+    flex-flow: row wrap;
     justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
-    max-width: 1230px;
-    margin: 0 auto;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+
     &__info, &__gallery{
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column;
+
+        box-sizing: border-box;
     }
-    &__docs{
-        margin: 0 0 20px 0;
-        img {
-            width: 200px;
-            height: 100px;
-            margin: 20px 0 0 0;
-            object-fit: cover;
-        }
-    }
-    &__maininfo {
+    &__info {
+       max-width: 500px;
         margin: 0 0 20px 0;
     }
+    &__gallery {
+        max-width: 730px;
+        box-sizing: border-box;
+        text-align: center;
+    }      
+
     &__mainphoto {
+        position: relative;
+        box-sizing: border-box;
+
         img{
-            width: 750px;
-            height: 470px;
+            width: 100%;
             margin: 0;
             object-fit: cover;
         }
+        
+    }
+    &__icons {
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+        box-sizing: border-box;
+        a {
+            color: $color-white;
+            font-size: 20px;
+        }
+        a::before {
+            margin: 0 5px 0 0;
+        }
+        .shareLink::before {
+            content: "\27A4";
+        }
+        .kittenLink::before {
+            content: "\1F6D2";
+        }
+        .matchLink::before {
+            content: "\262F";
+        }
     }
 
+}
+        .docs_img {
+            width: 40%;
+            margin: 20px 0 0 0;
+            object-fit: cover;
+        }
+
+img[tabindex="0"] {
+  cursor: zoom-in;
+}
+img[tabindex="0"]:focus {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: auto;
+  height: auto;
+  max-width: 99%;
+  max-height: 99%;
+  margin: auto;
+  box-shadow: 0 0 20px #000, 0 0 0 1000px rgba(210,210,210,.4);
+}
+img[tabindex="0"]:focus,  /* убрать строку, если не нужно, чтобы при клике на увеличенное фото, оно возвращалось в исходное состояние */
+img[tabindex="0"]:focus ~ * {
+  pointer-events: none;
+  cursor: zoom-out;
+}
+@media all and (max-width: 800px) {
+    .petcard {
+        width: 95%
+    }
+    .petcard-content {
+        &__info, &__gallery {
+            width: 100%;
+            box-sizing: border-box;
+           
+        }
+        &__mainphoto {
+            margin: 20px 0 100px 0;
+        }
+        &__icons {
+       
+        height: 70px;
+        bottom: -70px;
+        background: rgba(0, 0, 0, 0);
+
+        flex-direction: column;
+
+        align-items: flex-start;
+        padding: 5px 0;
+
+        a {
+            color: $color-cyan;
+            font-size: 15px;
+        }
+        a:hover {
+            color: $color-gray;
+        }
+        }
+    }
 
 }
-
 
 </style>

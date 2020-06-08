@@ -2,12 +2,12 @@ export default {
     SET_CATALOG_TO_STATE: (state, catalog) => {
         let array = catalog;
         array.forEach(function(item,i){
-            if(item.gender === 'male'){
+            if(item.gender === 1){
                 item.gender = 'male.svg'
             }else {
                 item.gender = 'female.svg'
             }
-            if(item.awards_site != ''){
+            if(item.awards_site != '' && item.awards_site != null){
                 item.awards = true
             } else {
                 item.awards = false
@@ -22,5 +22,8 @@ export default {
                 item.haveLike = true
             }
         })
+    },
+    SET_REGISTRATION_DATA_IN_API: (response) => {
+        console.log(response)
     }
 }

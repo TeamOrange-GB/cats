@@ -13,6 +13,7 @@
         </div>
     </section>
 </template>
+
 <style lang="scss">
     .sponsors{
         padding: 50px;
@@ -29,9 +30,17 @@
             display: flex;
             justify-content: center;
             background-color: $color-smoke;
+            flex-wrap: wrap;
         }
         img{
             margin: 0 10px;
+        }
+    }
+    @media screen and (max-width: 650px){
+        .sponsors{
+            &__title{
+                font-size: 30px;
+            }
         }
     }
 </style>

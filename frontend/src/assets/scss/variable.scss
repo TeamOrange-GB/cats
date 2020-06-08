@@ -26,19 +26,26 @@ $padding: 20px;
 
 /** Buttons **/
 
-@mixin buttonSetting($wh, $ht, $clrBack, $clrBackTransition){
-    transition: background-color 0.3s linear;
+
+@mixin buttonSetting($wh, $ht, $BasicColor1, $BasicColor2 ){
+    padding: 0;
+    transition-duration: 0.2s;
     width: $wh;
     height: $ht;
-    background-color: $clrBack;
-    border: none;
+    background-color: $color-cyan;
+    border: 2px solid $color-cyan;
     outline: none;
     border-radius: 5px;
     font-weight: bold;
-    color: $color-white;
+    color: $BasicColor2;
+    line-height: 2;
+    font-size: 20px;
     &:hover{
-        background-color: $clrBackTransition;
-        //color: white;
+        background-color: $BasicColor2;
+        color: $BasicColor1;
+    }
+    &:active{
+        transform: scale(0.97);
     }
 }
 

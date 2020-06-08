@@ -37,6 +37,6 @@ class CreatePossibleBreedsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('possible_colors');
+        Schema::dropIfExists('possible_breeds');
     }
 }
