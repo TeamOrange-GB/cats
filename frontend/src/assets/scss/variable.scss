@@ -38,15 +38,11 @@ $padding: 20px;
     border-radius: 5px;
     font-weight: bold;
     color: $BasicColor2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     line-height: 2;
     font-size: 20px;
     &:hover{
         background-color: $BasicColor2;
         color: $BasicColor1;
-        //border-color: $BasicColor1;
     }
     &:active{
         transform: scale(0.97);
