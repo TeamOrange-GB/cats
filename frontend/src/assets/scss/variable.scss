@@ -32,26 +32,17 @@ $padding: 20px;
     transition-duration: 0.2s;
     width: $wh;
     height: $ht;
-<<<<<<< HEAD
-    background-color: $clrBack;
+    background-color: $color-cyan;
     border: 2px solid $color-cyan;
-=======
-    background-color: $BasicColor1;
-    border: 2px solid $BasicColor2;
->>>>>>> upstream/dev
     outline: none;
     border-radius: 5px;
     font-weight: bold;
     color: $BasicColor2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     line-height: 2;
     font-size: 20px;
     &:hover{
         background-color: $BasicColor2;
         color: $BasicColor1;
-        //border-color: $BasicColor1;
     }
     &:active{
         transform: scale(0.97);
