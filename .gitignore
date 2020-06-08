@@ -1,12 +1,11 @@
 /node_modules
 /public/hot
-/public/storage
-/public/css
 /public/img
 /public/js
+/public/css
+/public/storage
 /storage/*.key
 /vendor
-/resources/views/index.blade.php
 .env
 .env.backup
 .phpunit.result.cache
