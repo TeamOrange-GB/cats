@@ -2,15 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Pet;
 use App\User;
 use http\Client\Response;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use App\Pet;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class PetsController extends Controller
 {
+    /**
+     *  Метод возвращает каталог животных
+     *
+     * @return JsonResponse
+     */
     public function index()
     {
         $pets = DB::table('pets')
@@ -22,6 +28,12 @@ class PetsController extends Controller
         return response()->json($pets);
     }
 
+    /**
+     * Метод возвращает данные о хозяине животного и всех его животных
+     *
+     * @param $id
+     * @return JsonResponse
+     */
     public function getOwner($id)
     {
         $pet = Pet::findOrFail($id);
@@ -30,5 +42,17 @@ class PetsController extends Controller
         $owner = $user->getUserData(true);
 
         return response()->json($owner);
+    }
+
+    /**
+     * Метод возвращает данные о животном
+     *
+     * @param $id
+     * @return array
+     */
+    public function getPet($id){
+        $pet = Pet::findOrFail($id);
+        //получаем не только данные о животном но и данные о его хозяине
+        return $pet->getPetData(true);
     }
 }
