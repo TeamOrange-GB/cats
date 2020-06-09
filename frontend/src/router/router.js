@@ -23,7 +23,7 @@ Vue.use(VueRouter);
 
 const routes = [
     {
-        path: '/pet-card',
+        path: '/pet-card/:id',
         name: 'PetCard',
         component: vPetCard,
         props: true
@@ -41,7 +41,7 @@ const routes = [
         props: true
     },
     {
-        path: '/breeder',
+        path: '/breeder/:id',
         name: 'Breeder',
         component: vBreeder,
         props: true

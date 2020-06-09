@@ -6,6 +6,8 @@
             <div class="petcard-content__info">
 
                     <h3>Основные сведения</h3>
+                    <h4>Владелец</h4>
+                    <p @click="openLink()">{{ user_name }}</p>
                     <h4>Дата рождения</h4>
                     <p>{{ birthDate }}</p>
                     <h4>Отец</h4>
@@ -69,6 +71,8 @@ export default {
 
         petName: 'Василий',
         breed: 'maine coon',
+        user_id: 1,
+        user_name: 'User',
         birthDate: '2019-05-21',
         father: 'GICH Goldenglory`s Lucas',
         mother: 'GICH Goldenglory`s Emilie',
@@ -97,6 +101,11 @@ export default {
             }
 
         }
+    },
+    methods: {
+        openLink() {
+            this.$router.push(`/breeder/:${this.user_id}`);
+        },
     }
 }
 
