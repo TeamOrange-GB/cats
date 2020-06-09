@@ -115,19 +115,19 @@ class Pet extends Model
             'status' => $this->status,
             //вернём не только id вида, но и название
             'species_id' => $this->species_id,
-            'species' => Species::findOrFail($this->species_id)->species,
+            'species' => Species::firstOrFail($this->species_id)->species,
             //вернём не только id породы, но и название
             'breed_id' => $this->breed_id,
-            'breed' => Breed::findOrFail($this->breed_id)->breed,
+            'breed' => Breed::firstOrFail($this->breed_id)->breed,
             //вернём не только id цвета, но и название
             'color_id' => $this->color_id,
-            'color' => Color::findOrFail($this->color_id)->color,
+            'color' => Color::firstOrFail($this->color_id)->color,
             'photos' => Photo::where('pet_id', '=', $this->id)->select('path', 'likes_count')->get(),
             'user_id' => $this->user_id,
         ];
 
         if ($addUserData) {
-            $data['user'] = User::findOrFail($this->user_id)->name;
+            $data['user'] = User::firstOrFail($this->user_id)->name;
         }
         return $data;
     }

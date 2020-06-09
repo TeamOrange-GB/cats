@@ -95,7 +95,7 @@ class User extends Authenticatable
      */
     public function getUserData($addPetsData)
     {
-        $city = City::findOrFail($this['city_id']);
+        $city = City::firstOrFail($this['city_id']);
 
         $data = [
             //'email' => $this->email,  не думаю, что стоит светить емейл юзера, нужно обсудить
@@ -114,7 +114,7 @@ class User extends Authenticatable
             'city' => $city->name,
             //вернём не только id региона, но и название
             'region_id' => $city->region_id,
-            'region' => Region::findOrFail($city['region_id'])->region,
+            'region' => Region::firstOrFail($city['region_id'])->region,
         ];
 
         if($addPetsData){
