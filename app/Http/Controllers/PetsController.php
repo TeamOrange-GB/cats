@@ -36,7 +36,7 @@ class PetsController extends Controller
      */
     public function getOwner(Pet $pet)
     {
-        $user = User::firstOrFail($pet['user_id']);
+        $user = User::findOrFail($pet['user_id']);
         //получаем не только данные о хозяине, но и данные о его животных
         $owner = $user->getUserData(true);
 
