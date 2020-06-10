@@ -29,7 +29,7 @@ class City extends Model
    protected $fillable = ['name', 'region_id'];
 
     /**
-     * Метод для получения региона через Relations\HasOne
+     * Метод для получения региона через Relations\BelongsTo
      *
      * @return BelongsTo
      */
