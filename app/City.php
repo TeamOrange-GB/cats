@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * App\City
@@ -24,6 +25,16 @@ use Illuminate\Database\Eloquent\Model;
  */
 class City extends Model
 {
-   protected $table = 'cities'; 
+   protected $table = 'cities';
    protected $fillable = ['name', 'region_id'];
+
+    /**
+     * Метод для получения региона через Relations\HasOne
+     *
+     * @return BelongsTo
+     */
+    public function region(){
+        return $this->belongsTo('App\Region');
+    }
 }
+

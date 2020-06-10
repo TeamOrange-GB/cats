@@ -114,7 +114,8 @@ class User extends Authenticatable
             'city' => $city->name,
             //вернём не только id региона, но и название
             'region_id' => $city->region_id,
-            'region' => Region::findOrFail($city['region_id'])->region,
+            'region' => $city->region->region,
+//            'region' => Region::findOrFail($city['region_id'])->region,
         ];
 
         if($addPetsData){
