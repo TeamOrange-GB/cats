@@ -27,7 +27,6 @@ Route::middleware('auth:sanctum')->group(function () {
 	
 });
 
-
 	
 	//получение каталога животных
 	Route::get('/catalog',                  'PetsController@index');
@@ -37,7 +36,5 @@ Route::middleware('auth:sanctum')->group(function () {
 
 	//получение конкретного животного
 	Route::get('/pet/{id}',                 'PetsController@getPet');
-
-
 
 
