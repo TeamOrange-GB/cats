@@ -26,3 +26,5 @@ Route::get('/owner/{pet}', 'PetsController@getOwner');
 //получение конкретного животного
 Route::get('/pet/{pet}', 'PetsController@getPet');
 
+//получение публичных данных юзера
+Route::get('/user/{user}', 'UserController@getUser');
