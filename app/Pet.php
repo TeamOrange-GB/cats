@@ -5,7 +5,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Breed;
 use App\Color;
+use App\Photo;
 use App\User;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * App\Pet
@@ -112,21 +115,67 @@ class Pet extends Model
             'awards_site' => $this->awards_site,
             'awards' => $this->awards,
             'status' => $this->status,
+            'photos' => $this->photos,
             //вернём не только id вида, но и название
             'species_id' => $this->species_id,
-            'species' => Species::findOrFail($this->species_id)->species,
+            'species' => $this->species->species,
             //вернём не только id породы, но и название
             'breed_id' => $this->breed_id,
-            'breed' => Breed::findOrFail($this->breed_id)->breed,
+            'breed' => $this->breed->breed,
             //вернём не только id цвета, но и название
             'color_id' => $this->color_id,
-            'color' => Color::findOrFail($this->color_id)->color,
-            'user_id' => $this->user_id,
+            'color' => $this->color->color,
         ];
 
         if ($addUserData) {
-            $data['user'] = User::findOrFail($this->user_id)->name;
+            $data['user_id'] = $this->user_id;
+            $data['user'] = $this->user->name;
+
         }
         return $data;
+    }
+    /**
+     * Метод для получения владельца через Relations\BelongsTo
+     *
+     * @return BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+    /**
+     * Метод для получения всех фотографий через Relations\hasMany
+     *
+     * @return hasMany
+     */
+    public function photos(){
+        return $this->hasMany('App\Photo')->select('path', 'likes_count');
+    }
+    /**
+     * Метод для получения вида через Relations\BelongsTo
+     *
+     * @return BelongsTo
+     */
+    public function species()
+    {
+        return $this->belongsTo('App\Species');
+    }
+    /**
+     * Метод для получения породы через Relations\BelongsTo
+     *
+     * @return BelongsTo
+     */
+    public function breed()
+    {
+        return $this->belongsTo('App\Breed');
+    }
+    /**
+     * Метод для получения окраса через Relations\BelongsTo
+     *
+     * @return BelongsTo
+     */
+    public function color()
+    {
+        return $this->belongsTo('App\Color');
     }
 }
