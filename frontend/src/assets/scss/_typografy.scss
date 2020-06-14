@@ -1,0 +1,77 @@
+ // Заголовки,текст, списки - стандартные отступы, размеры
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: $font-arimo;
+ }
+
+
+ h1 {
+     color: $color-medium-gray;
+     font-size: 24px;
+     font-family: $font-arimo;
+     text-align: center;
+ }
+
+ h2 {
+     color: $color-light-grey;
+     margin: 20px 0 50px 0;
+     font-size: 18px;
+     font-weight: 400;
+     font-style: normal;
+     font-family: $font-arimo;
+     text-align: center;
+ }
+
+ h3 {
+     color: $color-cyan;
+     font-size: 24px;
+     font-family: $font-arimo;
+     text-align: left;
+ }
+
+ h4 {
+     color: $color-medium-gray;
+     font-size: 18px;
+     font-family: $font-arimo;
+     text-align: left;
+     margin: 20px 0 10px 0;
+ }
+
+ p {
+     color: $color-light-grey;
+     font-size: 18px;
+     font-family: $font-arimo;
+     text-align: left;
+     line-height: 1.5;
+ }
+
+ figcaption {
+    color: $color-light-grey;
+    font-size: 18px;
+    font-family: $font-arimo;
+    text-align: left;
+ }
+
+ a {
+    text-decoration: none;
+    color: #757575;
+    transition: .5s;
+    font-family: $font-arimo;
+    &:hover{
+        color: #49BBAC;
+        transition: .5s;
+    }
+ }
+
+.btn {
+    @include buttonSetting(200px, 60px,  $color-cyan, $color-white);
+    border-color: $color-cyan;
+}
+
+.btn-reverse {
+    @include buttonSetting(200px, 60px, $color-white, $color-cyan);
+}
+
+

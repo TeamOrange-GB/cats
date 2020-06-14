@@ -8,12 +8,35 @@ use Illuminate\Support\Facades\Route;
 | API Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
 */
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function () {
+	
+	Route::get('/user', function (Request $request) {
+		return response()->json([
+			'message' => 'private data received',
+			'user' => $request->user()
+		]);
+	});
+	//добавление и удаление лайка для животного
+	Route::post('/likes/add/pet/{id}',      'LikesPetController@add')->where('id',    '[1-9][0-9]*');
+	Route::post('/likes/remove/pet/{id}',   'LikesPetController@remove')->where('id', '[1-9][0-9]*');
+	
+	//добавление и удаление лайка для фото
+	Route::post('/likes/add/photo/{id}',    'LikesPhotoController@add')->where('id',    '[1-9][0-9]*');
+	Route::post('/likes/remove/photo/{id}', 'LikesPhotoController@remove')->where('id', '[1-9][0-9]*');
+	
 });
+
+	
+	//получение каталога животных
+	Route::get('/catalog',                  'PetsController@index');
+	
+	//получение хозяина животного и всех его животных
+	Route::get('/owner/{id}',               'PetsController@getOwner');
+
+	//получение конкретного животного
+	Route::get('/pet/{id}',                 'PetsController@getPet');
+
+
+//получение публичных данных юзера
+Route::get('/user/{user}', 'UserController@getUser');

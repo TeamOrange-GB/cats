@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateRegionsTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Миграция создания таблицы regions.
      *
      * @return void
      */
@@ -24,7 +24,6 @@ class CreateRegionsTable extends Migration
             $table
                 ->string('region', 100)
                 ->unique()
-                ->nullable(false)
                 ->comment('Название региона');
         });
     }

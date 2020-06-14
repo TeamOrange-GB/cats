@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateBreedsTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Миграция создания таблицы breeds.
      *
      * @return void
      */
@@ -24,11 +24,10 @@ class CreateBreedsTable extends Migration
             $table
                 ->string('breed', 100)
                 ->unique()
-                ->nullable(false)
                 ->comment('Название породы');
             $table
                 ->text('breed_info')
-                ->nullable(true)
+                ->nullable()
                 ->comment('Информация о породе');
         });
     }

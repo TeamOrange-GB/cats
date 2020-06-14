@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateUsersTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Миграция создания таблицы users.
      *
      * @return void
      */
@@ -23,72 +23,63 @@ class CreateUsersTable extends Migration
                 ->useCurrent();
             $table
                 ->string('name', 100)
-                ->nullable(false)
                 ->comment('Имя пользователя');
             $table
                 ->string('email', 100)
                 ->unique()
-                ->nullable(false)
+                ->nullable()
                 ->comment('E-mail пользователя');
             $table
                 ->string('password', 100)
-                ->nullable(false)
                 ->comment('Пароль пользователя');
             $table
                 ->enum('role', ['user', 'admin', 'sponsor', 'owner'])
-                ->nullable(false)
                 ->default('user')
                 ->comment('Полномочия пользователя');
             $table
-                ->string('social_id_vkontakte', 50)
-                ->nullable(true)
-                ->default(null)
-                ->unique()
-                ->comment('id в контакте');
+                ->string('link_vkontakte', 50)
+                ->nullable()
+                ->comment('ссылка на В контакте');
             $table
-                ->string('social_id_odnoklassniki', 50)
-                ->nullable(true)
-                ->default(null)
-                ->unique()
-                ->comment('id в одноклассниках');
+                ->string('link_odnoklassniki', 50)
+                ->nullable()
+                ->comment('ссылка на Одноклассники');
             $table
-                ->string('social_id_google', 50)
-                ->nullable(true)
-                ->default(null)
-                ->unique()
-                ->comment('id в google');
+                ->string('link_google', 50)
+                ->nullable()
+                ->comment('Ссылка на google');
             $table
-                ->enum('type_auth', ['site', 'vk', 'google', 'odnoklassniki'])
-                ->nullable(false)
+                ->string('social_id', 50)
+                ->nullable()
+                ->comment('Id в социальной сети, через которую была регистрация');
+            $table
+                ->enum('type_auth', ['site', 'vkontakte', 'google', 'odnoklassniki'])
                 ->default('site')
                 ->comment('Тип авторизации');
             $table
                 ->enum('status', ['active', 'block'])
-                ->nullable(false)
                 ->default('active')
                 ->comment('Статус пользователя');
             $table
                 ->text('description')
-                ->nullable(true)
+                ->nullable()
                 ->comment('Описание пользователя');
             $table->string('phone', 15)
-                ->nullable(true)
-                ->default(null)
+                ->nullable()
                 ->unique()
                 ->comment('Телефон пользователя');
             $table
                 ->string('avatar', 255)
-                ->nullable(true)
-                ->default(null)
+                ->nullable()
                 ->comment('Ссылка на аватар');
 
             //поля для индексов
             $table
-                ->unsignedBigInteger('city_id')
-                ->nullable(true)
-                ->default(null);
+                ->foreignId('city_id')
+                ->nullable()
+                ->comment('Id населённого пункта');
 
-//            $table->rememberToken();
+            $table->rememberToken();
         });
     }
 

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateCitiesTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Миграция создания таблицы cities.
      *
      * @return void
      */
@@ -23,12 +23,10 @@ class CreateCitiesTable extends Migration
                 ->useCurrent();
             $table
                 ->string('name', 100)
-                ->unique()
-                ->nullable(false)
                 ->comment('Название населённого пункта');
+            //поля для индексов
             $table
-                ->unsignedBigInteger('region_id')
-                ->nullable(false)
+                ->foreignId('region_id')
                 ->comment('Id региона');
         });
     }
