@@ -38,3 +38,5 @@ Route::middleware('auth:sanctum')->group(function () {
 	Route::get('/pet/{id}',                 'PetsController@getPet');
 
 
+//получение публичных данных юзера
+Route::get('/user/{user}', 'UserController@getUser');
