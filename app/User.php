@@ -4,6 +4,7 @@ namespace App;
 
 use App\City;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Region;
@@ -59,6 +60,9 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $table = 'users';
+
+
     /**
      * The attributes that are mass assignable.
      *
@@ -95,7 +99,7 @@ class User extends Authenticatable
      */
     public function getUserData($addPetsData)
     {
-        $city = City::findOrFail($this['city_id']);
+        $city = $this->city;
 
         $data = [
             //'email' => $this->email,  не думаю, что стоит светить емейл юзера, нужно обсудить
@@ -114,7 +118,7 @@ class User extends Authenticatable
             'city' => $city->name,
             //вернём не только id региона, но и название
             'region_id' => $city->region_id,
-            'region' => Region::findOrFail($city['region_id'])->region,
+            'region' => $city->region->region,
         ];
 
         if($addPetsData){
@@ -137,5 +141,15 @@ class User extends Authenticatable
             $petsData[] = $newPet;
         }
         return $petsData;
+    }
+
+    /**
+     * Метод для получения города через Relations\BelongsTo
+     *
+     * @return BelongsTo
+     */
+    public function city()
+    {
+        return $this->belongsTo('App\City');
     }
 }

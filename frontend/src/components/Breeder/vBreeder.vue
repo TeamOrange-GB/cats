@@ -21,7 +21,8 @@
       </figure>
     </div>
     <vCatGallery :animalsNumber="10"
-                :isPaginationVisible="true" />
+                :isPaginationVisible="true"
+                v-bind:filterParam="{ breed: 'Бенгальская кошка' }" />
   </section>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="gallery-list__item">
+    <div class="gallery-list__item" @click="openLink()">
         <img class="pet__img" src="@/assets/image/Home/cats.png" alt="">
         <div class="pet-info">
             <div class="pet-info__item">
@@ -66,6 +66,9 @@
                     this.$emit('likeCountUp', id);
                 }
             },
+            openLink() {
+                this.$router.push(`/pet-card/:${this.animal.id}`);
+            }
         }
     }
 </script>

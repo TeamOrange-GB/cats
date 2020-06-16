@@ -48,7 +48,14 @@
                 default() {
                     return false
                 }
-            }
+            },
+            filterParam: {
+                type: Object,
+                default() {
+                    return undefined;
+                }
+            },
+
         },
         data(){
             return {
@@ -73,8 +80,15 @@
             },
             getArrayAnimal(){
                 let arr = this.paginatedList;
-                this.arrayAnimal = arr;
-            }
+                this.arrayAnimal = this.filterParam ? this.filterArrayAnimal(arr, this.filterParam) : arr;
+            },
+            filterArrayAnimal(array, filterParam){
+                let arr = [...array];
+                Object.entries(filterParam).forEach(param => {
+                    arr = arr.filter(item => item[param[0]] === param[1]);
+                });
+                return arr;
+            },
         },
         computed: {
             ...mapGetters([
