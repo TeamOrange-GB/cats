@@ -32,10 +32,10 @@ Route::middleware('auth:sanctum')->group(function () {
 	Route::get('/catalog',                  'PetsController@index');
 	
 	//получение хозяина животного и всех его животных
-	Route::get('/owner/{id}',               'PetsController@getOwner');
+	Route::get('/owner/{pet}',               'PetsController@getOwner');
 
 	//получение конкретного животного
-	Route::get('/pet/{id}',                 'PetsController@getPet');
+	Route::get('/pet/{pet}',                'PetsController@getPet');
 
 
 //получение публичных данных юзера
