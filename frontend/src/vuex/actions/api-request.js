@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default {
     GET_CATALOG_FROM_API({commit}) {
-        return axios('http://cats.xyz/api/catalog', {
+        return axios('http://ca76934.tmweb.ru/api/catalog', {
             method: "GET"
         })
             .then((catalog) => {
@@ -41,7 +41,7 @@ export default {
             })
     },
     SENDING_AUTH_DATA_IN_API(trash, data) {
-        return axios.post('http://cats.xyz/login', {
+        return axios.post('http://ca76934.tmweb.ru/login', {
             email: data.email,
             password: data.password
         })
@@ -57,7 +57,7 @@ export default {
     },
     SENDING_REGISTRATION_DATA_IN_API(trash, data) {
 
-        return axios.post('http://cats.xyz/register', {
+        return axios.post('http://ca76934.tmweb.ru/register', {
             'name': data.name,
             'email': data.email,
             'password': data.password,
@@ -73,7 +73,7 @@ export default {
             })
     },
     FIRST_VISIT_USER_LOGIN() {
-        return axios.get('http://cats.xyz/api/user')
+        return axios.get('http://ca76934.tmweb.ru/api/user')
             .then((response) => {
                 console.log(response);
                 return response;
@@ -84,7 +84,7 @@ export default {
             })
     },
     LOGOUT() {
-        return axios.post('http://cats.xyz/logout')
+        return axios.post('http://ca76934.tmweb.ru/logout')
             .then((response) => {
                 console.log(response)
             })
