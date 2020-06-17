@@ -15,7 +15,7 @@ export default {
             })
     },
     GET_USERINFO_FROM_API({commit}, user_id) {
-        return axios('http://cats.xyz/api/user/' + user_id, {
+        return axios('http://ca76934.tmweb.ru/api/user/' + user_id, {
             method: "GET"
         })
             .then((response) => {
@@ -28,7 +28,7 @@ export default {
             })
     },
     GET_PETINFO_FROM_API({commit}, pet_id) {
-        return axios(`http://cats.xyz/api/pet/${pet_id}`, {
+        return axios(`http://ca76934.tmweb.ru/api/pet/${pet_id}`, {
             method: "GET"
         })
             .then((response) => {
