@@ -12,7 +12,8 @@ Vue.use(Vuex);
 
 let store = new Vuex.Store({
    state: {
-    catalog: []
+    catalog: [],
+    isLoading: false,
    },
    mutations,
    actions,

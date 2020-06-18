@@ -7,7 +7,7 @@
 
                     <h3>Основные сведения</h3>
                     <h4>Владелец</h4>
-                    <p @click="openLink()">{{ user_name }}</p>
+                    <p>{{ user_name }} (<strong @click="openLink()">Посмотреть</strong>)</p>
                     <h4>Дата рождения</h4>
                     <p>{{ birthDate }}</p>
                     <h4>Отец</h4>
@@ -57,7 +57,8 @@
 
 <script>
 import gallery from './vGallery.vue';
-import modal from './vModal.vue'
+import modal from './vModal.vue';
+import {mapActions, mapGetters} from 'vuex';
 
 export default {
     name: 'vPetCard',
@@ -83,8 +84,8 @@ export default {
         age: 'adult',
         mainImg: "https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/maineCoons/coon.jpg",
         vetPassImg: "https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/vetpasport.jpg",
-        titulImg: "https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/sert.jpg"
-
+        titulImg: "https://raw.githubusercontent.com/annapuchkova/cats/dev/frontend/src/assets/image/sert.jpg",
+        petInfo: {},
     }),
     computed: {
         old() {
@@ -104,8 +105,20 @@ export default {
     },
     methods: {
         openLink() {
-            this.$router.push(`/breeder/:${this.user_id}`);
+            this.$router.push(`/breeder/${this.user_id}`);
         },
+        ...mapActions([
+                'GET_PETINFO_FROM_API',
+                'SET_ISLOADING',
+            ]),
+        
+    },
+    beforeMount() {
+        // this.SET_ISLOADING();
+        this.GET_PETINFO_FROM_API(this.$route.params.id)
+            .then(response => this.petInfo = response);
+        console.log(this.petInfo);
+
     }
 }
 
