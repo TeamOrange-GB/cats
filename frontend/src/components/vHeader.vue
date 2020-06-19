@@ -19,35 +19,20 @@
 
         <transition name=fade>
             <nav class="header-navigation__list" v-show="show"  >
-                <!-- :style="{ width: widthDevice + 'px' }" -->
                 <router-link :to="{name:'Main'}" class="header-navigation__link">
                    Главная
                 </router-link>
-
                 <router-link :to="{name:'vCatCatalog'}" class="header-navigation__link">
-                    Котики
+                    Каталог животных
                 </router-link>
-
-                <a class="header-navigation__link" href="#">Выставки</a>
-                <a class="header-navigation__link" href="#">О нас</a>
-                <a class="header-navigation__link" href="#">Контакты</a>
-                <router-link :to="{name:'PetCard'}" class="header-navigation__link">
-                    PetCard
-                </router-link>
-                <router-link :to="{name:'Breeder'}" class="header-navigation__link">
-                  BreederCard
+                <router-link :to="{name:'Auth'}" class="header-navigation__link">
+                    Авторизация
                 </router-link>
                 <router-link :to="{name:'Registration'}" class="header-navigation__link">
                    Регистрация
                 </router-link>
                 <router-link :to="{name:'Account'}" class="header-navigation__link">
                   ЛК пользователя
-                </router-link>
-                <router-link :to="{name:'AddAnimal'}" class="header-navigation__link">
-                  Создание карточки
-                </router-link>
-                <router-link :to="{name:'Auth'}" class="header-navigation__link">
-                    Авторизация
                 </router-link>
             </nav>
         </transition>

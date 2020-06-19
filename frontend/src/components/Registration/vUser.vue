@@ -9,7 +9,7 @@
                 <input class="reg-form__text" type="password" name="pass" placeholder="Придумайте пароль">
                 <input class="reg-form__text" type="password" name="confirmpass" placeholder="Повторите пароль">
             </div>
-            <div class="btn">    
+            <div class="btn">
                 <button class="btn__text">Зарегистрироваться
 		        </button>
             </div>
@@ -46,7 +46,7 @@
             margin-bottom: 10px;
             padding-left: 10px;
             font-size: 16px;
-            font-family: $font-montserrat;  
+            font-family: $font-montserrat;
         }
 }
 
@@ -61,14 +61,12 @@
                 padding: 5px;
                 font-size: $font-size;
                 font-family: $font-montserrat;
-                color: $color-cyan;    
+                color: $color-cyan;
             }
 }
 
 .btn{
-    display: flex;
-    justify-content: center;
-    padding: 10px;
+
         &__text{
             width: 200px;
             height: 60px;

@@ -3,6 +3,7 @@
         <h2 class="sponsors__title">
             Наши спонсоры
         </h2>
+        <vSponsorInfo/>
         <div class="sponsors-list">
             <img src="../../assets/image/Sponsors/brand_1_170x78_crop_top.png" alt="brand_1">
             <img src="../../assets/image/Sponsors/brand_2_170x78_crop_top.png" alt="brand_2">
@@ -13,6 +14,18 @@
         </div>
     </section>
 </template>
+
+<script>
+
+    import vSponsorInfo from "./vSponsorInfo";
+
+    export default {
+        name: "vSponsors",
+        components: {
+            vSponsorInfo
+        }
+    }
+</script>
 
 <style lang="scss">
     .sponsors{
@@ -29,7 +42,6 @@
         &-list {
             display: flex;
             justify-content: center;
-            background-color: $color-smoke;
             flex-wrap: wrap;
         }
         img{

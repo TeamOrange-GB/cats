@@ -1,6 +1,7 @@
 <template>
     <section class="footer">
         <div class="footer-main">
+            <a class="footer-copyright__link" href="#"><img class="footer-copyright__img" src="../assets/image/logofooter.png" alt=""></a>
              <ul class="footer-list">
                 <li class="footer-list__item"><a class="footer-list__link" href="#">Главная</a></li>
                 <li class="footer-list__item"><a class="footer-list__link" href="#">Котики</a></li>
@@ -47,7 +48,6 @@
              </ul>
         </div>
         <div class="footer-copyright">
-           <a class="footer-copyright__link" href="#"><img class="footer-copyright__img" src="../assets/image/logofooter.png" alt=""></a>
            <p class="footer-copyright__text">&copy;All rights reserved</p>
         </div>
     </section>
@@ -66,14 +66,14 @@
 
 .footer{
     width:100%;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 
 .footer-main{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-top: 1px solid #CCCCCC;
-    border-bottom: 1px solid #CCCCCC;
+
 }
 
 .footer-list{
@@ -90,7 +90,7 @@
 .footer-social{
     display: flex;
   &__icon{
-    
+
     margin-right: 30px;
     svg{
       height: 23px;
@@ -104,7 +104,7 @@
 
 .footer-copyright{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 20px;
   &__text{
