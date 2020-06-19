@@ -1,6 +1,6 @@
 <template>
   <section class="breeder">
-    <h1>{{ name }}</h1>
+    <h1>{{ name }}  {{userInfo.name}}</h1>
     <h2>{{ farm }}</h2>
     <div class="breeder__card">
       <div class="breeder__info">
@@ -10,9 +10,9 @@
         <h4>Опыт разведения:</h4>
         <p>{{ experience }}</p>
         <h4>Страна:</h4>
-        <p>{{ country }}</p>
+        <p>{{ country }}  {{userInfo.region}}</p>
         <h4>Город:</h4>
-        <p>{{ city }}</p>
+        <p>{{ city }}  {{userInfo.city}}</p>
         <h4>Дополнительная информация:</h4>
         <p>{{ addInfo }}</p>
       </div>
@@ -29,6 +29,7 @@
 <script>
   // import breedercats from './vBreederCats'
   import vCatGallery from "../Catalog/vCatGallery";
+  import {mapActions, mapGetters} from 'vuex';
 
   export default {
     name: 'vBreeder',
@@ -41,7 +42,21 @@
       country: "Россия",
       city: "Москва",
       addInfo: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus ullam animi tempore obcaecati officiis incidunt? Deleniti reprehenderit fugiat temporibus vitae harum optio nulla assumenda cum quidem ab iste facilis quam libero doloremque id pariatur at sapiente, unde dolorem aut quas nemo? Natus doloribus laudantium nihil consequuntur ducimus quibusdam sed repudiandae.",
+      userInfo: {},
     }),
+    methods: {
+      ...mapActions([
+                'GET_USERINFO_FROM_API',
+                'SET_ISLOADING',
+            ]),
+    },
+    beforeMount() {
+        // this.SET_ISLOADING();
+        this.GET_USERINFO_FROM_API(this.$route.params.id)
+            .then(response => this.userInfo = response);
+        console.log(this.userInfo);
+
+    }
   }
 </script>
 

@@ -71,7 +71,7 @@
                 }
             },
             openLink() {
-                this.$router.push(`/pet-card/:${this.animal.id}`);
+                this.$router.push(`/pet-card/${this.animal.id}`);
             }
         }
     }

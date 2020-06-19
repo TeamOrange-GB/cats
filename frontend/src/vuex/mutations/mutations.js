@@ -14,6 +14,7 @@ export default {
             }
         })
         state.catalog = array;
+        state.isLoading = false;
     },
     SET_UPDATE_COUNTS_LIKES: (state, id) => {
         state.catalog.forEach(function(item, i){
@@ -25,5 +26,8 @@ export default {
     },
     SET_REGISTRATION_DATA_IN_API: (response) => {
         console.log(response)
+    },
+    SET_ISLOADING: (state) => {
+        state.isLoading = true;
     }
 }
