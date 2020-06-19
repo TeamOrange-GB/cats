@@ -86,7 +86,7 @@
                         <h4>Фотографии</h4>
                             <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>                          
                     </div>
-                    <button v-on:click="submitFile()" class="btn-sent">Submit</button>
+                    <button v-on:click="submitFile()" class="btn-sent">Добавить</button>
             </form>
     </section>
 </template>
@@ -132,10 +132,20 @@ export default {
 </script>
 
 <style lang="scss">
-.main-addAnimal{
+    .main-addAnimal{
         max-width: 580px;
         margin: 20px auto 50px;
     }
-     
+    .btn-sent,
+    .btn-sent:hover {
+
+        color: $color-white;
+        line-height: 1;
+    }
+    .btn-sent:hover {
+        background-color: $color-light-grey;
+        border: solid 2px $color-light-grey;
+    }
+
 </style>
 

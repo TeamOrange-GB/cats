@@ -1,25 +1,35 @@
 <template>
     <section>
         <h1 class="reg-title">Регистрация</h1>
-        <div class="reg-form">
-            <input v-model="name_var" class="reg-form__text" type="text" name="name_var" placeholder="Ваше имя"/>
-            <input v-model="login_var" class="reg-form__text" type="text" name="login_var" placeholder="Ваша почта"/>
-            <input v-model="password_var" class="reg-form__text" type="password" name="password_var"
-                   placeholder="Придумайте пароль"/>
-            <input
-                v-model="password_confirmation_var"
-                class="reg-form__text"
-                type="password"
-                name="password_confirmation_var"
-                placeholder="Повторите пароль"
-            />
-        </div>
-        <button
-            @click="regUser"
-            class="btn btn--reg"
-        >
-            Зарегистрироваться
-        </button>
+        <form  id="userDataForm">
+            <div class="reg-form">
+                <input v-model="name_var" class="reg-form__text" type="text" name="name_var" placeholder="Ваше имя"/>
+                <input v-model="login_var" class="reg-form__text" type="text" name="login_var" placeholder="Ваша почта"/>
+                <input v-model="password_var" class="reg-form__text" type="password" name="password_var"
+                    placeholder="Придумайте пароль"/>
+                <input
+                    v-model="password_confirmation_var"
+                    class="reg-form__text"
+                    type="password"
+                    name="password_confirmation_var"
+                    placeholder="Повторите пароль"
+                />
+                <div v-if="errors.length" class="fails">
+                    <b>Пожалуйста исправьте указанные ошибки:</b>
+                    <ul>
+                    <li v-for="error in errors">{{ error }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <button
+                @click="regUser"
+                form="userDataForm"
+                class="btn btn--reg"
+            >
+                Зарегистрироваться
+            </button>
+        </form>
         <span class="or-text">Или войдите через:</span>
         <div class="social">
             <a href="/login/vkontakte" class="social__text">
@@ -73,21 +83,43 @@
                 name_var: 'Oleg',
                 login_var: '123test@mail.ru',
                 password_var: '12345678a',
-                password_confirmation_var: '12345678a'
+                password_confirmation_var: '12345678a',
+                errors: []
             }
         },
         methods: {
             ...mapActions([
                 'SENDING_REGISTRATION_DATA_IN_API'
             ]),
-            regUser() {
-                this.SENDING_REGISTRATION_DATA_IN_API(
+            regUser(e) {
+
+                const reName = /^[A-zа-яА-ЯёЁ\s]{2,20}$/;
+                const reEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+                this.errors = [];
+
+                if (!reName.test(this.name_var)) {
+                this.errors.push('Введите корректное имя: от 2 до 50 букв');
+                }
+                if (!reEmail.test(this.login_var)) {
+                this.errors.push('Введите корректный email');
+                }
+                if (this.password_confirmation_var !== this.password_var) {
+                this.errors.push('Пароли должны совпадать');
+                }
+                if (!this.errors.length) {
+                    this.SENDING_REGISTRATION_DATA_IN_API(
                     {
                         'email': this.login_var,
                         'name': this.name_var,
                         'password': this.password_var,
                         'password_confirmation': this.password_confirmation_var
                     })
+                    return true;
+                }
+                this.successChange = false;
+                e.preventDefault();
+
             }
         }
     }
@@ -144,4 +176,14 @@
             font-family: $font-montserrat;
         }
     }
+    .fails {
+    color: $color-text-alert;
+    background-color: $color-alert;
+    border: 1px solid $color-border-alert;
+    line-height: 1.5;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    font: 16px/1.5em Arimo,sans-serif;
+    border-radius: 5px;
+  }
 </style>
