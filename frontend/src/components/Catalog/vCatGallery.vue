@@ -1,5 +1,6 @@
 <template>
     <div class="cat-catalog__gallery">
+        <div class="gallery-loading" v-if="ISLOADING">Loading...</div>
         <div class="gallery-list">
             <vCatItem
                 v-for="(animal, index) in arrayAnimal"
@@ -66,7 +67,8 @@
         methods: {
             ...mapActions([
                 'GET_CATALOG_FROM_API',
-                'UPDATE_COUNTS_LIKES'
+                'UPDATE_COUNTS_LIKES',
+                'SET_ISLOADING',
             ]),
             changePage(index){
                 this.pageNumber = index + 1;
@@ -92,7 +94,8 @@
         },
         computed: {
             ...mapGetters([
-                'CATALOG'
+                'CATALOG',
+                'ISLOADING'
             ]),
             pages(){
                 return Math.ceil(this.CATALOG.length / this.animalsNumber);
@@ -113,6 +116,7 @@
             },
         },
         mounted() {
+            this.SET_ISLOADING();
             this.GET_CATALOG_FROM_API()
                 .then(this.getArrayAnimal)
         }
@@ -120,6 +124,10 @@
 </script>
 
 <style lang="scss">
+    .gallery-loading {
+        text-align: center;
+        padding: 0 50px;
+    }
     .gallery-list {
         display: flex;
         justify-content: flex-start;
