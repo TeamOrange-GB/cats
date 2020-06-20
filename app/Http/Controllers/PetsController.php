@@ -19,12 +19,7 @@ class PetsController extends Controller
      */
     public function index()
     {
-        $pets = DB::table('pets')
-			->select('pets.id',  'pets.gender', 'pets.name_real', 'pets.likes_count', 'pets.awards_site', 'pets.awards', 'colors.color', 'breeds.breed', 'species.species')
-            ->join('colors', 'pets.color_id', '=', 'colors.id')
-            ->join('breeds', 'pets.breed_id', '=', 'breeds.id')
-            ->join('species', 'pets.species_id', '=', 'species.id')
-            ->get();
+        $pets = Pet::getPets();
 
         return response()->json($pets);
     }
@@ -54,4 +49,33 @@ class PetsController extends Controller
         //получаем не только данные о животном но и данные о его хозяине
         return $pet->getPetData(true);
     }
+	
+	
+	/**
+     * Метод добавляет животное
+     *
+     * @param Pet $pet
+     * @return JsonResponse
+     */
+	public function add($pet){
+		return response()->json(['message'=>'']);
+	}
+	/**
+     * Метод изменяет животное
+     *
+     * @param Pet $pet
+     * @return JsonResponse
+     */
+	public function update(Pet $pet){
+		return response()->json(['message'=>'']);
+	}
+	/**
+     * Метод удаляет животное
+     *
+     * @param Pet $pet
+     * @return JsonResponse
+     */
+	public function delete(Pet $pet){
+		return response()->json(['message'=>'']);
+	}
 }
