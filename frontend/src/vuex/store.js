@@ -8,13 +8,15 @@ import getters from "./getters/getters";
 
 const actions = {...actionsList, ...actionsApi};
 
+import catalogModule from './modules/catalog'
+
 Vue.use(Vuex);
 
 let store = new Vuex.Store({
-   state: {
-    catalog: [],
-    isLoading: false,
-   },
+    modules: {
+        catalog: catalogModule
+    },
+   state: {},
    mutations,
    actions,
    getters

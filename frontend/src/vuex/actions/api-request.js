@@ -1,19 +1,7 @@
 import axios from 'axios'
 
 export default {
-    GET_CATALOG_FROM_API({commit}) {
-        return axios('http://ca76934.tmweb.ru/api/catalog', {
-            method: "GET"
-        })
-            .then((catalog) => {
-                commit('SET_CATALOG_TO_STATE', catalog.data);
-                return catalog;
-            })
-            .catch((error) => {
-                console.log(error);
-                return error;
-            })
-    },
+
     GET_USERINFO_FROM_API({commit}, user_id) {
         return axios('http://ca76934.tmweb.ru/api/user/' + user_id, {
             method: "GET"
@@ -32,7 +20,7 @@ export default {
             method: "GET"
         })
             .then((response) => {
-                console.log(response)
+                console.log(response.data)
                 return response;
             })
             .catch((error) => {
@@ -79,7 +67,6 @@ export default {
                 return response;
             })
             .catch((error) => {
-                console.log(error);
                 return error;
             })
     },

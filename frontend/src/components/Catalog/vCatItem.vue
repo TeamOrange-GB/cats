@@ -33,7 +33,7 @@
                 class="pet__aside-item pet__aside-likes"
             >
                 <img
-                    v-if="animal.haveLike"
+                    v-if="animal.haveLike && !showCountLike"
                     src="@/assets/image/Home/heart-fill.svg"
                 />
                 <img
@@ -41,7 +41,6 @@
                     src="@/assets/image/Home/heart.svg"
                     alt=""
                 >
-
             </div>
         </div>
     </div>
@@ -64,6 +63,11 @@
                 }
             }
         },
+        data() {
+            return {
+                showCountLike: false
+            }
+        },
         methods: {
             likeItemAnimal(id, haveLike){
                 if(!haveLike){
@@ -83,16 +87,16 @@
         margin: 20px;
         position: relative;
         cursor: pointer;
+        transition: .5s;
+        &:hover {
+            transition: .5s;
+            transform: scale(1.01);
+            box-shadow: 0px 0px 20px 0px #000000;
+        }
     }
     .pet {
         &__img {
             width: 100%;
-            transition: .5s;
-            &:hover {
-                transition: .5s;
-                transform: scale(1.01);
-                box-shadow: 0px 0px 20px 0px #000000;
-            }
         }
         &-info {
             min-height: 44px;
