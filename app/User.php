@@ -122,7 +122,7 @@ class User extends Authenticatable
         ];
 
         if($addPetsData){
-            $data['pets'] = $this->getUserPets();
+            $data['pets'] = Pet::getPets($this->id);
         }
         return $data;
     }
@@ -131,7 +131,7 @@ class User extends Authenticatable
      *
      * @return array
      */
-    public function getUserPets(){
+   public function getUserPets(){
         $pets = Pet::where('user_id', $this->id)->get();
         $petsData = [];
         foreach ($pets as $pet){

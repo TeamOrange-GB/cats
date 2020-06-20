@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Breed;
+#use App\Species;
 use App\Color;
 use App\Photo;
 use App\User;
@@ -90,6 +91,25 @@ class Pet extends Model
     ];
 
     /**
+     * Метод возвращает упрощенный список животных.
+     *
+     * @param int $user выборка животных принадлежащих одному юзеру.
+     * @return array
+     */
+    static public function getPets( $user = null ){
+        $pets = self::query()
+			->select('pets.id',  'pets.gender', 'pets.name_real', 'pets.likes_count', 'pets.awards_site', 'pets.awards', 'colors.color', 'breeds.breed', 'species.species')
+            ->join('colors', 'pets.color_id', '=', 'colors.id')
+            ->join('breeds', 'pets.breed_id', '=', 'breeds.id')
+            ->join('species', 'pets.species_id', '=', 'species.id')
+        ;
+		if( $user ){
+			$pets->where( 'pets.user_id', $user );
+		}	
+		
+        return $pets->get();
+	}
+    /**
      * Метод возвращает данные животного.
      *
      * @param bool $addUserData нужно ли добавлять данные о юзерe.
@@ -97,7 +117,7 @@ class Pet extends Model
      */
     public function getPetData(bool $addUserData)
     {
-        $data = [
+		$data = [
             'id' => $this->id,
             'birthday_at' => $this->birthday_at,
             'gender' => $this->gender,
