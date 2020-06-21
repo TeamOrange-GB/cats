@@ -113,6 +113,9 @@ class User extends Authenticatable
             'description' => $this->description,
             'phone' => $this->phone,
             'avatar' => $this->avatar,
+            'organization_name' => $this->organization_name,
+            'organization_certificate' => $this->organization_certificate,
+            'organization_created' => $this->organization_created,
             //вернём не только id города, но и название
             'city_id' => $this->city_id,
             'city' => $city->name,
