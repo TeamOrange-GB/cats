@@ -18,34 +18,34 @@ Route::middleware('auth:sanctum')->group(function () {
 		]);
 	});
 	//добавление и удаление лайка для животного
-	Route::put(   '/like/pet/{id}',   'LikesPetController@add')->where('id',    '[1-9][0-9]*');
-	Route::delete('/like/pet/{id}',   'LikesPetController@remove')->where('id', '[1-9][0-9]*');
+	Route::put(   '/likes/pet/{id}',   'LikesPetController@add')->where('id',    '[1-9][0-9]*');
+	Route::delete('/likes/pet/{id}',   'LikesPetController@remove')->where('id', '[1-9][0-9]*');
 	
 	//добавление и удаление лайка для фото
-	Route::put(   '/like/photo/{id}', 'LikesPhotoController@add')->where('id',    '[1-9][0-9]*');
-	Route::delete('/like/photo/{id}', 'LikesPhotoController@remove')->where('id', '[1-9][0-9]*');
+	Route::put(   '/likes/photo/{id}', 'LikesPhotoController@add')->where('id',    '[1-9][0-9]*');
+	Route::delete('/likes/photo/{id}', 'LikesPhotoController@remove')->where('id', '[1-9][0-9]*');
 	
 	//добавление, изменение и удаление животного
-	Route::put(   '/pet',             'PetsController@add');
-	Route::post(  '/pet/{pet}',       'PetsController@update');
-	Route::delete('/pet/{pet}',       'PetsController@delete');
+	Route::put(   '/pets',             'PetsController@add');
+	Route::post(  '/pets/{pet}',       'PetsController@update');
+	Route::delete('/pets/{pet}',       'PetsController@delete');
 	
 	//добавление, изменение и удаление юзера
-	Route::put(   '/user',            'UserController@add');
-	Route::post(  '/user/{user}',     'UserController@update');
-	Route::delete('/user/{user}',     'UserController@delete');
+	Route::put(   '/users',            'UserController@add');
+	Route::post(  '/users/{user}',     'UserController@update');
+	Route::delete('/users/{user}',     'UserController@delete');
 });
 
 	//получение каталога животных
-	Route::get('/pet',                'PetsController@index');
+	Route::get('/pets',                'PetsController@index');
 	//получение конкретного животного
-	Route::get('/pet/{pet}',          'PetsController@getPet');
+	Route::get('/pets/{pet}',          'PetsController@getPet');
 	
 
 	//получение публичных данных юзера
-	Route::get('/user/{user}',        'UserController@getUser');
+	Route::get('/users/{user}',        'UserController@getUser');
 	
-	Route::get('/user/{user}/pets',   'UserController@getOwner');
+	Route::get('/users/{user}/pets',   'UserController@getOwner');
 	//получение хозяина животного и всех его животных
 #	Route::get('/owner/{pet}',        'PetsController@getOwner');
 
@@ -55,5 +55,5 @@ Route::middleware('auth:sanctum')->group(function () {
 |--------------------------------------------------------------------------
 */
 Route::get('/{any}', function(){
-	return 'bad url';
+	return response()->json(['message' => 'bad url']);
 })->where('any', '.*');
