@@ -1,7 +1,6 @@
 <template>
     <section>
         <h1 class="reg-title">Регистрация</h1>
-        <form  id="userDataForm">
             <div class="reg-form">
                 <input v-model="name_var" class="reg-form__text" type="text" name="name_var" placeholder="Ваше имя"/>
                 <input v-model="login_var" class="reg-form__text" type="text" name="login_var" placeholder="Ваша почта"/>
@@ -24,12 +23,10 @@
 
             <button
                 @click="regUser"
-                form="userDataForm"
                 class="btn btn--reg"
             >
                 Зарегистрироваться
             </button>
-        </form>
         <span class="or-text">Или войдите через:</span>
         <div class="social">
             <a href="/login/vkontakte" class="social__text">
@@ -113,13 +110,10 @@
                         'email': this.login_var,
                         'name': this.name_var,
                         'password': this.password_var,
-                        'password_confirmation': this.password_confirmation_var
-                    })
+                    });
                     return true;
                 }
                 this.successChange = false;
-                e.preventDefault();
-
             }
         }
     }
