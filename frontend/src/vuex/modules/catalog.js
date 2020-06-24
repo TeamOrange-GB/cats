@@ -10,7 +10,6 @@ const catalog = {
             return axios.get('http://ca76934.tmweb.ru/api/pets')
                 .then((catalog) => {
                     commit('SET_CATALOG_TO_STATE', catalog.data);
-                    console.log(catalog)
                     return catalog;
                 })
                 .catch((error) => {

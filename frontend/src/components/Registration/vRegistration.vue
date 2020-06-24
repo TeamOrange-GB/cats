@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="reg">
         <h1 class="reg-title">Регистрация</h1>
             <div class="reg-form">
                 <input v-model="name_var" class="reg-form__text" type="text" name="name_var" placeholder="Ваше имя"/>
@@ -62,18 +62,23 @@
                 </svg>
             </a>
         </div>
+        <div
+            v-if="GET_MESSAGE"
+            class="message"
+        >
+            {{GET_MESSAGE}}
+        </div>
     </section>
 </template>
 
 <script>
 
-    import {mapActions} from 'vuex'
-    import vUser from './vUser'
+    import {mapActions, mapGetters} from 'vuex'
 
     export default {
         name: "vRegistration",
         components: {
-            vUser
+
         },
         data() {
             return {
@@ -86,7 +91,7 @@
         },
         methods: {
             ...mapActions([
-                'SENDING_REGISTRATION_DATA_IN_API'
+                'ADD_NEW_USER'
             ]),
             regUser(e) {
 
@@ -105,37 +110,47 @@
                 this.errors.push('Пароли должны совпадать');
                 }
                 if (!this.errors.length) {
-                    this.SENDING_REGISTRATION_DATA_IN_API(
+                    this.ADD_NEW_USER(
                     {
                         'email': this.login_var,
                         'name': this.name_var,
                         'password': this.password_var,
+                        'password_confirmation': this.password_confirmation_var
                     });
                     return true;
                 }
                 this.successChange = false;
             }
+        },
+        computed: {
+            ...mapGetters([
+                'GET_MESSAGE'
+            ])
         }
     }
 
 </script>
 
 <style lang="scss">
+
+    .reg {
+        text-align: center;
+    }
     .reg-title {
-        font-size: $font-size;
+        font-size: 24px;
         color: $color-cyan;
         font-family: $font-montserrat;
     }
 
     .reg-form {
-        margin: 10px;
+        margin: 20px;
         display: flex;
         flex-flow: column wrap;
         align-items: center;
 
         &__text {
-            width: 190px;
-            height: 30px;
+            width: 300px;
+            height: 40px;
             margin-bottom: 10px;
             padding-left: 10px;
             font-size: 16px;
@@ -180,4 +195,7 @@
     font: 16px/1.5em Arimo,sans-serif;
     border-radius: 5px;
   }
+    .message {
+        margin: 20px;
+    }
 </style>

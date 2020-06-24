@@ -28,16 +28,7 @@ export default {
                        return error;
                    })
            },
-           LOGOUT() {
-               return axios.post('http://ca76934.tmweb.ru/logout')
-                   .then((response) => {
-                       console.log(response)
-                   })
-                   .catch((error) => {
-                       console.log(error);
-                       return error;
-                   })
-           } */
+
 
     /* GET_USERINFO_FROM_API({commit}, user_id) {
            return axios('http://ca76934.tmweb.ru/api/user/' + user_id, {
@@ -52,20 +43,6 @@ export default {
                    return error;
                })
        },
-       SENDING_AUTH_DATA_IN_API(trash, data) {
-           return axios.post('http://ca76934.tmweb.ru/login', {
-               email: data.email,
-               password: data.password
-           })
-               .then((response) => {
-                   console.log(response)
-                   return response;
-               })
-               .catch((error) => {
-                   //статус 422, если неправильный логин или пароль, подробно в вкладке network отладчика
-                   console.log(error);
-                   return error;
-               })
-       }, */
+        */
 
 }

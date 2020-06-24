@@ -1,7 +1,7 @@
 <template>
     <section class="v-auth">
         <h1 class="reg-title">Авторизация</h1>
-        <form  id="userDataForm">
+
             <div class="reg-form">
                 <input v-model="login_var" class="reg-form__text" type="text" name="login_var" placeholder="Введите логин"/>
                 <input v-model="password_var" class="reg-form__text" type="password" name="password_var"
@@ -11,11 +11,10 @@
                     <ul>
                     <li v-for="error in errors">{{ error }}</li>
                     </ul>
-                </div>  
+                </div>
             </div>
             <button
                 @click="authUser"
-                form="userDataForm"
                 class="btn btn--reg"
             >
                 Авторизоваться
@@ -28,7 +27,6 @@
             >
                 Выход
             </button>
-        </form>
 
         <span class="or-text">Или войдите через:</span>
         <div class="social">
@@ -65,12 +63,18 @@
                 </svg>
             </a>
         </div>
+        <div
+            v-if="GET_MESSAGE"
+            class="message"
+        >
+            {{GET_MESSAGE}}
+        </div>
     </section>
 </template>
 
 <script>
 
-    import {mapActions} from 'vuex'
+    import {mapActions, mapGetters} from 'vuex'
 
     export default {
         name: "vAuth",
@@ -83,7 +87,8 @@
         },
         methods: {
             ...mapActions([
-                'SENDING_AUTH_DATA_IN_API', 'LOGOUT'
+                'AUTH_USER',
+                'LOGOUT'
             ]),
             authUser(e) {
 
@@ -98,22 +103,32 @@
                 this.errors.push('Введите пароль');
                 }
                 if (!this.errors.length) {
-                    this.SENDING_AUTH_DATA_IN_API({
+                    this.AUTH_USER({
                     'email': this.login_var,
                     'password': this.password_var,
-                })
+                });
                 return true;
             }
                 this.successChange = false;
-                e.preventDefault();
             },
             logout() {
                 this.LOGOUT()
             }
+        },
+        computed: {
+            ...mapGetters([
+                'GET_MESSAGE'
+            ])
         }
     }
 </script>
 
-<style scoped>
+<style lang="scss">
 
+    .v-auth {
+        text-align: center;
+    }
+    .btn--reg:nth-last-of-type(1){
+        margin-left: 20px;
+    }
 </style>
