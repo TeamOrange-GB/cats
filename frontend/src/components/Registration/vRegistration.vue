@@ -62,30 +62,21 @@
                 </svg>
             </a>
         </div>
-        <div
-            v-if="GET_MESSAGE"
-            class="message"
-        >
-            {{GET_MESSAGE}}
-        </div>
     </section>
 </template>
 
 <script>
 
-    import {mapActions, mapGetters} from 'vuex'
+    import {mapActions} from 'vuex'
 
     export default {
         name: "vRegistration",
-        components: {
-
-        },
         data() {
             return {
-                name_var: 'Oleg',
-                login_var: '123test@mail.ru',
-                password_var: '12345678a',
-                password_confirmation_var: '12345678a',
+                name_var: '',
+                login_var: '',
+                password_var: '',
+                password_confirmation_var: '',
                 errors: []
             }
         },
@@ -121,11 +112,6 @@
                 }
                 this.successChange = false;
             }
-        },
-        computed: {
-            ...mapGetters([
-                'GET_MESSAGE'
-            ])
         }
     }
 

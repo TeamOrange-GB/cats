@@ -20,14 +20,6 @@
                 Авторизоваться
             </button>
 
-            <!-- сделал кнопку для выхода-->
-            <button
-                @click="logout"
-                class="btn btn--reg"
-            >
-                Выход
-            </button>
-
         <span class="or-text">Или войдите через:</span>
         <div class="social">
             <a href="/login/vkontakte" class="social__text">
@@ -63,12 +55,6 @@
                 </svg>
             </a>
         </div>
-        <div
-            v-if="GET_MESSAGE"
-            class="message"
-        >
-            {{GET_MESSAGE}}
-        </div>
     </section>
 </template>
 
@@ -80,15 +66,14 @@
         name: "vAuth",
         data() {
             return {
-                login_var: '123test@mail.ru',
-                password_var: '12345678a',
+                login_var: '',
+                password_var: '',
                 errors: []
             }
         },
         methods: {
             ...mapActions([
-                'AUTH_USER',
-                'LOGOUT'
+                'AUTH_USER'
             ]),
             authUser(e) {
 
@@ -110,15 +95,7 @@
                 return true;
             }
                 this.successChange = false;
-            },
-            logout() {
-                this.LOGOUT()
             }
-        },
-        computed: {
-            ...mapGetters([
-                'GET_MESSAGE'
-            ])
         }
     }
 </script>
@@ -127,8 +104,5 @@
 
     .v-auth {
         text-align: center;
-    }
-    .btn--reg:nth-last-of-type(1){
-        margin-left: 20px;
     }
 </style>

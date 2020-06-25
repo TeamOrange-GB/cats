@@ -14,12 +14,10 @@ const user = {
                 'password_confirmation': data.password_confirmation
             })
                 .then((response) => {
-                    console.log(response);
                     commit('SET_NEW_USER', response.data);
                     return response;
                 })
                 .catch((error) => {
-                    //статус 422, если не получилось зарегистрироваться, подробно в вкладке network отладчика
                     return error;
                 })
         },
@@ -29,7 +27,6 @@ const user = {
                 password: data.password
             })
                 .then((response) => {
-                    console.log(response);
                     commit('SET_NEW_USER', response.data);
                     return response;
                 })
@@ -41,7 +38,6 @@ const user = {
         LOGOUT({commit}) {
             return axios.post('/logout')
                 .then((response) => {
-                    console.log(response);
                     commit('SET_LOGOUT', response.data);
                 })
                 .catch((error) => {
@@ -56,7 +52,7 @@ const user = {
         },
         SET_LOGOUT: (state, response) => {
             state.user = {};
-            state.message = '';
+            state.message = response.message;
         }
     },
     getters: {

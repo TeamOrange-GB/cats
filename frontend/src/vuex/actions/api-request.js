@@ -17,7 +17,7 @@ export default {
             })
     },
 
-    /*
+
            FIRST_VISIT_USER_LOGIN() {
                return axios.get('http://ca76934.tmweb.ru/api/user')
                    .then((response) => {
@@ -30,7 +30,7 @@ export default {
            },
 
 
-    /* GET_USERINFO_FROM_API({commit}, user_id) {
+     GET_USERINFO_FROM_API({commit}, user_id) {
            return axios('http://ca76934.tmweb.ru/api/user/' + user_id, {
                method: "GET"
            })
@@ -43,6 +43,6 @@ export default {
                    return error;
                })
        },
-        */
+
 
 }
