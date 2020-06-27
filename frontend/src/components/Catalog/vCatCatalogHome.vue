@@ -25,6 +25,7 @@
 <style lang="scss">
     .catalog-home {
         margin-bottom: 80px;
+        min-height: 100vh;
         &__title {
             margin: 0 0 40px;
             font-family: $font-arimo;
@@ -40,11 +41,11 @@
             margin: 0 auto;
             text-align: center;
             font-size: 30px;
-            color: $color-cyan;
+            color: $color-light-grey;
             transition: .5s;
             text-decoration: underline;
             &:hover {
-                color: $color-light-grey;
+                color: $color-cyan;
                 transition: .5s;
             }
         }

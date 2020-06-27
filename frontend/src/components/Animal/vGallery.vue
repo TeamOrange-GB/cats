@@ -120,6 +120,8 @@ export default {
 <style lang="scss">
 .iconsGallery {
   flex-direction: column;
+width: 100%;
+  
 }
   .gallery {
     display: flex;

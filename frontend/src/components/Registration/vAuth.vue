@@ -1,26 +1,24 @@
 <template>
     <section class="v-auth">
         <h1 class="reg-title">Авторизация</h1>
-        <div class="reg-form">
-            <input v-model="login_var" class="reg-form__text" type="text" name="login_var" placeholder="Введите логин"/>
-            <input v-model="password_var" class="reg-form__text" type="password" name="password_var"
-                   placeholder="Введите пароль"/>
-        </div>
-        <button
-            @click="authUser"
-            class="btn btn--reg"
-        >
-            Авторизоваться
-        </button>
 
-        <!-- сделал кнопку для выхода-->
-        <button
-            @click="logout"
-            class="btn btn--reg"
-        >
-            Выход
-        </button>
-
+            <div class="reg-form">
+                <input v-model="login_var" class="reg-form__text" type="text" name="login_var" placeholder="Введите логин"/>
+                <input v-model="password_var" class="reg-form__text" type="password" name="password_var"
+                    placeholder="Введите пароль"/>
+                <div v-if="errors.length" class="fails">
+                    <b>Пожалуйста исправьте указанные ошибки:</b>
+                    <ul>
+                    <li v-for="error in errors">{{ error }}</li>
+                    </ul>
+                </div>
+            </div>
+            <button
+                @click="authUser"
+                class="btn btn--reg"
+            >
+                Авторизоваться
+            </button>
 
         <span class="or-text">Или войдите через:</span>
         <div class="social">
@@ -62,33 +60,49 @@
 
 <script>
 
-    import {mapActions} from 'vuex'
+    import {mapActions, mapGetters} from 'vuex'
 
     export default {
         name: "vAuth",
         data() {
             return {
-                login_var: '123test@mail.ru',
-                password_var: '12345678a'
+                login_var: '',
+                password_var: '',
+                errors: []
             }
         },
         methods: {
             ...mapActions([
-                'SENDING_AUTH_DATA_IN_API', 'LOGOUT'
+                'AUTH_USER'
             ]),
-            authUser() {
-                this.SENDING_AUTH_DATA_IN_API({
+            authUser(e) {
+
+                const reEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+                this.errors = [];
+
+                if (!reEmail.test(this.login_var)) {
+                this.errors.push('Введите корректный email');
+                }
+                if (!this.password_var) {
+                this.errors.push('Введите пароль');
+                }
+                if (!this.errors.length) {
+                    this.AUTH_USER({
                     'email': this.login_var,
                     'password': this.password_var,
-                })
-            },
-            logout() {
-                this.LOGOUT()
+                });
+                return true;
+            }
+                this.successChange = false;
             }
         }
     }
 </script>
 
-<style scoped>
+<style lang="scss">
 
+    .v-auth {
+        text-align: center;
+    }
 </style>

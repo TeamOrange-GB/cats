@@ -59,10 +59,15 @@
     color: #757575;
     transition: .5s;
     font-family: $font-arimo;
+     border: none!important;
+     outline: none!important;
     &:hover{
         color: #49BBAC;
         transition: .5s;
     }
+     &:active {
+         color: #49BBAC;
+     }
  }
 
 .btn {

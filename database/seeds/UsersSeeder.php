@@ -30,7 +30,10 @@ class UsersSeeder extends Seeder
                 'description' => null,
                 'phone' => '8-800-555-35-35',
                 'avatar' => null,
-                'city_id' => rand(30, 65)
+                'city_id' => rand(30, 65),
+				'organization_name' => null,
+				'organization_certificate' => null,
+				'organization_created' => null
             ],
             [
                 'name' => 'user',
@@ -45,7 +48,10 @@ class UsersSeeder extends Seeder
                 'description' => null,
                 'phone' => '8-800-555-35-36',
                 'avatar' => null,
-                'city_id' => rand(30, 65)
+                'city_id' => rand(30, 65),
+				'organization_name' => null,
+				'organization_certificate' => null,
+				'organization_created' => null
             ],
             [
                 'name' => 'sponsor',
@@ -60,7 +66,10 @@ class UsersSeeder extends Seeder
                 'description' => null,
                 'phone' => '8-800-555-35-37',
                 'avatar' => null,
-                'city_id' => rand(30, 65)
+                'city_id' => rand(30, 65),
+				'organization_name' => null,
+				'organization_certificate' => null,
+				'organization_created' => null
             ],
             [
                 'name' => 'owner',
@@ -75,7 +84,10 @@ class UsersSeeder extends Seeder
                 'description' => null,
                 'phone' => '8-800-555-35-38',
                 'avatar' => null,
-                'city_id' => rand(30, 65)
+                'city_id' => rand(30, 65),
+				'organization_name' => 'ООО "Ромашка"',
+				'organization_certificate' => 'PFG0000364',
+				'organization_created' => '2017-03-15'
             ]
         ];
         DB::table('users')->insert($users);

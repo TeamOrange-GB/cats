@@ -113,6 +113,9 @@ class User extends Authenticatable
             'description' => $this->description,
             'phone' => $this->phone,
             'avatar' => $this->avatar,
+            'organization_name' => $this->organization_name,
+            'organization_certificate' => $this->organization_certificate,
+            'organization_created' => $this->organization_created,
             //вернём не только id города, но и название
             'city_id' => $this->city_id,
             'city' => $city->name,
@@ -122,7 +125,7 @@ class User extends Authenticatable
         ];
 
         if($addPetsData){
-            $data['pets'] = $this->getUserPets();
+            $data['pets'] = Pet::getPets($this->id);
         }
         return $data;
     }
@@ -131,7 +134,7 @@ class User extends Authenticatable
      *
      * @return array
      */
-    public function getUserPets(){
+   public function getUserPets(){
         $pets = Pet::where('user_id', $this->id)->get();
         $petsData = [];
         foreach ($pets as $pet){

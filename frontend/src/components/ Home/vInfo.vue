@@ -3,7 +3,7 @@
 
         <transition name="v-transition-info">
 
-            <div class="v-info__img"
+            <div class="v-transition__img"
             v-show="isAnimateStart"
             >
                 <img src="@/assets/image/Home/cats-home.jpg" alt="">
@@ -36,6 +36,13 @@
 </script>
 
 <style lang="scss">
+    .v-transition__img {
+            margin-right: 40px;
+            img {
+                max-width: 700px;
+                width: 100%;
+            }
+    }
     .v-info {
         max-width: 1400px;
         // min-height: 750px;
@@ -45,13 +52,7 @@
         align-items: center;
         //padding: 0 50px;
 
-        &__img {
-            margin-right: 40px;
-            img {
-                max-width: 700px;
-                width: 100%;
-            }
-        }
+
         &__text {
             max-width: 660px;
             font-size: 20px;
@@ -73,7 +74,7 @@
         }
 
         &__btn {
-            
+
         }
     }
     .v-transition-info {

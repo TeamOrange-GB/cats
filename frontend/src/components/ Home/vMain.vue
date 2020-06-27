@@ -1,19 +1,17 @@
 <template>
     <section class="v-main">
         <vInfo/>
+        <vAbout/>
         <vCatCatalogHome/>
         <Sponsors/>
-        <vSponsorInfo/>
     </section>
 </template>
 
 <script>
-    import vSponsorInfo from "./vSponsorInfo";
     import vInfo from './vInfo'
     import vCatCatalogHome from "../Catalog/vCatCatalogHome";
-    import ArticlesBlock from './vArticlesInfo.vue'
     import Sponsors from './vSponsors.vue'
-
+    import vAbout from './vAbout'
     import {mapActions} from 'vuex'
 
     export default {
@@ -21,14 +19,13 @@
         components:{
             vInfo,
             vCatCatalogHome,
-            ArticlesBlock,
-            vSponsorInfo,
-            Sponsors
+            Sponsors,
+            vAbout
         },
         methods: {
             ...mapActions([
                 'FIRST_VISIT_USER_LOGIN'
-            ])
+            ]),
         },
         mounted() {
             this.FIRST_VISIT_USER_LOGIN()

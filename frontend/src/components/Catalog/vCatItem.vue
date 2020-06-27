@@ -1,13 +1,17 @@
 <template>
-    <div class="gallery-list__item" @click="openLink()">
-        <img class="pet__img" src="@/assets/image/Home/cats.png" alt="">
+    <div class="gallery-list__item" >
+        <img class="pet__img"
+             src="@/assets/image/Home/cats.png"
+             alt=""
+             @click="openLink()"
+        >
         <div class="pet-info">
             <div class="pet-info__item">
-                <img src="@/assets/image/Home/cat-name.svg" alt="">
+                <p class="pet__name">Имя</p>
                 <p class="pet__name">{{animal.name_real}}</p>
             </div>
             <div class="pet-info__item">
-                <img src="@/assets/image/Home/cat-breed.svg" alt="">
+                <p class="pet__breed">Порода</p>
                 <p class="pet__breed">{{animal.breed}}</p>
             </div>
         </div>
@@ -29,7 +33,7 @@
                 class="pet__aside-item pet__aside-likes"
             >
                 <img
-                    v-if="animal.haveLike"
+                    v-if="animal.haveLike && !showCountLike"
                     src="@/assets/image/Home/heart-fill.svg"
                 />
                 <img
@@ -37,7 +41,6 @@
                     src="@/assets/image/Home/heart.svg"
                     alt=""
                 >
-
             </div>
         </div>
     </div>
@@ -60,6 +63,11 @@
                 }
             }
         },
+        data() {
+            return {
+                showCountLike: false
+            }
+        },
         methods: {
             likeItemAnimal(id, haveLike){
                 if(!haveLike){
@@ -79,6 +87,12 @@
         margin: 20px;
         position: relative;
         cursor: pointer;
+        transition: .5s;
+        &:hover {
+            transition: .5s;
+            transform: scale(1.01);
+            box-shadow: 0px 0px 20px 0px #000000;
+        }
     }
     .pet {
         &__img {
@@ -96,8 +110,9 @@
             justify-content: flex-start;
             align-items: flex-start;
             &__item {
+                width: 100%;
                 display: flex;
-                justify-content: center;
+                justify-content: space-between;
                 align-items: center;
                 padding: 0 20px 5px;
             }
