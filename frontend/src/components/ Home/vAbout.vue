@@ -31,7 +31,7 @@
 
 <style lang="scss">
     .v-about {
-        min-height: 100vh;
+        margin-bottom: 40px;
         h2 {
             margin: 0 0 40px;
             font-family: "arimo", sans-serif;
@@ -45,6 +45,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+    }
+    @media all and (max-width: 1000px){
+        .v-about__block {
+            flex-direction: column;
         }
     }
 </style>

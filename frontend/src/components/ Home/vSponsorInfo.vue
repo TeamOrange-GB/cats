@@ -89,6 +89,13 @@
             transform: translateX(-500px);
         }
     }
+    @media screen and (max-width: 1000px){
+        .sponsor-info {
+            flex-direction: column;
+            min-height: auto;
+        }
+    }
+
     @media screen and (max-width: 650px){
         .sponsor-info__img{
             display: none;

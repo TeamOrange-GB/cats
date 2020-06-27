@@ -4,9 +4,9 @@
         <router-link :to="{name:'Main'}" class="header__top__logo">
             <img class="header__top__logo__img" src="../assets/image/logo.png" alt="logo">
         </router-link>
-        <div v-if="user" class="header-user">
+        <div v-if="this.GET_USER.name" class="header-user">
             <div class="header-user__info">
-                <p>Привет, {{GET_USER.name}}</p>
+                <p>Привет, {{this.GET_USER.name}}</p>
                 <a
                     href=""
                     @click="logout"
@@ -35,7 +35,7 @@
                     Каталог животных
                 </router-link>
                 <router-link
-                    v-if="user"
+                    v-if="this.GET_USER.name"
                     :to="{name:'Account'}"
                     class="header-navigation__link"
                 >
@@ -71,7 +71,6 @@
             return {
                 show:true,
                 widthDevice:screen.width,
-                user: false
             }
         },
         methods: {
@@ -87,21 +86,11 @@
         },
         mounted() {
             this.widthDevice<641 ? this.show = false : this.show = true;
-            this.stateChangeUser;
         },
         computed:{
             ...mapGetters([
                 'GET_USER'
             ]),
-            stateChangeUser(){
-                let obj = this.GET_USER;
-                console.log(obj);
-                if(Object.keys(obj).length == 0){
-                    this.user = false;
-                }else {
-                    this.user = true;
-                }
-            }
         }
     }
 

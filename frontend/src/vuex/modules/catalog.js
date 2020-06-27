@@ -7,7 +7,7 @@ const catalog = {
     },
     actions: {
         GET_CATALOG_FROM_API({commit}) {
-            return axios.get('http://ca76934.tmweb.ru/api/pets')
+            return axios.get('/api/pets')
                 .then((catalog) => {
                     commit('SET_CATALOG_TO_STATE', catalog.data);
                     return catalog;
@@ -17,16 +17,15 @@ const catalog = {
                 })
         },
         UPDATE_COUNTS_LIKES({commit}, id) {
-            return axios.post('http://ca76934.tmweb.ru/api/likes/add/pet/' + id, {
+            return axios.put('/api/likes/pet/' + id, {
                 id: id
             })
                 .then((likes) => {
                     commit('SET_UPDATE_COUNTS_LIKES', likes.data);
-                    console.log(likes.data)
+                    console.log(likes)
                     return likes;
                 })
                 .catch((error) => {
-                    console.log(error);
                     return error;
                 })
         },
@@ -42,11 +41,6 @@ const catalog = {
                     item.gender = 'male.svg'
                 }else {
                     item.gender = 'female.svg'
-                }
-                if(item.awards_site != '' && item.awards_site != null){
-                    item.awards = true
-                } else {
-                    item.awards = false
                 }
             });
             state.catalog = array;

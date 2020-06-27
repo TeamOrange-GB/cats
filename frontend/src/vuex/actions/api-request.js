@@ -4,7 +4,7 @@ export default {
 
 
     GET_PETINFO_FROM_API({commit}, pet_id) {
-        return axios(`http://ca76934.tmweb.ru/api/pet/${pet_id}`, {
+        return axios(`/api/pet/${pet_id}`, {
             method: "GET"
         })
             .then((response) => {
@@ -18,7 +18,7 @@ export default {
     },
 
 
-           FIRST_VISIT_USER_LOGIN() {
+        /*   FIRST_VISIT_USER_LOGIN() {
                return axios.get('http://ca76934.tmweb.ru/api/user')
                    .then((response) => {
                        console.log(response);
@@ -27,11 +27,11 @@ export default {
                    .catch((error) => {
                        return error;
                    })
-           },
+           },*/
 
 
      GET_USERINFO_FROM_API({commit}, user_id) {
-           return axios('http://ca76934.tmweb.ru/api/user/' + user_id, {
+           return axios('/api/user/' + user_id, {
                method: "GET"
            })
                .then((response) => {
