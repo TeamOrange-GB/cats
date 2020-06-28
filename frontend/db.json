@@ -1,0 +1,100 @@
+{
+    "catalog": [
+        {
+            "id": 1,
+            "name_real": "Барсик",
+            "breed": "Мейн кун",
+            "gender": "male",
+            "awards_site" : "Win",
+            "likes_count" : 3
+        },
+        {
+            "id": 2,
+            "name_real": "Барсик",
+            "breed": "Мейн кун",
+            "gender": "female",
+            "awards_site" : "",
+            "likes_count" : 2
+        },
+        {
+            "id": 3,
+            "name_real": "Барсик",
+            "breed": "Мейн кун",
+            "gender": "male",
+            "awards_site" : "Win",
+            "likes_count" : 1
+        },
+        {
+            "id": 4,
+            "name_real": "Барсик",
+            "breed": "Мейн кун",
+            "gender": "female",
+            "awards_site" : "",
+            "likes_count" : 4
+        },
+        {
+            "id": 5,
+            "name_real": "Барсик",
+            "breed": "Мейн кун",
+            "gender": "male",
+            "awards_site" : "",
+            "likes_count" : 5
+        },
+        {
+            "id": 6,
+            "name_real": "Барсик",
+            "breed": "Мейн кун",
+            "gender": "female",
+            "awards_site" : "",
+            "likes_count" : 6
+        },
+        {
+            "id": 7,
+            "name_real": "Барсик",
+            "breed": "Мейн кун",
+            "gender": "female",
+            "awards_site" : "",
+            "likes_count" : 7
+        },
+        {
+            "id": 8,
+            "name_real": "Барсик",
+            "breed": "Мейн кун",
+            "gender": "male",
+            "awards_site" : "",
+            "likes_count" : 8
+        },
+        {
+            "id": 9,
+            "name_real": "Барсик",
+            "breed": "Мейн кун",
+            "gender": "male",
+            "awards_site" : "",
+            "likes_count" : 9
+        },
+        {
+            "id": 10,
+            "name_real": "Барсик",
+            "breed": "Мейн кун",
+            "gender": "female",
+            "awards_site" : "",
+            "likes_count" : 10
+        },
+        {
+            "id": 11,
+            "name_real": "Барсик",
+            "breed": "Мейн кун",
+            "gender": "male",
+            "awards_site" : "",
+            "likes_count" : 11
+        },
+        {
+            "id": 12,
+            "name_real": "Сергей Кужугетович",
+            "breed": "Марсианская сторожевая",
+            "gender": "female",
+            "awards_site" : "",
+            "likes_count" : 12
+        }
+    ]
+}

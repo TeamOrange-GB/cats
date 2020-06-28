@@ -1,5 +1,10 @@
 /node_modules
 /public/hot
+/public/js
+/public/images
+/public/img
+/public/css
+/resources/views/index.blade.php
 /public/storage
 /storage/*.key
 /vendor
@@ -11,3 +16,4 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 .idea
+info
