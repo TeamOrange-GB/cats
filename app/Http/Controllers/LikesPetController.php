@@ -11,13 +11,23 @@ use Illuminate\Support\Facades\Auth;
 
 class LikesPetController extends Controller
 {
+	static function responseJson( $id, $likes = null ){
+		$arr = [ 'id' => $id ];
+		if( is_null( $likes ) ){
+			$arr['error'] = 'Pet not found';
+		}else{
+			$arr['likes'] = $likes;
+		}
+		
+		return response()->json($arr);
+	}
 	
 	public function add( $id )
     {
 		
 		$pet = Pet::find( $id );
 		if( empty($pet) ){
-			return response( 'Pet not found' );
+			return self::responseJson( $id );
 		}
 		$pet_likes = $pet['likes_count'];
 		
@@ -34,7 +44,7 @@ class LikesPetController extends Controller
 				->update( [ 'likes_count' => $pet_likes ] );
 		}
 		
-		return response($pet_likes);
+		return self::responseJson( $id, $pet_likes );
     }
 	
     public function remove( $id )
@@ -42,7 +52,7 @@ class LikesPetController extends Controller
 		
 		$pet = Pet::find( $id );
 		if( empty($pet) ){
-			return response( 'Pet not found' );
+			return self::responseJson( $id );
 		}
 		$pet_likes = $pet['likes_count'];
 		
@@ -60,6 +70,6 @@ class LikesPetController extends Controller
 				->update( [ 'likes_count' => $pet_likes ] );
 		}
 		
-		return response($pet_likes);
+		return self::responseJson( $id, $pet_likes );
     }
 }

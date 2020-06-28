@@ -11,13 +11,23 @@ use Illuminate\Support\Facades\Auth;
 
 class LikesPhotoController extends Controller
 {
+	static function responseJson( $id, $likes = null ){
+		$arr = [ 'id' => $id ];
+		if( is_null( $likes ) ){
+			$arr['error'] = 'Photo not found';
+		}else{
+			$arr['likes'] = $likes;
+		}
+		
+		return response()->json($arr);
+	}
 	
 	public function add( $id )
     {
 		
 		$obj = Photo::find( $id );
 		if( empty($obj) ){
-			return response( 'Photo not found' );
+			return self::responseJson( $id );
 		}
 		$obj_likes = $obj['likes_count'];
 		
@@ -34,7 +44,7 @@ class LikesPhotoController extends Controller
 				->update( [ 'likes_count' => $obj_likes ] );
 		}
 		
-		return response($obj_likes);
+		return self::responseJson( $id, $obj_likes );
     }
 	
     public function remove( $id )
@@ -42,7 +52,7 @@ class LikesPhotoController extends Controller
 		
 		$obj = Photo::find( $id );
 		if( empty($obj) ){
-			return response( 'Photo not found' );
+			return self::responseJson( $id );
 		}
 		$obj_likes = $obj['likes_count'];
 		
@@ -61,6 +71,6 @@ class LikesPhotoController extends Controller
 				->update( [ 'likes_count' => $obj_likes ] );
 		}
 		
-		return response($obj_likes);
+		return self::responseJson( $id, $obj_likes );
     }
 }
