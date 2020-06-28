@@ -22,7 +22,6 @@ const catalog = {
             })
                 .then((likes) => {
                     commit('SET_UPDATE_COUNTS_LIKES', likes.data);
-                    console.log(likes)
                     return likes;
                 })
                 .catch((error) => {
@@ -46,13 +45,10 @@ const catalog = {
             state.catalog = array;
             state.isLoading = false;
         },
-        SET_UPDATE_COUNTS_LIKES: (state, id) => {
-            state.catalog.forEach(function(item, i){
-                if(item.id == id){
-                    item.likes_count++;
-                    item.haveLike = true
-                }
-            })
+        SET_UPDATE_COUNTS_LIKES: (state, likes) => {
+            let currentLikesAnimal = state.catalog.find(item => item.id === likes.id);
+            currentLikesAnimal.likes_count++;
+            currentLikesAnimal.haveLike = true;
         },
         SET_ISLOADING: (state) => {
             state.isLoading = true;

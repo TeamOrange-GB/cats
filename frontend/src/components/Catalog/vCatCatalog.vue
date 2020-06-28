@@ -2,29 +2,6 @@
     <section class="cat-catalog">
         <h2 class="cat-catalog__title">Участники выставки</h2>
         <div class="cat-catalog__list">
-            <div class="cat-catalog__filters">
-                <h3>Фильтры</h3>
-                <div class="cat-catalog__filters-list">
-                    <vFilterSelect
-
-                    />
-
-                    <div class="filter-param">
-                        <span>По лайкам</span>
-                        <label class="filter-checkbox__label">
-                            <input type="checkbox">
-                            <span></span>
-                        </label>
-                    </div>
-                    <div class="filter-param">
-                        <span>По дате добавления</span>
-                        <label class="filter-checkbox__label">
-                            <input type="checkbox">
-                            <span></span>
-                        </label>
-                    </div>
-                </div>
-            </div>
             <vCatGallery
                 :animalsNumber="10"
                 :isPaginationVisible="true"
@@ -43,7 +20,7 @@ export default {
     components: {
         vCatGallery,
         vFilterSelect
-    }
+    },
 }
 </script>
 <style lang="scss">
