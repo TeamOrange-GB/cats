@@ -84,7 +84,7 @@
             ...mapActions([
                 'ADD_NEW_USER'
             ]),
-            regUser(e) {
+            regUser() {
 
                 const reName = /^[A-zа-яА-ЯёЁ\s]{2,20}$/;
                 const reEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -100,6 +100,9 @@
                 if (this.password_confirmation_var !== this.password_var) {
                 this.errors.push('Пароли должны совпадать');
                 }
+                if (this.password_var.length < 8){
+                    this.errors.push('Пароль должeн быть больше 7 символов');
+                }
                 if (!this.errors.length) {
                     this.ADD_NEW_USER(
                     {
@@ -108,6 +111,7 @@
                         'password': this.password_var,
                         'password_confirmation': this.password_confirmation_var
                     });
+                    this.$router.push({name: 'Main'});
                     return true;
                 }
                 this.successChange = false;

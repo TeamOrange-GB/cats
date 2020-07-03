@@ -24,8 +24,7 @@
 
 <style lang="scss">
     .catalog-home {
-        margin-bottom: 80px;
-        min-height: 100vh;
+        margin-bottom: 40px;
         &__title {
             margin: 0 0 40px;
             font-family: $font-arimo;
@@ -50,6 +49,20 @@
             }
         }
     }
+    @media screen and (max-width: 1600px){
+        .catalog-home .pet-info__item:nth-last-of-type(1) {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 1000px){
+        .catalog-home .gallery-list {
+            flex-wrap: wrap;
+            flex-basis: 50%;
+            justify-content: center;
+        }
+    }
+
     @media screen and (max-width: 650px){
         .catalog-home{
             &__title{

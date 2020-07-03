@@ -12,7 +12,6 @@
     import vCatCatalogHome from "../Catalog/vCatCatalogHome";
     import Sponsors from './vSponsors.vue'
     import vAbout from './vAbout'
-    import {mapActions} from 'vuex'
 
     export default {
         name: "vMain",
@@ -21,14 +20,6 @@
             vCatCatalogHome,
             Sponsors,
             vAbout
-        },
-        methods: {
-            ...mapActions([
-                'FIRST_VISIT_USER_LOGIN'
-            ]),
-        },
-        mounted() {
-            this.FIRST_VISIT_USER_LOGIN()
         }
     }
 </script>

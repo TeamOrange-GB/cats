@@ -92,6 +92,7 @@
                     'email': this.login_var,
                     'password': this.password_var,
                 });
+                    this.$router.push({name: 'Main'});
                 return true;
             }
                 this.successChange = false;

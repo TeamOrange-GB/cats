@@ -116,4 +116,11 @@
       max-width: 200px;
   }
 }
+
+    @media all and (max-width: 600px) {
+        .footer-main {
+            flex-direction: column;
+            padding: 20px;
+        }
+    }
 </style>

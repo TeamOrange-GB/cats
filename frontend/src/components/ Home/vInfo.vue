@@ -116,4 +116,10 @@
     }
 }
 
+    @media all and (max-width: 1000px){
+        .v-info img {
+            display: none;
+        }
+    }
+
 </style>
