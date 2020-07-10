@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+// методы vuex для страницы каталога животных
+
 const catalog = {
     state:{
         catalog: [],
@@ -9,7 +11,9 @@ const catalog = {
         GET_CATALOG_FROM_API({commit}) {
             return axios.get('/api/pets')
                 .then((catalog) => {
+                    commit('SET_ISLOADING');
                     commit('SET_CATALOG_TO_STATE', catalog.data);
+                    commit('SET_LOADING_FINISHED');
                     return catalog;
                 })
                 .catch((error) => {
@@ -28,9 +32,6 @@ const catalog = {
                     return error;
                 })
         },
-        SET_ISLOADING({commit}) {
-            commit('SET_ISLOADING');
-        }
     },
     mutations: {
         SET_CATALOG_TO_STATE: (state, catalog) => {
@@ -43,24 +44,17 @@ const catalog = {
                 }
             });
             state.catalog = array;
-            state.isLoading = false;
         },
         SET_UPDATE_COUNTS_LIKES: (state, likes) => {
             let currentLikesAnimal = state.catalog.find(item => item.id === likes.id);
             currentLikesAnimal.likes_count++;
             currentLikesAnimal.haveLike = true;
         },
-        SET_ISLOADING: (state) => {
-            state.isLoading = true;
-        }
     },
     getters: {
         CATALOG(state) {
             return state.catalog;
         },
-        ISLOADING(state) {
-            return state.isLoading;
-        }
     }
 };
 

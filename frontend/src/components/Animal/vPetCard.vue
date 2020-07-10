@@ -1,4 +1,5 @@
 <template>
+    
     <section class="petcard">
         <h1>{{ petName }}, {{ breed }}, {{old}}</h1>
         <h2>{{ petColor }}</h2>
@@ -7,7 +8,7 @@
 
                     <h3>Основные сведения</h3>
                     <h4>Владелец</h4>
-                    <p>{{ user_name }} (<strong @click="openLink()">Посмотреть</strong>)</p>
+                    <p>{{ user_name }} <strong class="btn" @click="openLink()">Личная страница</strong></p>
                     <h4>Дата рождения</h4>
                     <p>{{ birthDate }}</p>
                     <h4>Отец</h4>

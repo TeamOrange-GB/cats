@@ -1,6 +1,7 @@
 <template>
   <div id="app">
       <vHeader/>
+      <vSpinner />
       <section class="content">
           <keep-alive>
               <router-view></router-view>
@@ -14,12 +15,14 @@
 <script>
 
 import vHeader from './components/vHeader';
+import vSpinner from './components/vSpinner';
 import vFooter from './components/vFooter';
 
   export default {
     name: 'App',
     components: {
       vHeader,
+      vSpinner,
       vFooter
     }
   }
