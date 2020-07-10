@@ -1,6 +1,6 @@
 <template>
     <div class="cat-catalog__gallery">
-        <div class="gallery-loading" v-if="ISLOADING">Loading...</div>
+        <div class="spinner-loading" v-if="ISLOADING">Идет загрузка данных...</div>
         <div class="gallery-list">
             <vCatItem
                 v-for="(animal, index) in arrayAnimal"
@@ -124,10 +124,6 @@
 </script>
 
 <style lang="scss">
-    .gallery-loading {
-        text-align: center;
-        padding: 0 50px;
-    }
     .gallery-list {
         display: flex;
         justify-content: flex-start;

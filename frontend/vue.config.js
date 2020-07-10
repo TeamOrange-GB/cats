@@ -15,5 +15,8 @@ module.exports = {
     indexPath:
         process.env.NODE_ENV === 'production'
             ? '../resources/views/index.blade.php'
-            : 'index.html'
+            : 'index.html',
+    devServer: {
+        proxy: 'http://ca76934.tmweb.ru/',
+    },
 };
